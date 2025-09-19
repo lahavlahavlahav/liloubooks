@@ -764,7 +764,7 @@
             <button class="modal-close" onclick="closeModal()">×</button>
             <h2 class="modal-title">השאירו פרטים ונחזור אליכם</h2>
             
-            <form action="https://formspree.io/f/mvgbeaan" method="POST">
+            <form action="https://formspree.io/f/mvgbeaan" method="POST" id="contactForm">
                 <div class="form-group">
                     <label class="form-label">שם מלא *</label>
                     <input type="text" class="form-input" name="name" required>
@@ -802,6 +802,14 @@
                 
                 <button type="submit" class="form-submit">שלחו</button>
             </form>
+            
+            <!-- Success Message -->
+            <div id="successMessage" style="display: none; text-align: center; padding: 40px;">
+                <h2 style="color: #4CAF50; font-size: 28px; margin-bottom: 20px;">✓ תודה רבה!</h2>
+                <p style="font-size: 16px;">הטופס נשלח בהצלחה.</p>
+                <p style="margin-top: 10px;">נחזור אליכם בהקדם האפשרי.</p>
+                <button onclick="closeModal()" style="margin-top: 20px; padding: 12px 30px; background: #2C2C2C; color: white; border: none; cursor: pointer;">סגור</button>
+            </div>
         </div>
     </div>
 
@@ -885,6 +893,10 @@
         function closeModal() {
             document.getElementById('contactModal').classList.remove('active');
             document.body.style.overflow = 'auto';
+            // Reset form and hide success message
+            document.getElementById('contactForm').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('contactForm').reset();
         }
         
         // Close modal on outside click
@@ -892,6 +904,42 @@
             if (e.target === this) {
                 closeModal();
             }
+        });
+        
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const formData = new FormData(form);
+            
+            // Show loading state
+            const submitBtn = form.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'שולח...';
+            submitBtn.disabled = true;
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Hide form and show success message
+                    form.style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                alert('אירעה שגיאה בשליחת הטופס. אנא נסו שוב או צרו קשר בטלפון.');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
         });
         
         // Product card click
