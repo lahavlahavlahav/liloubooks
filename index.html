@@ -218,6 +218,14 @@
             font-size: 48px;
             color: #DDD;
             overflow: hidden;
+            min-height: 280px;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #F0F0F0;
         }
 
         .product-badge {
@@ -230,6 +238,7 @@
             font-size: 11px;
             letter-spacing: 0.5px;
             font-weight: 500;
+            z-index: 1;
         }
 
         .badge-new {
@@ -568,7 +577,7 @@
     <!-- Header -->
     <header class="header">
         <div class="announcement-bar">
-            📦 משלוח חינם בהזמנות מעל 500 ש"ח | סדנאות חדשות בתל אביב
+            אמנות דקורטיבית לבית או למשרד | מתנה ייחודית | סדנאות פרטיות
         </div>
         <nav class="main-nav">
             <div class="logo">LILOU BOOKS</div>
@@ -580,9 +589,7 @@
                 <li><a href="#contact">צור קשר</a></li>
             </ul>
             <div class="header-icons">
-                <button class="icon-btn">🔍</button>
-                <button class="icon-btn">👤</button>
-                <button class="icon-btn">🛒</button>
+                <button class="icon-btn" onclick="openModal()">📝</button>
             </div>
         </nav>
     </header>
@@ -616,10 +623,10 @@
             <div class="product-card" data-category="love">
                 <div class="product-image">
                     <span class="product-badge badge-new">חדש</span>
-                    <div>LOVE</div>
+                    <div style="font-size: 80px;">💕</div>
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">LOVE - אהבה</h3>
+                    <h3 class="product-title">LOVE או אהבה</h3>
                     <p class="product-subtitle">מתנה מושלמת לאהובים</p>
                     <p class="product-price">ליצירת קשר</p>
                 </div>
@@ -627,7 +634,7 @@
 
             <div class="product-card" data-category="love">
                 <div class="product-image">
-                    <div>❤️</div>
+                    <div style="font-size: 80px;">❤️</div>
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">לבבות</h3>
@@ -639,10 +646,10 @@
             <div class="product-card" data-category="dates">
                 <div class="product-image">
                     <span class="product-badge badge-new">חדש</span>
-                    <div>2024</div>
+                    <div style="font-size: 80px;">📅</div>
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">תאריך מיוחד</h3>
+                    <h3 class="product-title">תאריך או כיתוב</h3>
                     <p class="product-subtitle">לאירועים חשובים</p>
                     <p class="product-price">ליצירת קשר</p>
                 </div>
@@ -650,7 +657,7 @@
 
             <div class="product-card" data-category="names">
                 <div class="product-image">
-                    <div>שמות</div>
+                    <div style="font-size: 80px;">✍️</div>
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">שמות אישיים</h3>
@@ -661,11 +668,11 @@
 
             <div class="product-card" data-category="symbols">
                 <div class="product-image">
-                    <div>✡️</div>
+                    <div style="font-size: 80px;">🪬</div>
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">מגן דוד</h3>
-                    <p class="product-subtitle">סמלים יהודיים</p>
+                    <h3 class="product-title">סמל או לוגו</h3>
+                    <p class="product-subtitle">סמלים מיוחדים</p>
                     <p class="product-price">ליצירת קשר</p>
                 </div>
             </div>
@@ -673,11 +680,11 @@
             <div class="product-card" data-category="workshops">
                 <div class="product-image">
                     <span class="product-badge badge-workshop">סדנה</span>
-                    <div>🎨</div>
+                    <div style="font-size: 80px;">👤</div>
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">סדנה פרטית</h3>
-                    <p class="product-subtitle">1-2 משתתפים</p>
+                    <h3 class="product-title">אירוע פרטי</h3>
+                    <p class="product-subtitle">1-4 משתתפים</p>
                     <p class="product-price">לפרטים נוספים</p>
                 </div>
             </div>
@@ -685,11 +692,11 @@
             <div class="product-card" data-category="workshops">
                 <div class="product-image">
                     <span class="product-badge badge-workshop">סדנה</span>
-                    <div>👥</div>
+                    <div style="font-size: 80px;">👥</div>
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">סדנה קבוצתית</h3>
-                    <p class="product-subtitle">עד 8 משתתפים</p>
+                    <h3 class="product-title">סדנה קבוצתית פתוחה</h3>
+                    <p class="product-subtitle">עד 12 משתתפים</p>
                     <p class="product-price">לפרטים נוספים</p>
                 </div>
             </div>
@@ -697,7 +704,7 @@
             <div class="product-card" data-category="workshops">
                 <div class="product-image">
                     <span class="product-badge badge-workshop">סדנה</span>
-                    <div>💻</div>
+                    <div style="font-size: 80px;">💻</div>
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">סדנה אונליין</h3>
@@ -710,14 +717,14 @@
 
     <!-- Services Section -->
     <section class="services-section" id="workshops">
-        <div class="section-header">
+        <div class="section-header" id="about">
             <h2 class="section-title">השירותים שלנו</h2>
             <p class="section-subtitle">מסדנאות חווייתיות ועד הזמנות אישיות</p>
         </div>
 
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">🎨</div>
+                <div class="service-icon">📖</div>
                 <h3 class="service-title">סדנאות פיסול</h3>
                 <p class="service-desc">
                     למדו את אמנות פיסול הספרים בסדנאות חווייתיות.
@@ -749,7 +756,7 @@
     </section>
 
     <!-- Newsletter Section -->
-    <section class="newsletter-section">
+    <section class="newsletter-section" id="contact">
         <h2 class="newsletter-title">הצטרפו למועדון</h2>
         <p class="newsletter-subtitle">קבלו עדכונים על סדנאות חדשות והטבות בלעדיות</p>
         <form class="newsletter-form" onsubmit="handleNewsletter(event)">
@@ -808,7 +815,8 @@
                 <h2 style="color: #4CAF50; font-size: 28px; margin-bottom: 20px;">✓ תודה רבה!</h2>
                 <p style="font-size: 16px;">הטופס נשלח בהצלחה.</p>
                 <p style="margin-top: 10px;">נחזור אליכם בהקדם האפשרי.</p>
-                <button onclick="closeModal()" style="margin-top: 20px; padding: 12px 30px; background: #2C2C2C; color: white; border: none; cursor: pointer;">סגור</button>
+                <button onclick="closeModal()" style="margin-top: 20px; padding: 12px 30px; background: #2C2C2C; color: white; border: none; cursor: pointer; margin-left: 10px;">סגור</button>
+                <button onclick="location.href='#'; location.reload();" style="margin-top: 20px; padding: 12px 30px; background: white; color: #2C2C2C; border: 2px solid #2C2C2C; cursor: pointer;">חזרה לדף הבית</button>
             </div>
         </div>
     </div>
@@ -816,43 +824,12 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-column">
-                <h4>LILOU BOOKS</h4>
-                <ul class="footer-links">
-                    <li><a href="#">אודות</a></li>
-                    <li><a href="#">הסיפור שלנו</a></li>
-                    <li><a href="#">גלריה</a></li>
-                    <li><a href="#">המלצות</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>סדנאות</h4>
-                <ul class="footer-links">
-                    <li><a href="#">סדנה פרטית</a></li>
-                    <li><a href="#">סדנה קבוצתית</a></li>
-                    <li><a href="#">סדנה אונליין</a></li>
-                    <li><a href="#">לוח סדנאות</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>שירותים</h4>
-                <ul class="footer-links">
-                    <li><a href="#">הזמנות אישיות</a></li>
-                    <li><a href="#">אירועי חברות</a></li>
-                    <li><a href="#">מתנות לחגים</a></li>
-                    <li><a href="#">שוברי מתנה</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
+            <div class="footer-column" style="margin: 0 auto; text-align: center; max-width: 600px;">
                 <h4>צרו קשר</h4>
-                <ul class="footer-links">
-                    <li><a href="tel:050-1234567">050-123-4567</a></li>
-                    <li><a href="mailto:info@liloubooks.co.il">info@liloubooks.co.il</a></li>
-                    <li><a href="#">WhatsApp</a></li>
-                    <li><a href="#">Instagram</a></li>
+                <ul class="footer-links" style="list-style: none; padding: 0;">
+                    <li style="margin: 15px 0;"><a href="mailto:liloubooks.com@gmail.com" style="font-size: 16px;">📧 liloubooks.com@gmail.com</a></li>
+                    <li style="margin: 15px 0;"><a href="https://chat.whatsapp.com/JOqFT8cIA25LpzgHJv8bCZ" style="font-size: 16px;">💬 WhatsApp Group</a></li>
+                    <li style="margin: 15px 0;"><a href="https://www.instagram.com/liloubooks____/" style="font-size: 16px;">📷 Instagram @liloubooks____</a></li>
                 </ul>
             </div>
         </div>
