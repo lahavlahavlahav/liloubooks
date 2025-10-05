@@ -346,22 +346,44 @@
         /* Services Cards */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .service-card {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
-            transition: transform 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
+        }
+
+        .service-card:active,
+        .service-card.clicked {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .service-card:active h3,
+        .service-card.clicked h3 {
+            color: white;
+        }
+
+        .service-card:active p,
+        .service-card.clicked p,
+        .service-card:active ul,
+        .service-card.clicked ul {
+            color: white;
         }
 
         .service-icon {
@@ -672,7 +694,7 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Lilou Books 📚</div>
+            <div class="logo">Lilou Books</div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">בית</a></li>
                 <li><a href="#workshops">סדנאות</a></li>
@@ -696,7 +718,7 @@
             <p>אמנות ייחודית בעבודת יד, סדנאות ודקורציה. גלו את העולם הקסום של פיסול ספרים - סדנאות קיפול ספרים חווייתיות, יצירת ספר מקופל בהתאמה אישית ומתנות ייחודיות שמשאירות חותם.</p>
             
             <!-- Hero Image -->
-            <div style="max-width: 800px; margin: 2rem auto;">
+            <div style="max-width: 800px; margin: 1.5rem auto 1rem;">
                 <img src="front%20page.png" alt="אמנות פיסול וקיפול ספרים - Lilou Books" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
             </div>
             
@@ -997,7 +1019,7 @@
                 <div class="contact-item">
                     <div class="contact-item-icon">📧</div>
                     <h3>אימייל</h3>
-                    <a href="mailto:lahavbarak430@gmail.com">lahavbarak430@gmail.com</a>
+                    <a href="mailto:liloubooks.com@gmail.com">liloubooks.com@gmail.com</a>
                     <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
                         נענה תוך 24 שעות
                     </p>
@@ -1135,6 +1157,41 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                }
+            });
+        });
+
+        // Service Card Click - Jump to Contact Form
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Add clicked class for pink effect
+                this.classList.add('clicked');
+                
+                // Remove clicked class after animation
+                setTimeout(() => {
+                    this.classList.remove('clicked');
+                }, 300);
+                
+                // Scroll to contact form
+                const contactSection = document.querySelector('#contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                // Pre-fill service type if available
+                const serviceTitle = this.querySelector('h3').textContent;
+                const serviceSelect = document.querySelector('#service');
+                if (serviceSelect && serviceTitle) {
+                    // Try to match the service
+                    for (let option of serviceSelect.options) {
+                        if (option.text.includes(serviceTitle.split('-')[0].trim())) {
+                            serviceSelect.value = option.value;
+                            break;
+                        }
+                    }
                 }
             });
         });
