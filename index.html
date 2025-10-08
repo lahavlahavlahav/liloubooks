@@ -26,7 +26,7 @@
     <meta property="og:url" content="https://liloubooks.com/">
     <meta property="og:site_name" content="Lilou Books - פיסול וקיפול ספרים">
     <meta property="og:title" content="סדנת פיסול ספרים וקיפול ספרים | Lilou Books">
-    <meta property="og:description" content="סדנאות פיסול ספרים חווייתיות ★ יצירת ספרים מפוסלים בהתאמה אישית ★ מתנות ייחודיות לכל אירוע ★ הזמינו עכשיו!">
+    <meta property="og:description" content="סדנאות פיסול ספרים חווייתיות ★ יצירת ספרים מפוסלים בהתאמה אישית ★ מתנות ייחודיות לכל אירוע ★ הזמיני עכשיו!">
     <meta property="og:image" content="https://liloubooks.com/images/og-image.jpg">
     <meta property="og:locale" content="he_IL">
     
@@ -34,7 +34,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://liloubooks.com/">
     <meta property="twitter:title" content="סדנת פיסול ספרים | Lilou Books">
-    <meta property="twitter:description" content="סדנאות פיסול וקיפול ספרים מקצועיות. למדו אמנות Book Folding או הזמינו ספר מפוסל מותאם אישית.">
+    <meta property="twitter:description" content="סדנאות פיסול וקיפול ספרים מקצועיות. למדי אמנות Book Folding או הזמיני ספר מפוסל מותאם אישית.">
     <meta property="twitter:image" content="https://liloubooks.com/images/og-image.jpg">
     
     <!-- Geographic Tags -->
@@ -168,7 +168,7 @@
           "name": "מה זה פיסול ספרים וקיפול ספרים?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "פיסול ספרים (Book Folding או Book Sculpture) הוא אמנות של קיפול דפי ספר ליצירת צורות ותבליטים תלת-מימדיים. בשונה מגזירת דפים, בטכניקה זו אנחנו מקפלים כל דף במדויק כדי ליצור תמונה או טקסט שנראה מהצד של הספר."
+            "text": "פיסול ספרים (Book Folding או Book Sculpture) הוא אמנות של קיפול דפי ספר ליצירת צורות ותבליטים תלת-מימדיים. בשונה מגזירת דפים, בטכניקה זו אני מקפלת כל דף במדויק כדי ליצור תמונה או טקסט שנראה מהצד של הספר."
           }
         },
         {
@@ -176,7 +176,7 @@
           "name": "האם צריך ניסיון קודם כדי להשתתף בסדנת קיפול ספרים?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "בכלל לא! סדנת פיסול הספרים שלנו מתאימה למתחילים לחלוטין. אנחנו מלמדים את כל הטכניקות צעד אחר צעד."
+            "text": "בכלל לא! סדנת פיסול הספרים שלי מתאימה למתחילים לחלוטין. אני מלמדת את כל הטכניקות צעד אחר צעד."
           }
         },
         {
@@ -266,6 +266,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--cream-bg);
+            padding-bottom: 50px;
         }
 
         /* Header & Navigation */
@@ -731,24 +732,181 @@
             margin-top: 2rem;
         }
 
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Accessibility & Language Bar */
+        .accessibility-bar {
+            background: var(--accent-brown);
+            padding: 0.4rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .accessibility-controls {
+            display: flex;
+            gap: 0.4rem;
+            align-items: center;
+        }
+
+        .accessibility-label {
+            color: white;
+            font-weight: 600;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+
+        .language-controls {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            display: flex;
+            gap: 0.3rem;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .accessibility-btn {
+            background: white;
+            color: var(--accent-brown);
+            border: none;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .language-btn {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--accent-brown);
+            border: 1px solid rgba(139, 111, 71, 0.3);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .accessibility-btn:hover,
+        .language-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+        }
+
+        .accessibility-btn:focus,
+        .language-btn:focus {
+            outline: 2px solid #FFD700;
+            outline-offset: 2px;
+        }
+
+        .accessibility-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .language-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-brown);
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Focus visible for keyboard navigation */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Ensure all interactive elements are keyboard accessible */
+        .service-card:focus,
+        .gallery-item:focus,
+        .faq-question:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .accessibility-bar {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1rem;
+                padding: 0.4rem 0.5rem;
             }
 
-            .accessibility-controls,
-            .language-controls {
+            .accessibility-controls {
                 flex-wrap: wrap;
-                width: 100%;
+                justify-content: center;
             }
 
-            .accessibility-btn,
+            .accessibility-btn {
+                font-size: 0.65rem;
+                padding: 0.25rem 0.5rem;
+            }
+
+            .accessibility-label {
+                font-size: 0.7rem;
+            }
+
+            .language-controls {
+                top: 5px;
+                left: 5px;
+            }
+
             .language-btn {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
+                font-size: 0.7rem;
+                padding: 0.3rem 0.6rem;
             }
 
             .menu-toggle {
@@ -790,145 +948,20 @@
                 gap: 2rem !important;
             }
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        /* Accessibility & Language Bar */
-        .accessibility-bar {
-            background: var(--accent-brown);
-            padding: 0.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .accessibility-controls,
-        .language-controls {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .accessibility-btn,
-        .language-btn {
-            background: white;
-            color: var(--accent-brown);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .accessibility-btn:hover,
-        .language-btn:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .accessibility-btn:focus,
-        .language-btn:focus {
-            outline: 3px solid #FFD700;
-            outline-offset: 2px;
-        }
-
-        .accessibility-btn.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .language-btn.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Skip to main content link for screen readers */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent-brown);
-            color: white;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            z-index: 100;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* Focus visible for keyboard navigation */
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        textarea:focus-visible,
-        select:focus-visible {
-            outline: 3px solid var(--primary-color);
-            outline-offset: 2px;
-        }
-
-        /* Ensure all interactive elements are keyboard accessible */
-        .service-card:focus,
-        .gallery-item:focus,
-        .faq-question:focus {
-            outline: 3px solid var(--primary-color);
-            outline-offset: 2px;
-        }
     </style>
 </head>
 <body>
     <!-- Skip to main content for screen readers -->
     <a href="#main-content" class="skip-link" aria-label="דלג לתוכן הראשי">דלג לתוכן הראשי</a>
 
-    <!-- Accessibility & Language Bar -->
-    <div class="accessibility-bar" role="navigation" aria-label="נגישות ושפה">
-        <div class="accessibility-controls">
-            <span style="color: white; font-weight: 600; margin-left: 1rem;">נגישות:</span>
-            <button class="accessibility-btn" id="increaseFontBtn" aria-label="הגדל טקסט">
-                🔍+ הגדל טקסט
-            </button>
-            <button class="accessibility-btn" id="decreaseFontBtn" aria-label="הקטן טקסט">
-                🔍- הקטן טקסט
-            </button>
-            <button class="accessibility-btn" id="contrastBtn" aria-label="ניגודיות גבוהה">
-                ⚫⚪ ניגודיות
-            </button>
-            <button class="accessibility-btn" id="resetBtn" aria-label="איפוס נגישות">
-                🔄 איפוס
-            </button>
-        </div>
-        <div class="language-controls">
-            <span style="color: white; font-weight: 600; margin-left: 1rem;">שפה:</span>
-            <button class="language-btn active" id="heBtn" aria-label="עברית">
-                🇮🇱 עברית
-            </button>
-            <button class="language-btn" id="enBtn" aria-label="English">
-                🇬🇧 English
-            </button>
-        </div>
+    <!-- Language Controls - Top -->
+    <div class="language-controls">
+        <button class="language-btn active" id="heBtn" aria-label="עברית">
+            🇮🇱 עברית
+        </button>
+        <button class="language-btn" id="enBtn" aria-label="English">
+            🇬🇧 English
+        </button>
     </div>
 
     <!-- Header -->
@@ -947,7 +980,7 @@
                 <li role="none"><a href="#gallery" role="menuitem">גלריה</a></li>
                 <li role="none"><a href="#faq" role="menuitem">שאלות נפוצות</a></li>
                 <li role="none"><a href="#blog" role="menuitem">בלוג</a></li>
-                <li role="none"><a href="#contact" role="menuitem">צור קשר</a></li>
+                <li role="none"><a href="#contact" role="menuitem">צרי קשר</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle" role="button" aria-label="תפריט ניווט" tabindex="0">
                 <span></span>
@@ -961,14 +994,14 @@
     <section class="hero" id="home" role="main">
         <div class="container" id="main-content">
             <h1>אמנות פיסול וקיפול ספרים</h1>
-            <p>אמנות ייחודית בעבודת יד, סדנאות ודקורציה. גלו את העולם הקסום של פיסול ספרים - סדנאות קיפול ספרים חווייתיות, יצירת ספר מקופל בהתאמה אישית ומתנות ייחודיות שמשאירות חותם.</p>
+            <p>אמנות ייחודית בעבודת יד, סדנאות ודקורציה. גלי את העולם הקסום של פיסול ספרים - סדנאות קיפול ספרים חווייתיות, יצירת ספר מקופל בהתאמה אישית ומתנות ייחודיות שמשאירות חותם.</p>
             
             <!-- Hero Image -->
             <div style="max-width: 95%; margin: 1.5rem auto 1rem;">
                 <img src="front%20page.png" alt="אמנות פיסול וקיפול ספרים - Lilou Books" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
             </div>
             
-            <a href="#contact-form" class="cta-button">הזמינו סדנת פיסול ספרים עכשיו</a>
+            <a href="#contact-form" class="cta-button">הזמיני סדנת פיסול ספרים עכשיו</a>
             <p style="margin-top: 1rem; color: #666; font-size: 1rem;">
                 פשוט ממלאים טופס ואני חוזרת אליכם במהירות 💌
             </p>
@@ -985,22 +1018,22 @@
                 </div>
                 <div>
                     <h3 style="color: var(--accent-brown); margin-bottom: 1rem;">להב ברק</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 1rem;">
-                        אומנית ומנחת סדנאות פיסול וקיפול ספרים. בעלת תואר שני במנהל עסקים וטכנולוגיה, שבחרה לשלב את האהבה ליצירה עם הידע העסקי שרכשה.
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 1rem;" class="translate">
+                        אומנית ומנחת סדנאות פיסול וקיפול ספרים. בעלת תואר שני במנהל עסקים וטכנולוגיה, שבחרתי לשלב את האהבה ליצירה עם הידע העסקי שרכשתי.
                     </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666;" class="translate">
                         הכל התחיל כתחביב - מהנאה לעבודת ידיים ומהרצון ליצור משהו מיוחד ואישי כמחווה לחבר. קיפול אחר קיפול, עמוד אחר עמוד, הספרים הישנים הפכו ליצירות אמנות ייחודיות.
                     </p>
                 </div>
             </div>
             <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 1.5rem;" class="translate">
                     מה שהתחיל כיצירה אחת לחבר, הפך במהרה לעשרות בקשות ממשפחה, חברים ומכרים. אנשים התאהבו ברעיון שספר ישן יכול להפוך למתנה כל כך מרגשת ומשמעותית - לא רק חפץ דקורטיבי, אלא סיפור שלם שמספר על אהבה, זיכרון או רגע מיוחד בחיים.
                 </p>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 1.5rem;" class="translate">
                     כשהבנתי שיש ביקוש אמיתי לאמנות הזו, החלטתי להפוך את התשוקה שלי למקצוע. ליוויתי את הידע שצברתי בתואר השני במנהל עסקים וטכנולוגיה עם האהבה שלי ליצירה בידיים, והקמתי את Lilou Books.
                 </p>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #666;" class="translate">
                     היום אני לא רק יוצרת ספרים מפוסלים בהזמנה אישית, אלא גם מעבירה סדנאות שבהן אני משתפת את הטכניקות שלמדתי ואת האהבה לאומנות הזו. כל סדנה היא הזדמנות לראות איך אנשים מגלים את היכולת שלהם ליצור משהו יפה, משמעותי ומיוחד בידיים שלהם.
                 </p>
             </div>
@@ -1011,12 +1044,12 @@
     <section class="container">
         <h2 id="what-is-heading">מה זה פיסול ספרים?</h2>
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;">
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;" class="translate">
                 <strong>פיסול ספרים (Book Folding/Book Sculpture)</strong> הוא אמנות ייחודית של יצירת תבליטים תלת-מימדיים מדפי הספר. 
-                <strong>קיפול ספרים</strong> הוא טכניקה שבה אנחנו מקפלים כל דף במדויק כדי ליצור צורות, שמות, תאריכים ועיצובים מרהיבים.
+                <strong>קיפול ספרים</strong> הוא טכניקה שבה אני מקפלת כל דף במדויק כדי ליצור צורות, שמות, תאריכים ועיצובים מרהיבים.
             </p>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
-                בסדנת פיסול הספרים שלנו תלמדו איך להפוך ספר רגיל ליצירת אמנות מרהיבה. 
+            <p style="font-size: 1.1rem; line-height: 1.8;" class="translate">
+                בסדנת פיסול הספרים שלי תלמדי איך להפוך ספר רגיל ליצירת אמנות מרהיבה. 
                 כל <strong>ספר מקופל</strong> הוא יצירה ייחודית בעבודת יד - מתנה מושלמת לחתונות, ימי הולדת, 
                 יום נישואין, בר/בת מצווה, או פשוט כדי להפתיע מישהו אהוב עם <strong>ספר מפוסל</strong> מיוחד.
             </p>
@@ -1026,14 +1059,14 @@
     <!-- Gallery Section -->
     <section class="container" id="gallery" role="region" aria-labelledby="gallery-heading">
         <h2 id="gallery-heading">גלריית יצירות - ספרים מקופלים ומפוסלים</h2>
-        <p style="text-align: center; margin-bottom: 2rem;">דוגמאות ל<strong>פיסול ספרים</strong> ו<strong>קיפול ספרים</strong> שיצרנו</p>
+        <p style="text-align: center; margin-bottom: 2rem;" class="translate">דוגמאות ל<strong>פיסול ספרים</strong> ו<strong>קיפול ספרים</strong> שיצרתי</p>
         <div class="gallery-grid">
             <!-- תמונה 1: HEART לב -->
             <div class="gallery-item">
                 <img src="heart.jpg" alt="פסל ספר בצורת לב - ספר מקופל מתנה לאהבה">
                 <div class="gallery-item-content">
                     <h3>לב ❤️</h3>
-                    <p><strong>ספר מפוסל</strong> רומנטי - מושלם למתנת אהבה</p>
+                    <p class="translate"><strong>ספר מפוסל</strong> רומנטי - מושלם למתנת אהבה</p>
                 </div>
             </div>
 
@@ -1042,7 +1075,7 @@
                 <img src="אהבה.jpg" alt="ספר מקופל עם המילה LOVE - קיפול ספרים">
                 <div class="gallery-item-content">
                     <h3>Love / אהבה</h3>
-                    <p><strong>קיפול ספרים</strong> עם מסר אהבה</p>
+                    <p class="translate"><strong>קיפול ספרים</strong> עם מסר אהבה</p>
                 </div>
             </div>
 
@@ -1051,7 +1084,7 @@
                 <img src="הקדשה אישית.jpg" alt="ספר מקופל עם הקדשה אישית - פיסול ספרים">
                 <div class="gallery-item-content">
                     <h3>הקדשה אישית</h3>
-                    <p>הנצחת מסר משמעותי ב<strong>פיסול ספר</strong></p>
+                    <p class="translate">הנצחת מסר משמעותי ב<strong>פיסול ספר</strong></p>
                 </div>
             </div>
 
@@ -1060,7 +1093,7 @@
                 <img src="סמל או לוגו.jpg" alt="פיסול ספר עם סמל מיוחד - Book Sculpture">
                 <div class="gallery-item-content">
                     <h3>סמל מותאם</h3>
-                    <p>יצירת סמלים ייחודיים ב<strong>ספר מקופל</strong></p>
+                    <p class="translate">יצירת סמלים ייחודיים ב<strong>ספר מקופל</strong></p>
                 </div>
             </div>
 
@@ -1069,7 +1102,7 @@
                 <img src="שמות.jpg" alt="ספר מקופל עם שמות - מתנה לחתונה קיפול ספרים">
                 <div class="gallery-item-content">
                     <h3>שמות לחתונה</h3>
-                    <p>הנצחת שמות ב<strong>אמנות פיסול ספרים</strong></p>
+                    <p class="translate">הנצחת שמות ב<strong>אמנות פיסול ספרים</strong></p>
                 </div>
             </div>
 
@@ -1078,7 +1111,7 @@
                 <img src="סדנה פרטית.jpg" alt="סדנת פיסול ספרים פרטית - Book Folding Workshop">
                 <div class="gallery-item-content">
                     <h3>סדנאות פרטיות</h3>
-                    <p>למדו <strong>קיפול ספרים</strong> בהנחייה אישית</p>
+                    <p class="translate">למדי <strong>קיפול ספרים</strong> בהנחייה אישית</p>
                 </div>
             </div>
 
@@ -1087,17 +1120,17 @@
                 <img src="סדנה פתוחה לקהל.jpg" alt="סדנה פתוחה לקהל - סדנת קיפול ספרים">
                 <div class="gallery-item-content">
                     <h3>סדנאות קבוצתיות</h3>
-                    <p><strong>סדנת פיסול ספרים</strong> לקבוצות וגיבוש</p>
+                    <p class="translate"><strong>סדנת פיסול ספרים</strong> לקבוצות וגיבוש</p>
                 </div>
             </div>
         </div>
         
         <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--secondary-color); border-radius: 15px;">
-            <h3 style="color: var(--accent-brown); margin-bottom: 1rem;">אהבתם? רוצים ספר כזה לעצמכם?</h3>
-            <p style="margin-bottom: 1.5rem; font-size: 1.1rem; color: #666;">
-                פשוט ממלאים טופס באתר ואני יוצרת עבורכם ספר מקופל מיוחד ומותאם אישית! 
+            <h3 style="color: var(--accent-brown); margin-bottom: 1rem;">אהבת? רוצה ספר כזה לעצמך?</h3>
+            <p style="margin-bottom: 1.5rem; font-size: 1.1rem; color: #666;" class="translate">
+                פשוט ממלאים טופס באתר ואני יוצרת עבורך ספר מקופל מיוחד ומותאם אישית! 
             </p>
-            <a href="#contact-form" class="cta-button">הזמינו את הספר המושלם שלכם עכשיו</a>
+            <a href="#contact-form" class="cta-button">הזמיני את הספר המושלם שלך עכשיו</a>
         </div>
     </section>
 
@@ -1110,11 +1143,11 @@
                 <h3 style="color: var(--accent-brown); margin-bottom: 0.5rem; font-size: 1.8rem;">הספר הראשון - או איך השיעמום בצרפת הפך לעסק</h3>
                 <p style="color: #999; font-size: 0.9rem; margin-bottom: 1.5rem;">6 באוקטובר, 2025 • מאת להב</p>
                 
-                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
-                    אז ככה זה התחיל. גרתי בצרפת, בעיירה קטנה שבה לא ידעתי את השפה, לא היו לי המון חברים, והרגשתי די זרה. אתם יודעים את התחושה הזו כשאת בודדת במקום חדש? כל הזמן חופשי, אבל גם הרבה שיעמום.
+                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;" class="translate">
+                    אז ככה זה התחיל. גרתי בצרפת, בעיירה קטנה שבה לא ידעתי את השפה, לא היו לי המון חברים, והרגשתי די זרה. את יודעת את התחושה הזו כשאת בודדת במקום חדש? כל הזמן חופשי, אבל גם הרבה שיעמום.
                 </p>
 
-                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;" class="translate">
                     יום אחד, אחרי שגלשתי באינטרנט בפעם המיליון (כי מה עוד יש לעשות?), נתקלתי בתמונה של ספר מקופל. לב ענק שקופץ מתוך הדפים. ואמרתי לעצמי - למה לא? יש לי זמן, יש לי ספרים ישנים מהחנות יד שנייה ברחוב, ויש לי צורך נואש למלא את השעות.
                 </p>
 
@@ -1125,59 +1158,59 @@
                 </div>
 
                 <div id="blogFullContent" style="display: none;">
-                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;" class="translate">
                     קניתי ספר, התיישבתי עם סרגל ועיפרון, והתחלתי לנסות להבין איך זה עובד. לא הבנתי בכלל מה אני עושה בהתחלה. שעה אחת. שעתיים. שלוש. טעויות. מחיקות. התחלות מחדש.
                 </p>
 
-                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;" class="translate">
                     אבל היה בזה משהו מרגיע. קיפול אחר קיפול, דף אחר דף, ושכחתי לרגע שאני לבד בדירה קטנה בעיירה זרה. היה לי משהו לעשות. משהו שדורש ריכוז, סבלנות, ואיזו שקט נפשי שלא הרגשתי כבר הרבה זמן.
                 </p>
 
-                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;" class="translate">
                     הספר הראשון? אסון. ממש. הלב נראה יותר כמו משהו שלא ברור מה זה. אבל זה בסדר, כי בינתיים כבר הייתי מכורה. התחלתי מחדש. ועוד פעם. למדתי מהטעויות, תיקנתי, שיפרתי.
                 </p>
 
-                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;" class="translate">
                     הספר הרביעי או החמישי - סוף סוף יצא משהו שנראה טוב. ושלחתי תמונה לחבר בארץ. הוא התרגש כל כך שביקש שאעשה לו אחד כזה למישהי שהוא אוהב. אחר כך חברה שלו רצתה. ואחר כך עוד מישהי. ופתאום היו לי הזמנות.
                 </p>
 
-                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;" class="translate">
                     מה שהתחיל כדרך להרוג זמן ולהרגיש פחות בודדת, הפך למשהו שנתן לי מטרה. כל ספר שקיפלתי היה קשר קטן בחזרה לבית, לאנשים, לתחושה של לעשות משהו משמעותי.
                 </p>
 
-                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;" class="translate">
                     היום, אחרי שחזרתי ארצה ואחרי מאות ספרים מקופלים, אני עדיין זוכרת את הימים האלה בצרפת. את השיעמום שהפך לסקרנות, את הבדידות שהפכה ליצירה, ואת הטעויות שלימדו אותי שזה בסדר לא לדעת, כי תמיד אפשר ללמוד.
                 </p>
 
-                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                <p style="line-height: 1.8; color: #666; margin-bottom: 1.5rem;" class="translate">
                     אגב, השם "Lilou" (לילו) הוא שם צרפתי. כשהחלטתי להפוך את זה לעסק, רציתי לשמור משהו מהתקופה הזו. משהו שיזכיר לי מאיפה הכל התחיל - מהעיירה הקטנה בצרפת, מהספרים הישנים, ומהרגעים השקטים של קיפול וקיפול. זה נשמע יותר נכון מכל שם אחר.
                 </p>
 
-                <p style="line-height: 1.8; color: #666; font-style: italic; background: var(--secondary-color); padding: 1.5rem; border-radius: 10px;">
-                    למי שמתחיל עכשיו: אל תפחדו מטעויות. אני למדתי את עצמי לגמרי דרך ניסוי וטעייה, בלי מורה, בלי סדנה. רק אני, הספרים, והרצון למלא את הזמן במשהו יפה. אם אני הצלחתי - כולם יכולים.
+                <p style="line-height: 1.8; color: #666; font-style: italic; background: var(--secondary-color); padding: 1.5rem; border-radius: 10px;" class="translate">
+                    למי שמתחילה עכשיו: אל תפחדי מטעויות. אני למדתי את עצמי לגמרי דרך ניסוי וטעייה, בלי מורה, בלי סדנה. רק אני, הספרים, והרצון למלא את הזמן במשהו יפה. אם אני הצלחתי - כולם יכולים.
                 </p>
                 </div>
 
                 <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #eee;">
-                    <p style="color: #999; font-size: 0.9rem;">
-                        רוצים ללמוד איך לקפל ספרים? בואו לסדנה הבאה שלנו 
+                    <p style="color: #999; font-size: 0.9rem;" class="translate">
+                        רוצה ללמוד איך לקפל ספרים? בואי לסדנה הבאה שלי 
                         <a href="#contact-form" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">→ פרטים כאן</a>
                     </p>
                 </div>
             </article>
 
             <div style="text-align: center; padding: 2rem; background: var(--secondary-color); border-radius: 15px;">
-                <p style="color: #666; margin-bottom: 1rem;">עוד פוסטים בקרוב...</p>
-                <p style="color: #999; font-size: 0.9rem;">בינתיים, בואו נתחבר ברשתות החברתיות</p>
+                <p style="color: #666; margin-bottom: 1rem;" class="translate">עוד פוסטים בקרוב...</p>
+                <p style="color: #999; font-size: 0.9rem;" class="translate">בינתיים, בואי נתחבר ברשתות החברתיות</p>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
     <section class="container" id="workshops" role="region" aria-labelledby="workshops-heading">
-        <h2 id="workshops-heading">סדנאות פיסול וקיפול ספרים - למדו אמנות Book Folding</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">
-            <strong>סדנת קיפול ספרים</strong> חווייתית ומגבשת. למדו ליצור <strong>ספר מפוסל</strong> מרהיב בהנחייה מקצועית. 
+        <h2 id="workshops-heading">סדנאות פיסול וקיפול ספרים - למדי אמנות Book Folding</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;" class="translate">
+            <strong>סדנת קיפול ספרים</strong> חווייתית ומגבשת. למדי ליצור <strong>ספר מפוסל</strong> מרהיב בהנחייה מקצועית. 
             מתאים לכל הרמות, ללא צורך בניסיון קודם. הסדנה כוללת את כל החומרים.
         </p>
         
@@ -1185,43 +1218,43 @@
             <div class="service-card" style="border: 3px solid var(--primary-color);">
                 <div class="service-icon">💕</div>
                 <h3 style="font-size: 1.6rem;">סדנה פרטית - קיפול ספרים</h3>
-                <p><strong>סדנת פיסול ספרים</strong> אינטימית ומותאמת אישית</p>
+                <p class="translate"><strong>סדנת פיסול ספרים</strong> אינטימית ומותאמת אישית</p>
                 <ul style="text-align: right; list-style-position: inside; color: #666;">
-                    <li><strong>6-12 משתתפים</strong></li>
-                    <li>משך: 2-3 שעות</li>
-                    <li>יצירת <strong>ספר מקופל</strong> אחד להביא הביתה</li>
-                    <li>כל החומרים כלולים</li>
-                    <li>הנחייה מקצועית צעד אחר צעד</li>
+                    <li class="translate"><strong>6-12 משתתפים</strong></li>
+                    <li class="translate">משך: 2-3 שעות</li>
+                    <li class="translate">יצירת <strong>ספר מקופל</strong> אחד להביא הביתה</li>
+                    <li class="translate">כל החומרים כלולים</li>
+                    <li class="translate">הנחייה מקצועית צעד אחר צעד</li>
                 </ul>
-                <div class="price">₪240 למשתתף</div>
+                <div class="price">₪240 למשתתפת</div>
             </div>
 
             <div class="service-card" style="border: 3px solid var(--primary-color);">
                 <div class="service-icon">🎨</div>
                 <h3 style="font-size: 1.6rem;">סדנה קבוצתית פתוחה לקהל</h3>
-                <p><strong>סדנת קיפול ספרים</strong> במפגשים קבועים וחווייתיים</p>
+                <p class="translate"><strong>סדנת קיפול ספרים</strong> במפגשים קבועים וחווייתיים</p>
                 <ul style="text-align: right; list-style-position: inside; color: #666;">
-                    <li><strong>מפגשים קבועים</strong> בסטודיו</li>
-                    <li>משך: 2-3 שעות</li>
-                    <li>קבוצה אינטימית של <strong>6-10 משתתפים</strong></li>
-                    <li>כל החומרים כלולים</li>
-                    <li>אווירה חברתית ונעימה</li>
+                    <li class="translate"><strong>מפגשים קבועים</strong> בסטודיו שלי</li>
+                    <li class="translate">משך: 2-3 שעות</li>
+                    <li class="translate">קבוצה אינטימית של <strong>6-10 משתתפים</strong></li>
+                    <li class="translate">כל החומרים כלולים</li>
+                    <li class="translate">אווירה חברתית ונעימה</li>
                 </ul>
-                <div class="price">₪220 למשתתף</div>
+                <div class="price">₪220 למשתתפת</div>
             </div>
 
             <div class="service-card" style="border: 3px solid var(--primary-color);">
                 <div class="service-icon">👥</div>
                 <h3 style="font-size: 1.6rem;">סדנת גיבוש לארגונים וחברות</h3>
-                <p>פעילות <strong>פיסול ספרים</strong> יצירתית ומגבשת לצוותים</p>
+                <p class="translate">פעילות <strong>פיסול ספרים</strong> יצירתית ומגבשת לצוותים</p>
                 <ul style="text-align: right; list-style-position: inside; color: #666;">
-                    <li><strong>עד 30 משתתפים</strong></li>
-                    <li>משך: שעה וחצי - שעתיים</li>
-                    <li><strong>הגעה למשרדכם</strong> או סטודיו שלנו</li>
-                    <li>חוויה בלתי נשכחת לצוות</li>
-                    <li>פיתוח יצירתיות וסבלנות</li>
+                    <li class="translate"><strong>עד 30 משתתפים</strong></li>
+                    <li class="translate">משך: שעה וחצי - שעתיים</li>
+                    <li class="translate"><strong>אני מגיעה למשרד שלכם</strong> או שאתם מגיעים לסטודיו שלי</li>
+                    <li class="translate">חוויה בלתי נשכחת לצוות</li>
+                    <li class="translate">פיתוח יצירתיות וסבלנות</li>
                 </ul>
-                <div class="price">מחיר מיוחד לקבוצות</div>
+                <div class="price" class="translate">מחיר מיוחד לקבוצות</div>
             </div>
         </div>
     </section>
@@ -1229,9 +1262,9 @@
     <!-- Custom Orders Section -->
     <section class="container" id="custom-orders" role="region" aria-labelledby="custom-orders-heading">
         <h2 id="custom-orders-heading">הזמנות אישיות - ספר מקופל בהתאמה אישית</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 1rem;">
-            רוצים <strong>מתנה ייחודית</strong>? אני יוצרת עבורכם <strong>ספר מפוסל</strong> מותאם אישית לכל אירוע.
-            <strong>פיסול ספרים</strong> בעבודת יד עם שמות, תאריכים או עיצוב מיוחד שלכם.
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 1rem;" class="translate">
+            רוצה <strong>מתנה ייחודית</strong>? אני יוצרת עבורך <strong>ספר מפוסל</strong> מותאם אישית לכל אירוע.
+            <strong>פיסול ספרים</strong> בעבודת יד עם שמות, תאריכים או עיצוב מיוחד שלך.
         </p>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem; color: var(--primary-color); font-weight: 600;">
             💡 איך מזמינים ספר מפוסל? פשוט ממלאים את הטופס באתר!
@@ -1242,7 +1275,7 @@
                 <div class="step-number">1</div>
                 <div class="step-content">
                     <h3>בחירת עיצוב לספר המקופל</h3>
-                    <p>בחרו מבין מגוון עיצובי <strong>קיפול ספרים</strong>: שמות, תאריכים, לבבות, סמלים מיוחדים, או צרו עיצוב מותאם אישית ל<strong>ספר מפוסל</strong> שלכם</p>
+                    <p class="translate">בחרי מבין מגוון עיצובי <strong>קיפול ספרים</strong>: שמות, תאריכים, לבבות, סמלים מיוחדים, או צרי עיצוב מותאם אישית ל<strong>ספר מפוסל</strong> שלך</p>
                 </div>
             </div>
 
@@ -1250,7 +1283,7 @@
                 <div class="step-number">2</div>
                 <div class="step-content">
                     <h3>התאמה אישית - פיסול הספר</h3>
-                    <p>שתפו איתי את הרעיון, התאריך, השם או המסר שברצונכם להנציח ב<strong>ספר המקופל</strong>. אני אצור תבנית ל<strong>פיסול הספר</strong> מותאמת במיוחד</p>
+                    <p class="translate">שתפי איתי את הרעיון, התאריך, השם או המסר שברצונך להנציח ב<strong>ספר המקופל</strong>. אני אצור תבנית ל<strong>פיסול הספר</strong> מותאמת במיוחד</p>
                 </div>
             </div>
 
@@ -1258,7 +1291,7 @@
                 <div class="step-number">3</div>
                 <div class="step-content">
                     <h3>יצירה בעבודת יד - Book Folding</h3>
-                    <p>כל <strong>ספר מפוסל</strong> נעשה בקפידה ובאהבה, קיפול אחר קיפול בטכניקת <strong>Book Folding</strong> מקצועית, עד שהיצירה שלכם מוכנה</p>
+                    <p class="translate">כל <strong>ספר מפוסל</strong> נעשה בקפידה ובאהבה, קיפול אחר קיפול בטכניקת <strong>Book Folding</strong> מקצועית, עד שהיצירה שלך מוכנה</p>
                 </div>
             </div>
 
@@ -1266,14 +1299,14 @@
                 <div class="step-number">4</div>
                 <div class="step-content">
                     <h3>משלוח עד הבית</h3>
-                    <p>ה<strong>ספר המקופל</strong> שלכם נארז בקפידה ומגיע אליכם ישירות עד הבית, מוכן להפתיע!</p>
+                    <p class="translate">ה<strong>ספר המקופל</strong> שלך נארז בקפידה ומגיע אליך ישירות עד הבית, מוכן להפתיע!</p>
                 </div>
             </div>
         </div>
 
         <div style="text-align: center; margin-top: 3rem;">
-            <a href="#contact-form" class="cta-button">הזמינו ספר מפוסל עכשיו</a>
-            <p style="margin-top: 1rem; color: #666; font-size: 1rem;">
+            <a href="#contact-form" class="cta-button">הזמיני ספר מפוסל עכשיו</a>
+            <p style="margin-top: 1rem; color: #666; font-size: 1rem;" class="translate">
                 פשוט ממלאים את הטופס ואני חוזרת אליכם תוך 24 שעות ✨
             </p>
         </div>
@@ -1284,82 +1317,82 @@
         <h2 id="faq-heading">שאלות נפוצות - סדנת פיסול ספרים וקיפול ספרים</h2>
         <div class="faq-container">
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
                     מה זה פיסול ספרים וקיפול ספרים?
                     <span class="faq-icon">+</span>
                 </div>
-                <div class="faq-answer">
-                    <p><strong>פיסול ספרים (Book Folding או Book Sculpture)</strong> הוא אמנות של <strong>קיפול דפי ספר</strong> ליצירת צורות ותבליטים תלת-מימדיים. בשונה מגזירת דפים, בטכניקת <strong>Book Folding</strong> אנחנו מקפלים כל דף במדויק כדי ליצור תמונה או טקסט שנראה מהצד של הספר. זוהי יצירה עדינה של <strong>ספר מקופל</strong> שדורשת סבלנות ודיוק.</p>
+                <div class="faq-answer" role="region">
+                    <p class="translate"><strong>פיסול ספרים (Book Folding או Book Sculpture)</strong> הוא אמנות של <strong>קיפול דפי ספר</strong> ליצירת צורות ותבליטים תלת-מימדיים. בשונה מגזירת דפים, בטכניקת <strong>Book Folding</strong> אני מקפלת כל דף במדויק כדי ליצור תמונה או טקסט שנראה מהצד של הספר. זוהי יצירה עדינה של <strong>ספר מקופל</strong> שדורשת סבלנות ודיוק.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
                     האם צריך ניסיון קודם כדי להשתתף בסדנת קיפול ספרים?
                     <span class="faq-icon">+</span>
                 </div>
-                <div class="faq-answer">
-                    <p>בכלל לא! <strong>סדנת פיסול הספרים</strong> שלנו מתאימה למתחילים לחלוטין. אני מלמדת את כל טכניקות <strong>קיפול הספרים</strong> צעד אחר צעד, ומתאימה את הקצב לכל משתתף. הדבר היחיד שצריך זה סבלנות ורצון ליצור <strong>ספר מפוסל</strong> יפה.</p>
+                <div class="faq-answer" role="region">
+                    <p class="translate">בכלל לא! <strong>סדנת פיסול הספרים</strong> שלי מתאימה למתחילים לחלוטין. אני מלמדת את כל טכניקות <strong>קיפול הספרים</strong> צעד אחר צעד, ומתאימה את הקצב לכל משתתפת. הדבר היחיד שצריך זה סבלנות ורצון ליצור <strong>ספר מפוסל</strong> יפה.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
                     כמה זמן לוקח ליצור ספר מפוסל?
                     <span class="faq-icon">+</span>
                 </div>
-                <div class="faq-answer">
-                    <p>ב<strong>סדנת קיפול ספרים</strong>, יצירת <strong>ספר מקופל</strong> בסיסי לוקחת בין 2-3 שעות. עבור הזמנות אישיות של <strong>ספר מפוסל</strong> מורכב, זמן ההכנה תלוי במורכבות העיצוב ולוקח בין שבוע לשבועיים.</p>
+                <div class="faq-answer" role="region">
+                    <p class="translate">ב<strong>סדנת קיפול ספרים</strong>, יצירת <strong>ספר מקופל</strong> בסיסי לוקחת בין 2-3 שעות. עבור הזמנות אישיות של <strong>ספר מפוסל</strong> מורכב, זמן ההכנה תלוי במורכבות העיצוב ולוקח בין שבוע לשבועיים.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
                     איזה סוג ספר מתאים לפיסול ספרים?
                     <span class="faq-icon">+</span>
                 </div>
-                <div class="faq-answer">
-                    <p>הכי טוב לעבוד עם ספרים בכריכה קשה עם דפים לא דקים מדי ל<strong>פיסול ספר</strong>. ספר עם 200-400 עמודים הוא אידיאלי ל<strong>קיפול ספרים</strong>. ב<strong>סדנאות פיסול הספרים</strong> אני מספקת את כל החומרים, כולל הספרים המתאימים.</p>
+                <div class="faq-answer" role="region">
+                    <p class="translate">הכי טוב לעבוד עם ספרים בכריכה קשה עם דפים לא דקים מדי ל<strong>פיסול ספר</strong>. ספר עם 200-400 עמודים הוא אידיאלי ל<strong>קיפול ספרים</strong>. ב<strong>סדנאות פיסול הספרים</strong> שלי אני מספקת את כל החומרים, כולל הספרים המתאימים.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
                     מה כולל מחיר סדנת פיסול הספרים?
                     <span class="faq-icon">+</span>
                 </div>
-                <div class="faq-answer">
-                    <p>מחיר <strong>סדנת קיפול הספרים</strong> כולל את כל החומרים: ספר, תבנית, כלי עבודה, והדרכה מלאה ב<strong>אמנות פיסול הספרים</strong>. המשתתפים לוקחים הביתה את ה<strong>ספר המקופל</strong> שעשו והידע להמשיך וליצור <strong>ספרים מפוסלים</strong> בעצמם.</p>
+                <div class="faq-answer" role="region">
+                    <p class="translate">מחיר <strong>סדנת קיפול הספרים</strong> כולל את כל החומרים: ספר, תבנית, כלי עבודה, והדרכה מלאה ב<strong>אמנות פיסול הספרים</strong>. המשתתפות לוקחות הביתה את ה<strong>ספר המקופל</strong> שעשו והידע להמשיך וליצור <strong>ספרים מפוסלים</strong> בעצמן.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
                     האם אפשר להזמין ספר מפוסל כמתנה?
                     <span class="faq-icon">+</span>
                 </div>
-                <div class="faq-answer">
-                    <p>בהחלט! <strong>ספר מקופל</strong> הוא אחת המתנות הכי מיוחדות ואישיות שאפשר לתת. אפשר להזמין <strong>ספר מפוסל</strong> עם שמות, תאריכים, ציטוט אהוב, או כל עיצוב מיוחד. כל יצירת <strong>פיסול ספר</strong> נעשית בהתאמה אישית ונארזת יפה.</p>
+                <div class="faq-answer" role="region">
+                    <p class="translate">בהחלט! <strong>ספר מקופל</strong> הוא אחת המתנות הכי מיוחדות ואישיות שאפשר לתת. אפשר להזמין <strong>ספר מפוסל</strong> עם שמות, תאריכים, ציטוט אהוב, או כל עיצוב מיוחד. כל יצירת <strong>פיסול ספר</strong> נעשית בהתאמה אישית ונארזת יפה.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
                     סדנת קיפול ספרים מתאימה לפעילות גיבוש לחברות?
                     <span class="faq-icon">+</span>
                 </div>
-                <div class="faq-answer">
-                    <p>בהחלט! <strong>סדנת פיסול ספרים</strong> היא פעילות גיבוש מצוינת. <strong>קיפול הספרים</strong> מפתח סבלנות, דיוק, ויצירתיות. העובדים נהנים מחוויה משותפת ייחודית של <strong>Book Folding</strong> ולוקחים הביתה <strong>ספר מקופל</strong> כמזכרת מיוחדת. אני מגיעה לאולם שלכם או שאתם מגיעים לסטודיו שלי ל<strong>סדנת פיסול ספרים</strong>.</p>
+                <div class="faq-answer" role="region">
+                    <p class="translate">בהחלט! <strong>סדנת פיסול ספרים</strong> היא פעילות גיבוש מצוינת. <strong>קיפול הספרים</strong> מפתח סבלנות, דיוק, ויצירתיות. העובדים נהנים מחוויה משותפת ייחודית של <strong>Book Folding</strong> ולוקחים הביתה <strong>ספר מקופל</strong> כמזכרת מיוחדת. אני מגיעה לאולם שלכם או שאתם מגיעים לסטודיו שלי ל<strong>סדנת פיסול ספרים</strong>.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
                     איך מזמינים סדנת קיפול ספרים או ספר מפוסל?
                     <span class="faq-icon">+</span>
                 </div>
-                <div class="faq-answer">
-                    <p>פשוט מאוד! <strong>ממלאים את הטופס באתר</strong> ואני חוזרת אליכם במהירות. אפשר גם לשלוח הודעה בוואטסאפ או להתקשר ישירות ל-050-253-4643. נתאם ביחד את כל הפרטים - תאריך ה<strong>סדנה</strong>, סוג העיצוב ל<strong>ספר המקופל</strong>, ומיקום.</p>
+                <div class="faq-answer" role="region">
+                    <p class="translate">פשוט מאוד! <strong>ממלאים את הטופס באתר</strong> ואני חוזרת אליכם במהירות. אפשר גם לשלוח הודעה בוואטסאפ או להתקשר ישירות ל-050-253-4643. נתאם ביחד את כל הפרטים - תאריך ה<strong>סדנה</strong>, סוג העיצוב ל<strong>ספר המקופל</strong>, ומיקום.</p>
                 </div>
             </div>
         </div>
@@ -1367,20 +1400,20 @@
 
     <!-- Contact Section -->
     <section class="container" id="contact" role="region" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">צרו קשר - הזמינו סדנת פיסול ספרים או ספר מקופל</h2>
+        <h2 id="contact-heading">צרי קשר - הזמיני סדנת פיסול ספרים או ספר מקופל</h2>
         <div class="contact-section">
             <div style="background: linear-gradient(135deg, var(--primary-color), #FFD4D9); padding: 2rem; border-radius: 15px; margin-bottom: 2rem; text-align: center;">
                 <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.5rem;">איך מזמינים?</h3>
-                <p style="color: white; font-size: 1.2rem; font-weight: 600;">
+                <p style="color: white; font-size: 1.2rem; font-weight: 600;" class="translate">
                     פשוט ממלאים את הטופס למטה ואני חוזרת אליכם תוך 24 שעות! 💌
                 </p>
             </div>
             
-            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 0.5rem;">
-                מעוניינים ב<strong>סדנת קיפול ספרים</strong> או רוצים להזמין <strong>ספר מפוסל</strong> מותאם אישית? 
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 0.5rem;" class="translate">
+                מעוניינת ב<strong>סדנת קיפול ספרים</strong> או רוצה להזמין <strong>ספר מפוסל</strong> מותאם אישית? 
             </p>
-            <p style="text-align: center; font-size: 1.2rem; color: var(--accent-brown); font-weight: 600; margin-bottom: 2rem;">
-                ליצירת קשר עם להב - אשמח לשמוע מכם!
+            <p style="text-align: center; font-size: 1.2rem; color: var(--accent-brown); font-weight: 600; margin-bottom: 2rem;" class="translate">
+                ליצירת קשר עם להב - אשמח לשמוע ממך!
             </p>
 
             <div class="contact-info">
@@ -1388,7 +1421,7 @@
                     <div class="contact-item-icon">📱</div>
                     <h3>טלפון / וואטסאפ</h3>
                     <a href="tel:+972502534643">050-253-4643</a>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;" class="translate">
                         זמינה בכל יום 9:00-20:00
                     </p>
                 </div>
@@ -1397,8 +1430,8 @@
                     <div class="contact-item-icon">📧</div>
                     <h3>אימייל</h3>
                     <a href="mailto:liloubooks.com@gmail.com">liloubooks.com@gmail.com</a>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
-                        נענה תוך 24 שעות
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;" class="translate">
+                        אענה תוך 24 שעות
                     </p>
                 </div>
 
@@ -1406,14 +1439,14 @@
                     <div class="contact-item-icon">📍</div>
                     <h3>מיקום</h3>
                     <p>תל אביב, ישראל</p>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;" class="translate">
                         סדנאות במרכז הארץ או במקום שלכם
                     </p>
                 </div>
 
                 <div class="contact-item">
                     <div class="contact-item-icon">💬</div>
-                    <h3>עקבו אחרינו</h3>
+                    <h3>עקבי אחרי</h3>
                     <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
                         <a href="https://www.instagram.com/liloubooks____/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border-radius: 12px; text-decoration: none; font-size: 1.5rem; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                             <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -1422,19 +1455,19 @@
                             <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
                         </a>
                     </div>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;" class="translate">
                         השראה ועדכונים
                     </p>
                 </div>
             </div>
 
             <div class="contact-form" id="contact-form">
-                <h3 style="text-align: center; margin-bottom: 0.5rem; color: var(--accent-brown);">מלאו את הטופס ואני חוזרת אליכם מהר!</h3>
+                <h3 style="text-align: center; margin-bottom: 0.5rem; color: var(--accent-brown);">מלאי את הטופס ואני חוזרת אליך מהר!</h3>
                 <p style="text-align: center; margin-bottom: 2rem; color: #666;">זה לוקח רק דקה 😊</p>
                 <form id="contactForm" action="https://formspree.io/f/mzzjvvqv" method="POST" aria-label="טופס יצירת קשר">
                     <div class="form-group">
                         <label for="name">שם מלא *</label>
-                        <input type="text" id="name" name="name" required placeholder="הכניסו את שמכם" aria-required="true">
+                        <input type="text" id="name" name="name" required placeholder="הכניסי את שמך" aria-required="true">
                     </div>
 
                     <div class="form-group">
@@ -1450,7 +1483,7 @@
                     <div class="form-group">
                         <label for="service">סוג השירות *</label>
                         <select id="service" name="service" required aria-required="true">
-                            <option value="">בחרו סוג שירות</option>
+                            <option value="">בחרי סוג שירות</option>
                             <option value="הזמנת ספר מקופל">🎁 הזמנת ספר מקופל בהתאמה אישית</option>
                             <option value="סדנה פרטית">💕 סדנת פיסול ספרים פרטית</option>
                             <option value="סדנה קבוצתית">🎨 סדנה קבוצתית פתוחה לקהל</option>
@@ -1461,10 +1494,10 @@
 
                     <div class="form-group">
                         <label for="message">הודעה *</label>
-                        <textarea id="message" name="message" required placeholder="ספרו לנו מה אתם רוצים - סדנה מתי? ספר עם איזה עיצוב? שמות? תאריך? או כל פרט אחר שחשוב לכם..." aria-required="true"></textarea>
+                        <textarea id="message" name="message" required placeholder="ספרי לי מה את רוצה - סדנה מתי? ספר עם איזה עיצוב? שמות? תאריך? או כל פרט אחר שחשוב לך..." aria-required="true"></textarea>
                     </div>
 
-                    <button type="submit" class="cta-button" style="width: 100%;">שלחו הודעה ואני אחזור אליכם במהירות! 💌</button>
+                    <button type="submit" class="cta-button" style="width: 100%;">שלחי הודעה ואני אחזור אליך במהירות! 💌</button>
                 </form>
             </div>
         </div>
@@ -1475,516 +1508,5 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Lilou Books</h3>
-                <p>סדנאות פיסול וקיפול ספרים</p>
-                <p>יצירת ספרים מפוסלים בהתאמה אישית</p>
-            </div>
-
-            <div class="footer-section">
-                <h3>קישורים מהירים</h3>
-                <a href="#home">בית</a>
-                <a href="#workshops">סדנאות קיפול ספרים</a>
-                <a href="#custom-orders">הזמנת ספר מקופל</a>
-                <a href="#gallery">גלריית פיסול ספרים</a>
-                <a href="#faq">שאלות נפוצות</a>
-                <a href="#contact">צור קשר</a>
-            </div>
-
-            <div class="footer-section">
-                <h3>עקבו אחרינו</h3>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/liloubooks" target="_blank" rel="noopener" aria-label="Facebook">F</a>
-                    <a href="https://www.instagram.com/liloubooks" target="_blank" rel="noopener" aria-label="Instagram">I</a>
-                    <a href="https://wa.me/972502534643" target="_blank" rel="noopener" aria-label="WhatsApp">W</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="copyright">
-            <p>&copy; 2025 Lilou Books - כל הזכויות שמורות | <strong>סדנת פיסול ספרים</strong> | <strong>קיפול ספרים</strong> | <strong>ספר מקופל</strong></p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">♿ אתר נגיש לאנשים עם מוגבלויות | תמיכה בקוראי מסך | ניווט מקלדת | ניגודיות גבוהה | הגדלת טקסט</p>
-        </div>
-    </footer>
-
-    <!-- ARIA Live Region for Screen Reader Announcements -->
-    <div aria-live="polite" aria-atomic="true" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;" id="aria-announcer"></div>
-
-    <!-- JavaScript -->
-    <script>
-        // ========================================
-        // ACCESSIBILITY FEATURES
-        // ========================================
-        
-        let currentFontSize = 'normal';
-        let highContrast = false;
-
-        // Announce to screen readers
-        function announceToScreenReader(message) {
-            const announcer = document.getElementById('aria-announcer');
-            if (announcer) {
-                announcer.textContent = '';
-                setTimeout(() => {
-                    announcer.textContent = message;
-                }, 100);
-            }
-        }
-
-        // Load saved preferences
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedFontSize = localStorage.getItem('fontSize');
-            const savedContrast = localStorage.getItem('highContrast');
-            const savedLanguage = localStorage.getItem('language') || 'he';
-            
-            if (savedFontSize && savedFontSize !== 'normal') {
-                document.body.classList.add(`font-${savedFontSize}`);
-                currentFontSize = savedFontSize;
-            }
-            
-            if (savedContrast === 'true') {
-                document.body.classList.add('high-contrast');
-                document.getElementById('contrastBtn').classList.add('active');
-                highContrast = true;
-            }
-
-            if (savedLanguage === 'en') {
-                translateToEnglish();
-            }
-        });
-
-        // Increase font size
-        document.getElementById('increaseFontBtn').addEventListener('click', () => {
-            document.body.classList.remove('font-large', 'font-xlarge');
-            
-            if (currentFontSize === 'normal') {
-                document.body.classList.add('font-large');
-                currentFontSize = 'large';
-                announceToScreenReader(currentLanguage === 'en' ? 'Text size increased to large' : 'גודל הטקסט הוגדל לגדול');
-            } else if (currentFontSize === 'large') {
-                document.body.classList.add('font-xlarge');
-                currentFontSize = 'xlarge';
-                announceToScreenReader(currentLanguage === 'en' ? 'Text size increased to extra large' : 'גודל הטקסט הוגדל לגדול מאוד');
-            }
-            
-            localStorage.setItem('fontSize', currentFontSize);
-        });
-
-        // Decrease font size
-        document.getElementById('decreaseFontBtn').addEventListener('click', () => {
-            document.body.classList.remove('font-large', 'font-xlarge');
-            
-            if (currentFontSize === 'xlarge') {
-                document.body.classList.add('font-large');
-                currentFontSize = 'large';
-                announceToScreenReader(currentLanguage === 'en' ? 'Text size decreased to large' : 'גודל הטקסט הוקטן לגדול');
-            } else if (currentFontSize === 'large') {
-                currentFontSize = 'normal';
-                announceToScreenReader(currentLanguage === 'en' ? 'Text size reset to normal' : 'גודל הטקסט אופס לרגיל');
-            }
-            
-            localStorage.setItem('fontSize', currentFontSize);
-        });
-
-        // Toggle high contrast
-        document.getElementById('contrastBtn').addEventListener('click', function() {
-            highContrast = !highContrast;
-            document.body.classList.toggle('high-contrast');
-            this.classList.toggle('active');
-            localStorage.setItem('highContrast', highContrast);
-            announceToScreenReader(highContrast ? 
-                (currentLanguage === 'en' ? 'High contrast mode enabled' : 'מצב ניגודיות גבוהה הופעל') : 
-                (currentLanguage === 'en' ? 'High contrast mode disabled' : 'מצב ניגודיות גבוהה כובה'));
-        });
-
-        // Reset accessibility settings
-        document.getElementById('resetBtn').addEventListener('click', () => {
-            document.body.classList.remove('font-large', 'font-xlarge', 'high-contrast');
-            document.getElementById('contrastBtn').classList.remove('active');
-            currentFontSize = 'normal';
-            highContrast = false;
-            localStorage.removeItem('fontSize');
-            localStorage.removeItem('highContrast');
-            announceToScreenReader(currentLanguage === 'en' ? 'Accessibility settings reset' : 'הגדרות נגישות אופסו');
-        });
-
-        // ========================================
-        // TRANSLATION FEATURES
-        // ========================================
-
-        const translations = {
-            // Navigation
-            'בית': 'Home',
-            'אודות': 'About',
-            'סדנאות': 'Workshops',
-            'הזמנות אישיות': 'Custom Orders',
-            'גלריה': 'Gallery',
-            'שאלות נפוצות': 'FAQ',
-            'בלוג': 'Blog',
-            'צור קשר': 'Contact',
-            
-            // Hero section
-            'אמנות פיסול וקיפול ספרים': 'Book Folding & Book Sculpture Art',
-            'אמנות ייחודית בעבודת יד, סדנאות ודקורציה. גלו את העולם הקסום של פיסול ספרים - סדנאות קיפול ספרים חווייתיות, יצירת ספר מקופל בהתאמה אישית ומתנות ייחודיות שמשאירות חותם.': 'Unique handmade art, workshops, and decor. Discover the magical world of book folding - experiential book folding workshops, custom folded books, and unique gifts that leave a lasting impression.',
-            'הזמינו סדנת פיסול ספרים עכשיו': 'Book Your Workshop Now',
-            'פשוט ממלאים טופס ואני חוזרת אליכם במהירות 💌': 'Just fill out the form and I\'ll get back to you quickly 💌',
-
-            // About section
-            'אודות - הסיפור מאחורי Lilou Books': 'About - The Story Behind Lilou Books',
-            'להב ברק': 'Lahav Barak',
-            
-            // Workshops
-            'סדנאות פיסול וקיפול ספרים - למדו אמנות Book Folding': 'Book Folding & Sculpture Workshops - Learn the Art',
-            'סדנה פרטית - קיפול ספרים': 'Private Workshop - Book Folding',
-            'סדנה קבוצתית פתוחה לקהל': 'Open Group Workshop',
-            'סדנת גיבוש לארגונים וחברות': 'Team Building for Organizations',
-            'משתתפים': 'participants',
-            'משך': 'Duration',
-            'שעות': 'hours',
-            'כל החומרים כלולים': 'All materials included',
-            'הנחייה מקצועית צעד אחר צעד': 'Step-by-step professional guidance',
-            'למשתתף': 'per participant',
-            'מחיר מיוחד לקבוצות': 'Special group pricing',
-
-            // Custom orders
-            'הזמנות אישיות - ספר מקופל בהתאמה אישית': 'Custom Orders - Personalized Folded Books',
-            'איך מזמינים ספר מפוסל? פשוט ממלאים את הטופס באתר!': 'How to order? Simply fill out the form on our website!',
-            'הזמינו ספר מפוסל עכשיו': 'Order Your Custom Book Now',
-            'פשוט ממלאים את הטופס ואני חוזרת אליכם תוך 24 שעות ✨': 'Just fill out the form and I\'ll get back to you within 24 hours ✨',
-
-            // Gallery
-            'גלריית יצירות - ספרים מקופלים ומפוסלים': 'Gallery - Folded & Sculpted Books',
-            'אהבתם? רוצים ספר כזה לעצמכם?': 'Like what you see? Want one for yourself?',
-            'פשוט ממלאים טופס באתר ואני יוצרת עבורכם ספר מקופל מיוחד ומותאם אישית!': 'Simply fill out the form and I\'ll create a special custom folded book just for you!',
-            'הזמינו את הספר המושלם שלכם עכשיו': 'Order Your Perfect Book Now',
-
-            // FAQ
-            'שאלות נפוצות - סדנת פיסול ספרים וקיפול ספרים': 'FAQ - Book Folding & Sculpture Workshops',
-            
-            // Contact
-            'צרו קשר - הזמינו סדנת פיסול ספרים או ספר מקופל': 'Contact Us - Book a Workshop or Order a Custom Book',
-            'איך מזמינים?': 'How to Order?',
-            'פשוט ממלאים את הטופס למטה ואני חוזרת אליכם תוך 24 שעות! 💌': 'Just fill out the form below and I\'ll get back to you within 24 hours! 💌',
-            'מלאו את הטופס ואני חוזרת אליכם מהר!': 'Fill out the form and I\'ll get back to you soon!',
-            'זה לוקח רק דקה 😊': 'It only takes a minute 😊',
-            'שם מלא': 'Full Name',
-            'טלפון': 'Phone',
-            'סוג השירות': 'Service Type',
-            'הודעה': 'Message',
-            'שלחו הודעה ואני אחזור אליכם במהירות! 💌': 'Send Message and I\'ll Get Back to You Soon! 💌',
-            
-            // Accessibility
-            'נגישות:': 'Accessibility:',
-            'שפה:': 'Language:',
-            'הגדל טקסט': 'Increase Text',
-            'הקטן טקסט': 'Decrease Text',
-            'ניגודיות': 'Contrast',
-            'איפוס': 'Reset',
-            'עברית': 'Hebrew',
-            'דלג לתוכן הראשי': 'Skip to main content'
-        };
-
-        // Extended translations for form and other elements
-        const extendedTranslations = {
-            'הכניסו את שמכם': 'Enter your name',
-            'בחרו סוג שירות': 'Choose service type',
-            '🎁 הזמנת ספר מקופל בהתאמה אישית': '🎁 Custom Folded Book Order',
-            '💕 סדנת פיסול ספרים פרטית': '💕 Private Book Folding Workshop',
-            '🎨 סדנה קבוצתית פתוחה לקהל': '🎨 Open Group Workshop',
-            '👥 סדנת קיפול ספרים לארגונים': '👥 Corporate Team Building Workshop',
-            '💬 שאלה כללית': '💬 General Question',
-            'ספרו לנו מה אתם רוצים - סדנה מתי? ספר עם איזה עיצוב? שמות? תאריך? או כל פרט אחר שחשוב לכם...': 'Tell us what you want - workshop when? Book with what design? Names? Date? Or any other important details...',
-            'טלפון / וואטסאפ': 'Phone / WhatsApp',
-            'זמינה בכל יום 9:00-20:00': 'Available daily 9:00-20:00',
-            'אימייל': 'Email',
-            'נענה תוך 24 שעות': 'Response within 24 hours',
-            'מיקום': 'Location',
-            'תל אביב, ישראל': 'Tel Aviv, Israel',
-            'סדנאות במרכז הארץ או במקום שלכם': 'Workshops in central Israel or at your location',
-            'עקבו אחרינו': 'Follow Us',
-            'השראה ועדכונים': 'Inspiration & Updates',
-            'יצירת <strong>ספר מקופל</strong> אחד להביא הביתה': 'Create one <strong>folded book</strong> to take home',
-            'מפגשים קבועים בסטודיו': 'Regular meetings at the studio',
-            'קבוצה אינטימית של <strong>6-10 משתתפים</strong>': 'Intimate group of <strong>6-10 participants</strong>',
-            'אווירה חברתית ונעימה': 'Friendly and pleasant atmosphere',
-            '<strong>הגעה למשרדכם</strong> או סטודיו שלנו': '<strong>Coming to your office</strong> or our studio',
-            'חוויה בלתי נשכחת לצוות': 'Unforgettable team experience',
-            'פיתוח יצירתיות וסבלנות': 'Developing creativity and patience'
-        };
-
-        // More translations
-        const moreTranslations = {
-            'בחירת עיצוב לספר המקופל': 'Choose Design for Your Folded Book',
-            'התאמה אישית - פיסול הספר': 'Customization - Book Sculpting',
-            'יצירה בעבודת יד - Book Folding': 'Handmade Creation - Book Folding',
-            'משלוח עד הבית': 'Home Delivery',
-            'כל הזכויות שמורות': 'All Rights Reserved',
-            'אתר נגיש לאנשים עם מוגבלויות': 'Accessible website for people with disabilities',
-            'תמיכה בקוראי מסך': 'Screen reader support',
-            'ניווט מקלדת': 'Keyboard navigation',
-            'ניגודיות גבוהה': 'High contrast',
-            'הגדלת טקסט': 'Text enlargement',
-            'קישורים מהירים': 'Quick Links',
-            'סדנאות פיסול וקיפול ספרים': 'Book Folding & Sculpture Workshops',
-            'יצירת ספרים מפוסלים בהתאמה אישית': 'Custom sculpted book creation',
-            '6-12 משתתפים': '6-12 participants',
-            '6-10 משתתפים': '6-10 participants',
-            'עד 30 משתתפים': 'Up to 30 participants',
-            '2-3 שעות': '2-3 hours',
-            'שעה וחצי - שעתיים': '1.5-2 hours'
-        };
-
-        Object.assign(translations, moreTranslations);
-
-        let currentLanguage = localStorage.getItem('language') || 'he';
-
-        function translateToEnglish() {
-            currentLanguage = 'en';
-            document.documentElement.setAttribute('lang', 'en');
-            document.documentElement.setAttribute('dir', 'ltr');
-            
-            // Translate text nodes and elements
-            const elementsToTranslate = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, button, label, option, span, li');
-            
-            elementsToTranslate.forEach(element => {
-                // Skip if element has children with their own text
-                if (element.children.length === 0 || element.tagName === 'BUTTON' || element.tagName === 'A' || element.tagName === 'OPTION') {
-                    const text = element.textContent.trim();
-                    if (translations[text]) {
-                        element.textContent = translations[text];
-                    }
-                } else {
-                    // Handle elements with HTML inside - translate only text nodes
-                    Array.from(element.childNodes).forEach(node => {
-                        if (node.nodeType === Node.TEXT_NODE) {
-                            const text = node.textContent.trim();
-                            if (text && translations[text]) {
-                                node.textContent = translations[text];
-                            }
-                        }
-                    });
-                }
-                
-                // Translate placeholders
-                if (element.placeholder && translations[element.placeholder]) {
-                    element.placeholder = translations[element.placeholder];
-                }
-            });
-
-            // Translate specific accessibility text
-            document.querySelector('.accessibility-bar span').textContent = 'Accessibility:';
-            document.querySelectorAll('.language-controls span')[0].textContent = 'Language:';
-            
-            // Translate copyright
-            const copyrightText = document.querySelector('.copyright p:first-child');
-            if (copyrightText) {
-                copyrightText.innerHTML = '&copy; 2025 Lilou Books - All Rights Reserved | <strong>Book Folding Workshop</strong> | <strong>Book Folding</strong> | <strong>Folded Book</strong>';
-            }
-            
-            const accessibilityText = document.querySelector('.copyright p:last-child');
-            if (accessibilityText) {
-                accessibilityText.textContent = '♿ Accessible website | Screen reader support | Keyboard navigation | High contrast | Text enlargement';
-            }
-
-            // Update language buttons
-            document.getElementById('heBtn').classList.remove('active');
-            document.getElementById('enBtn').classList.add('active');
-            
-            localStorage.setItem('language', 'en');
-            announceToScreenReader('Language changed to English');
-        }
-
-        function translateToHebrew() {
-            // Reload page to get back to Hebrew (original)
-            localStorage.setItem('language', 'he');
-            announceToScreenReader('השפה שונתה לעברית');
-            setTimeout(() => location.reload(), 500);
-        }
-
-        document.getElementById('enBtn').addEventListener('click', translateToEnglish);
-        document.getElementById('heBtn').addEventListener('click', translateToHebrew);
-
-        // ========================================
-        // EXISTING FUNCTIONALITY
-        // ========================================
-
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const isExpanded = navLinks.classList.contains('active');
-            menuToggle.setAttribute('aria-expanded', isExpanded);
-        });
-
-        // Keyboard navigation for menu toggle
-        menuToggle.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                menuToggle.click();
-            }
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-item').forEach((item, index) => {
-            const question = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
-            
-            // Add ARIA attributes
-            question.setAttribute('role', 'button');
-            question.setAttribute('aria-expanded', 'false');
-            question.setAttribute('aria-controls', `faq-answer-${index}`);
-            question.setAttribute('tabindex', '0');
-            answer.setAttribute('id', `faq-answer-${index}`);
-            answer.setAttribute('role', 'region');
-            
-            question.addEventListener('click', () => {
-                const wasActive = item.classList.contains('active');
-                
-                // Close all items
-                document.querySelectorAll('.faq-item').forEach(otherItem => {
-                    otherItem.classList.remove('active');
-                    otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-                });
-                
-                // Open clicked item if it wasn't active
-                if (!wasActive) {
-                    item.classList.add('active');
-                    question.setAttribute('aria-expanded', 'true');
-                }
-            });
-
-            // Keyboard navigation for FAQ
-            question.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    question.click();
-                }
-            });
-        });
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Service Card Click - Jump to Contact Form
-        document.querySelectorAll('.service-card').forEach(card => {
-            // Make cards keyboard accessible
-            card.setAttribute('tabindex', '0');
-            card.setAttribute('role', 'button');
-            card.setAttribute('aria-label', card.querySelector('h3').textContent + ' - לחץ להזמנה');
-            
-            const handleCardActivation = function() {
-                // Add clicked class for pink effect
-                this.classList.add('clicked');
-                
-                // Remove clicked class after animation
-                setTimeout(() => {
-                    this.classList.remove('clicked');
-                }, 300);
-                
-                // Scroll to contact form
-                const contactForm = document.querySelector('#contact-form');
-                if (contactForm) {
-                    contactForm.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    announceToScreenReader(currentLanguage === 'en' ? 
-                        'Navigating to contact form' : 
-                        'עובר לטופס יצירת קשר');
-                }
-                
-                // Pre-fill service type if available
-                const serviceTitle = this.querySelector('h3').textContent;
-                const serviceSelect = document.querySelector('#service');
-                if (serviceSelect && serviceTitle) {
-                    for (let option of serviceSelect.options) {
-                        if (option.text.includes(serviceTitle.split('-')[0].trim())) {
-                            serviceSelect.value = option.value;
-                            break;
-                        }
-                    }
-                }
-            };
-            
-            card.addEventListener('click', handleCardActivation);
-            
-            // Keyboard support
-            card.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    handleCardActivation.call(this);
-                }
-            });
-        });
-
-        // Form Submission Handler
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                // Create accessible success message
-                const button = this.querySelector('button[type="submit"]');
-                button.setAttribute('aria-live', 'polite');
-                button.textContent = currentLanguage === 'en' ? 'Sending...' : 'שולח...';
-                
-                // Formspree will handle the actual submission
-                setTimeout(() => {
-                    button.textContent = currentLanguage === 'en' ? 'Message Sent!' : 'ההודעה נשלחה!';
-                }, 1000);
-            });
-        }
-
-        // Fade in animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card, .gallery-item, .step, .faq-item').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Blog "Read More" functionality
-        const readMoreBtn = document.getElementById('readMoreBtn');
-        const blogFullContent = document.getElementById('blogFullContent');
-        
-        if (readMoreBtn && blogFullContent) {
-            readMoreBtn.addEventListener('click', function() {
-                blogFullContent.style.display = 'block';
-                readMoreBtn.style.display = 'none';
-                
-                // Smooth scroll to continue reading
-                blogFullContent.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        }
-    </script>
-</body>
-</html>
+                <p class="translate">סדנאות פיסול וקיפול ספרים</p>
+                <p class="translate">יצירת ספרים מפוסלים בהתאמה א
