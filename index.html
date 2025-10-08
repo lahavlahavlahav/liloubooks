@@ -223,6 +223,42 @@
             --text-color: #333;
             --cream-bg: #F8F4EE;
             --accent-brown: #8B6F47;
+            --font-size-multiplier: 1;
+        }
+
+        /* High Contrast Mode */
+        body.high-contrast {
+            --primary-color: #FF1493;
+            --secondary-color: #000000;
+            --text-color: #000000;
+            --cream-bg: #FFFFFF;
+            --accent-brown: #000000;
+        }
+
+        body.high-contrast .hero,
+        body.high-contrast section {
+            background: #FFFFFF !important;
+            color: #000000 !important;
+        }
+
+        body.high-contrast a,
+        body.high-contrast h1,
+        body.high-contrast h2,
+        body.high-contrast h3 {
+            color: #000000 !important;
+        }
+
+        /* Font Size Adjustments */
+        body.font-large {
+            --font-size-multiplier: 1.2;
+        }
+
+        body.font-xlarge {
+            --font-size-multiplier: 1.4;
+        }
+
+        body * {
+            font-size: calc(1em * var(--font-size-multiplier));
         }
 
         body {
@@ -697,6 +733,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .accessibility-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem;
+            }
+
+            .accessibility-controls,
+            .language-controls {
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .accessibility-btn,
+            .language-btn {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
             .menu-toggle {
                 display: flex;
             }
@@ -752,28 +806,150 @@
         .fade-in {
             animation: fadeIn 0.6s ease-out;
         }
+
+        /* Accessibility & Language Bar */
+        .accessibility-bar {
+            background: var(--accent-brown);
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .accessibility-controls,
+        .language-controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .accessibility-btn,
+        .language-btn {
+            background: white;
+            color: var(--accent-brown);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .accessibility-btn:hover,
+        .language-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .accessibility-btn:focus,
+        .language-btn:focus {
+            outline: 3px solid #FFD700;
+            outline-offset: 2px;
+        }
+
+        .accessibility-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .language-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-brown);
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Focus visible for keyboard navigation */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Ensure all interactive elements are keyboard accessible */
+        .service-card:focus,
+        .gallery-item:focus,
+        .faq-question:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
+    <!-- Skip to main content for screen readers -->
+    <a href="#main-content" class="skip-link" aria-label="דלג לתוכן הראשי">דלג לתוכן הראשי</a>
+
+    <!-- Accessibility & Language Bar -->
+    <div class="accessibility-bar" role="navigation" aria-label="נגישות ושפה">
+        <div class="accessibility-controls">
+            <span style="color: white; font-weight: 600; margin-left: 1rem;">נגישות:</span>
+            <button class="accessibility-btn" id="increaseFontBtn" aria-label="הגדל טקסט">
+                🔍+ הגדל טקסט
+            </button>
+            <button class="accessibility-btn" id="decreaseFontBtn" aria-label="הקטן טקסט">
+                🔍- הקטן טקסט
+            </button>
+            <button class="accessibility-btn" id="contrastBtn" aria-label="ניגודיות גבוהה">
+                ⚫⚪ ניגודיות
+            </button>
+            <button class="accessibility-btn" id="resetBtn" aria-label="איפוס נגישות">
+                🔄 איפוס
+            </button>
+        </div>
+        <div class="language-controls">
+            <span style="color: white; font-weight: 600; margin-left: 1rem;">שפה:</span>
+            <button class="language-btn active" id="heBtn" aria-label="עברית">
+                🇮🇱 עברית
+            </button>
+            <button class="language-btn" id="enBtn" aria-label="English">
+                🇬🇧 English
+            </button>
+        </div>
+    </div>
+
     <!-- Header -->
-    <header>
+    <header role="banner">
         <nav>
             <a href="#home" style="text-decoration: none;">
                 <div class="logo">
                     <img src="Screenshot%202025-10-06%20at%209.01.46.png" alt="Lilou Books" style="height: 50px; width: auto;">
                 </div>
             </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">בית</a></li>
-                <li><a href="#about">אודות</a></li>
-                <li><a href="#workshops">סדנאות</a></li>
-                <li><a href="#custom-orders">הזמנות אישיות</a></li>
-                <li><a href="#gallery">גלריה</a></li>
-                <li><a href="#faq">שאלות נפוצות</a></li>
-                <li><a href="#blog">בלוג</a></li>
-                <li><a href="#contact">צור קשר</a></li>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="#home" role="menuitem">בית</a></li>
+                <li role="none"><a href="#about" role="menuitem">אודות</a></li>
+                <li role="none"><a href="#workshops" role="menuitem">סדנאות</a></li>
+                <li role="none"><a href="#custom-orders" role="menuitem">הזמנות אישיות</a></li>
+                <li role="none"><a href="#gallery" role="menuitem">גלריה</a></li>
+                <li role="none"><a href="#faq" role="menuitem">שאלות נפוצות</a></li>
+                <li role="none"><a href="#blog" role="menuitem">בלוג</a></li>
+                <li role="none"><a href="#contact" role="menuitem">צור קשר</a></li>
             </ul>
-            <div class="menu-toggle" id="menuToggle">
+            <div class="menu-toggle" id="menuToggle" role="button" aria-label="תפריט ניווט" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -782,8 +958,8 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
+    <section class="hero" id="home" role="main">
+        <div class="container" id="main-content">
             <h1>אמנות פיסול וקיפול ספרים</h1>
             <p>אמנות ייחודית בעבודת יד, סדנאות ודקורציה. גלו את העולם הקסום של פיסול ספרים - סדנאות קיפול ספרים חווייתיות, יצירת ספר מקופל בהתאמה אישית ומתנות ייחודיות שמשאירות חותם.</p>
             
@@ -800,8 +976,8 @@
     </section>
 
     <!-- About Section -->
-    <section class="container" id="about">
-        <h2>אודות - הסיפור מאחורי Lilou Books</h2>
+    <section class="container" id="about" role="region" aria-labelledby="about-heading">
+        <h2 id="about-heading">אודות - הסיפור מאחורי Lilou Books</h2>
         <div style="max-width: 900px; margin: 0 auto;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 2rem;">
                 <div>
@@ -833,7 +1009,7 @@
 
     <!-- About Section -->
     <section class="container">
-        <h2>מה זה פיסול ספרים?</h2>
+        <h2 id="what-is-heading">מה זה פיסול ספרים?</h2>
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
             <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;">
                 <strong>פיסול ספרים (Book Folding/Book Sculpture)</strong> הוא אמנות ייחודית של יצירת תבליטים תלת-מימדיים מדפי הספר. 
@@ -848,8 +1024,8 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="container" id="gallery">
-        <h2>גלריית יצירות - ספרים מקופלים ומפוסלים</h2>
+    <section class="container" id="gallery" role="region" aria-labelledby="gallery-heading">
+        <h2 id="gallery-heading">גלריית יצירות - ספרים מקופלים ומפוסלים</h2>
         <p style="text-align: center; margin-bottom: 2rem;">דוגמאות ל<strong>פיסול ספרים</strong> ו<strong>קיפול ספרים</strong> שיצרנו</p>
         <div class="gallery-grid">
             <!-- תמונה 1: HEART לב -->
@@ -926,8 +1102,8 @@
     </section>
 
     <!-- Blog Section -->
-    <section class="container" id="blog">
-        <h2>בלוג - מהעולם של פיסול ספרים</h2>
+    <section class="container" id="blog" role="region" aria-labelledby="blog-heading">
+        <h2 id="blog-heading">בלוג - מהעולם של פיסול ספרים</h2>
         <div style="max-width: 800px; margin: 0 auto;">
             <!-- Blog Post -->
             <article style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
@@ -998,8 +1174,8 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="container" id="workshops">
-        <h2>סדנאות פיסול וקיפול ספרים - למדו אמנות Book Folding</h2>
+    <section class="container" id="workshops" role="region" aria-labelledby="workshops-heading">
+        <h2 id="workshops-heading">סדנאות פיסול וקיפול ספרים - למדו אמנות Book Folding</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">
             <strong>סדנת קיפול ספרים</strong> חווייתית ומגבשת. למדו ליצור <strong>ספר מפוסל</strong> מרהיב בהנחייה מקצועית. 
             מתאים לכל הרמות, ללא צורך בניסיון קודם. הסדנה כוללת את כל החומרים.
@@ -1017,7 +1193,7 @@
                     <li>כל החומרים כלולים</li>
                     <li>הנחייה מקצועית צעד אחר צעד</li>
                 </ul>
-                <div class="price">₪220 למשתתף</div>
+                <div class="price">₪240 למשתתף</div>
             </div>
 
             <div class="service-card" style="border: 3px solid var(--primary-color);">
@@ -1031,7 +1207,7 @@
                     <li>כל החומרים כלולים</li>
                     <li>אווירה חברתית ונעימה</li>
                 </ul>
-                <div class="price">₪200 למשתתף</div>
+                <div class="price">₪220 למשתתף</div>
             </div>
 
             <div class="service-card" style="border: 3px solid var(--primary-color);">
@@ -1051,8 +1227,8 @@
     </section>
 
     <!-- Custom Orders Section -->
-    <section class="container" id="custom-orders">
-        <h2>הזמנות אישיות - ספר מקופל בהתאמה אישית</h2>
+    <section class="container" id="custom-orders" role="region" aria-labelledby="custom-orders-heading">
+        <h2 id="custom-orders-heading">הזמנות אישיות - ספר מקופל בהתאמה אישית</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 1rem;">
             רוצים <strong>מתנה ייחודית</strong>? אני יוצרת עבורכם <strong>ספר מפוסל</strong> מותאם אישית לכל אירוע.
             <strong>פיסול ספרים</strong> בעבודת יד עם שמות, תאריכים או עיצוב מיוחד שלכם.
@@ -1104,8 +1280,8 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="container" id="faq">
-        <h2>שאלות נפוצות - סדנת פיסול ספרים וקיפול ספרים</h2>
+    <section class="container" id="faq" role="region" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">שאלות נפוצות - סדנת פיסול ספרים וקיפול ספרים</h2>
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question">
@@ -1190,8 +1366,8 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="container" id="contact">
-        <h2>צרו קשר - הזמינו סדנת פיסול ספרים או ספר מקופל</h2>
+    <section class="container" id="contact" role="region" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">צרו קשר - הזמינו סדנת פיסול ספרים או ספר מקופל</h2>
         <div class="contact-section">
             <div style="background: linear-gradient(135deg, var(--primary-color), #FFD4D9); padding: 2rem; border-radius: 15px; margin-bottom: 2rem; text-align: center;">
                 <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.5rem;">איך מזמינים?</h3>
@@ -1255,25 +1431,25 @@
             <div class="contact-form" id="contact-form">
                 <h3 style="text-align: center; margin-bottom: 0.5rem; color: var(--accent-brown);">מלאו את הטופס ואני חוזרת אליכם מהר!</h3>
                 <p style="text-align: center; margin-bottom: 2rem; color: #666;">זה לוקח רק דקה 😊</p>
-                <form id="contactForm" action="https://formspree.io/f/mzzjvvqv" method="POST">
+                <form id="contactForm" action="https://formspree.io/f/mzzjvvqv" method="POST" aria-label="טופס יצירת קשר">
                     <div class="form-group">
                         <label for="name">שם מלא *</label>
-                        <input type="text" id="name" name="name" required placeholder="הכניסו את שמכם">
+                        <input type="text" id="name" name="name" required placeholder="הכניסו את שמכם" aria-required="true">
                     </div>
 
                     <div class="form-group">
                         <label for="email">אימייל *</label>
-                        <input type="email" id="email" name="email" required placeholder="example@email.com">
+                        <input type="email" id="email" name="email" required placeholder="example@email.com" aria-required="true">
                     </div>
 
                     <div class="form-group">
                         <label for="phone">טלפון *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="05X-XXX-XXXX">
+                        <input type="tel" id="phone" name="phone" required placeholder="05X-XXX-XXXX" aria-required="true">
                     </div>
 
                     <div class="form-group">
                         <label for="service">סוג השירות *</label>
-                        <select id="service" name="service" required>
+                        <select id="service" name="service" required aria-required="true">
                             <option value="">בחרו סוג שירות</option>
                             <option value="הזמנת ספר מקופל">🎁 הזמנת ספר מקופל בהתאמה אישית</option>
                             <option value="סדנה פרטית">💕 סדנת פיסול ספרים פרטית</option>
@@ -1285,7 +1461,7 @@
 
                     <div class="form-group">
                         <label for="message">הודעה *</label>
-                        <textarea id="message" name="message" required placeholder="ספרו לנו מה אתם רוצים - סדנה מתי? ספר עם איזה עיצוב? שמות? תאריך? או כל פרט אחר שחשוב לכם..."></textarea>
+                        <textarea id="message" name="message" required placeholder="ספרו לנו מה אתם רוצים - סדנה מתי? ספר עם איזה עיצוב? שמות? תאריך? או כל פרט אחר שחשוב לכם..." aria-required="true"></textarea>
                     </div>
 
                     <button type="submit" class="cta-button" style="width: 100%;">שלחו הודעה ואני אחזור אליכם במהירות! 💌</button>
@@ -1295,7 +1471,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Lilou Books</h3>
@@ -1325,17 +1501,326 @@
 
         <div class="copyright">
             <p>&copy; 2025 Lilou Books - כל הזכויות שמורות | <strong>סדנת פיסול ספרים</strong> | <strong>קיפול ספרים</strong> | <strong>ספר מקופל</strong></p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">♿ אתר נגיש לאנשים עם מוגבלויות | תמיכה בקוראי מסך | ניווט מקלדת | ניגודיות גבוהה | הגדלת טקסט</p>
         </div>
     </footer>
 
+    <!-- ARIA Live Region for Screen Reader Announcements -->
+    <div aria-live="polite" aria-atomic="true" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;" id="aria-announcer"></div>
+
     <!-- JavaScript -->
     <script>
+        // ========================================
+        // ACCESSIBILITY FEATURES
+        // ========================================
+        
+        let currentFontSize = 'normal';
+        let highContrast = false;
+
+        // Announce to screen readers
+        function announceToScreenReader(message) {
+            const announcer = document.getElementById('aria-announcer');
+            if (announcer) {
+                announcer.textContent = '';
+                setTimeout(() => {
+                    announcer.textContent = message;
+                }, 100);
+            }
+        }
+
+        // Load saved preferences
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedFontSize = localStorage.getItem('fontSize');
+            const savedContrast = localStorage.getItem('highContrast');
+            const savedLanguage = localStorage.getItem('language') || 'he';
+            
+            if (savedFontSize && savedFontSize !== 'normal') {
+                document.body.classList.add(`font-${savedFontSize}`);
+                currentFontSize = savedFontSize;
+            }
+            
+            if (savedContrast === 'true') {
+                document.body.classList.add('high-contrast');
+                document.getElementById('contrastBtn').classList.add('active');
+                highContrast = true;
+            }
+
+            if (savedLanguage === 'en') {
+                translateToEnglish();
+            }
+        });
+
+        // Increase font size
+        document.getElementById('increaseFontBtn').addEventListener('click', () => {
+            document.body.classList.remove('font-large', 'font-xlarge');
+            
+            if (currentFontSize === 'normal') {
+                document.body.classList.add('font-large');
+                currentFontSize = 'large';
+                announceToScreenReader(currentLanguage === 'en' ? 'Text size increased to large' : 'גודל הטקסט הוגדל לגדול');
+            } else if (currentFontSize === 'large') {
+                document.body.classList.add('font-xlarge');
+                currentFontSize = 'xlarge';
+                announceToScreenReader(currentLanguage === 'en' ? 'Text size increased to extra large' : 'גודל הטקסט הוגדל לגדול מאוד');
+            }
+            
+            localStorage.setItem('fontSize', currentFontSize);
+        });
+
+        // Decrease font size
+        document.getElementById('decreaseFontBtn').addEventListener('click', () => {
+            document.body.classList.remove('font-large', 'font-xlarge');
+            
+            if (currentFontSize === 'xlarge') {
+                document.body.classList.add('font-large');
+                currentFontSize = 'large';
+                announceToScreenReader(currentLanguage === 'en' ? 'Text size decreased to large' : 'גודל הטקסט הוקטן לגדול');
+            } else if (currentFontSize === 'large') {
+                currentFontSize = 'normal';
+                announceToScreenReader(currentLanguage === 'en' ? 'Text size reset to normal' : 'גודל הטקסט אופס לרגיל');
+            }
+            
+            localStorage.setItem('fontSize', currentFontSize);
+        });
+
+        // Toggle high contrast
+        document.getElementById('contrastBtn').addEventListener('click', function() {
+            highContrast = !highContrast;
+            document.body.classList.toggle('high-contrast');
+            this.classList.toggle('active');
+            localStorage.setItem('highContrast', highContrast);
+            announceToScreenReader(highContrast ? 
+                (currentLanguage === 'en' ? 'High contrast mode enabled' : 'מצב ניגודיות גבוהה הופעל') : 
+                (currentLanguage === 'en' ? 'High contrast mode disabled' : 'מצב ניגודיות גבוהה כובה'));
+        });
+
+        // Reset accessibility settings
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            document.body.classList.remove('font-large', 'font-xlarge', 'high-contrast');
+            document.getElementById('contrastBtn').classList.remove('active');
+            currentFontSize = 'normal';
+            highContrast = false;
+            localStorage.removeItem('fontSize');
+            localStorage.removeItem('highContrast');
+            announceToScreenReader(currentLanguage === 'en' ? 'Accessibility settings reset' : 'הגדרות נגישות אופסו');
+        });
+
+        // ========================================
+        // TRANSLATION FEATURES
+        // ========================================
+
+        const translations = {
+            // Navigation
+            'בית': 'Home',
+            'אודות': 'About',
+            'סדנאות': 'Workshops',
+            'הזמנות אישיות': 'Custom Orders',
+            'גלריה': 'Gallery',
+            'שאלות נפוצות': 'FAQ',
+            'בלוג': 'Blog',
+            'צור קשר': 'Contact',
+            
+            // Hero section
+            'אמנות פיסול וקיפול ספרים': 'Book Folding & Book Sculpture Art',
+            'אמנות ייחודית בעבודת יד, סדנאות ודקורציה. גלו את העולם הקסום של פיסול ספרים - סדנאות קיפול ספרים חווייתיות, יצירת ספר מקופל בהתאמה אישית ומתנות ייחודיות שמשאירות חותם.': 'Unique handmade art, workshops, and decor. Discover the magical world of book folding - experiential book folding workshops, custom folded books, and unique gifts that leave a lasting impression.',
+            'הזמינו סדנת פיסול ספרים עכשיו': 'Book Your Workshop Now',
+            'פשוט ממלאים טופס ואני חוזרת אליכם במהירות 💌': 'Just fill out the form and I\'ll get back to you quickly 💌',
+
+            // About section
+            'אודות - הסיפור מאחורי Lilou Books': 'About - The Story Behind Lilou Books',
+            'להב ברק': 'Lahav Barak',
+            
+            // Workshops
+            'סדנאות פיסול וקיפול ספרים - למדו אמנות Book Folding': 'Book Folding & Sculpture Workshops - Learn the Art',
+            'סדנה פרטית - קיפול ספרים': 'Private Workshop - Book Folding',
+            'סדנה קבוצתית פתוחה לקהל': 'Open Group Workshop',
+            'סדנת גיבוש לארגונים וחברות': 'Team Building for Organizations',
+            'משתתפים': 'participants',
+            'משך': 'Duration',
+            'שעות': 'hours',
+            'כל החומרים כלולים': 'All materials included',
+            'הנחייה מקצועית צעד אחר צעד': 'Step-by-step professional guidance',
+            'למשתתף': 'per participant',
+            'מחיר מיוחד לקבוצות': 'Special group pricing',
+
+            // Custom orders
+            'הזמנות אישיות - ספר מקופל בהתאמה אישית': 'Custom Orders - Personalized Folded Books',
+            'איך מזמינים ספר מפוסל? פשוט ממלאים את הטופס באתר!': 'How to order? Simply fill out the form on our website!',
+            'הזמינו ספר מפוסל עכשיו': 'Order Your Custom Book Now',
+            'פשוט ממלאים את הטופס ואני חוזרת אליכם תוך 24 שעות ✨': 'Just fill out the form and I\'ll get back to you within 24 hours ✨',
+
+            // Gallery
+            'גלריית יצירות - ספרים מקופלים ומפוסלים': 'Gallery - Folded & Sculpted Books',
+            'אהבתם? רוצים ספר כזה לעצמכם?': 'Like what you see? Want one for yourself?',
+            'פשוט ממלאים טופס באתר ואני יוצרת עבורכם ספר מקופל מיוחד ומותאם אישית!': 'Simply fill out the form and I\'ll create a special custom folded book just for you!',
+            'הזמינו את הספר המושלם שלכם עכשיו': 'Order Your Perfect Book Now',
+
+            // FAQ
+            'שאלות נפוצות - סדנת פיסול ספרים וקיפול ספרים': 'FAQ - Book Folding & Sculpture Workshops',
+            
+            // Contact
+            'צרו קשר - הזמינו סדנת פיסול ספרים או ספר מקופל': 'Contact Us - Book a Workshop or Order a Custom Book',
+            'איך מזמינים?': 'How to Order?',
+            'פשוט ממלאים את הטופס למטה ואני חוזרת אליכם תוך 24 שעות! 💌': 'Just fill out the form below and I\'ll get back to you within 24 hours! 💌',
+            'מלאו את הטופס ואני חוזרת אליכם מהר!': 'Fill out the form and I\'ll get back to you soon!',
+            'זה לוקח רק דקה 😊': 'It only takes a minute 😊',
+            'שם מלא': 'Full Name',
+            'טלפון': 'Phone',
+            'סוג השירות': 'Service Type',
+            'הודעה': 'Message',
+            'שלחו הודעה ואני אחזור אליכם במהירות! 💌': 'Send Message and I\'ll Get Back to You Soon! 💌',
+            
+            // Accessibility
+            'נגישות:': 'Accessibility:',
+            'שפה:': 'Language:',
+            'הגדל טקסט': 'Increase Text',
+            'הקטן טקסט': 'Decrease Text',
+            'ניגודיות': 'Contrast',
+            'איפוס': 'Reset',
+            'עברית': 'Hebrew',
+            'דלג לתוכן הראשי': 'Skip to main content'
+        };
+
+        // Extended translations for form and other elements
+        const extendedTranslations = {
+            'הכניסו את שמכם': 'Enter your name',
+            'בחרו סוג שירות': 'Choose service type',
+            '🎁 הזמנת ספר מקופל בהתאמה אישית': '🎁 Custom Folded Book Order',
+            '💕 סדנת פיסול ספרים פרטית': '💕 Private Book Folding Workshop',
+            '🎨 סדנה קבוצתית פתוחה לקהל': '🎨 Open Group Workshop',
+            '👥 סדנת קיפול ספרים לארגונים': '👥 Corporate Team Building Workshop',
+            '💬 שאלה כללית': '💬 General Question',
+            'ספרו לנו מה אתם רוצים - סדנה מתי? ספר עם איזה עיצוב? שמות? תאריך? או כל פרט אחר שחשוב לכם...': 'Tell us what you want - workshop when? Book with what design? Names? Date? Or any other important details...',
+            'טלפון / וואטסאפ': 'Phone / WhatsApp',
+            'זמינה בכל יום 9:00-20:00': 'Available daily 9:00-20:00',
+            'אימייל': 'Email',
+            'נענה תוך 24 שעות': 'Response within 24 hours',
+            'מיקום': 'Location',
+            'תל אביב, ישראל': 'Tel Aviv, Israel',
+            'סדנאות במרכז הארץ או במקום שלכם': 'Workshops in central Israel or at your location',
+            'עקבו אחרינו': 'Follow Us',
+            'השראה ועדכונים': 'Inspiration & Updates',
+            'יצירת <strong>ספר מקופל</strong> אחד להביא הביתה': 'Create one <strong>folded book</strong> to take home',
+            'מפגשים קבועים בסטודיו': 'Regular meetings at the studio',
+            'קבוצה אינטימית של <strong>6-10 משתתפים</strong>': 'Intimate group of <strong>6-10 participants</strong>',
+            'אווירה חברתית ונעימה': 'Friendly and pleasant atmosphere',
+            '<strong>הגעה למשרדכם</strong> או סטודיו שלנו': '<strong>Coming to your office</strong> or our studio',
+            'חוויה בלתי נשכחת לצוות': 'Unforgettable team experience',
+            'פיתוח יצירתיות וסבלנות': 'Developing creativity and patience'
+        };
+
+        // More translations
+        const moreTranslations = {
+            'בחירת עיצוב לספר המקופל': 'Choose Design for Your Folded Book',
+            'התאמה אישית - פיסול הספר': 'Customization - Book Sculpting',
+            'יצירה בעבודת יד - Book Folding': 'Handmade Creation - Book Folding',
+            'משלוח עד הבית': 'Home Delivery',
+            'כל הזכויות שמורות': 'All Rights Reserved',
+            'אתר נגיש לאנשים עם מוגבלויות': 'Accessible website for people with disabilities',
+            'תמיכה בקוראי מסך': 'Screen reader support',
+            'ניווט מקלדת': 'Keyboard navigation',
+            'ניגודיות גבוהה': 'High contrast',
+            'הגדלת טקסט': 'Text enlargement',
+            'קישורים מהירים': 'Quick Links',
+            'סדנאות פיסול וקיפול ספרים': 'Book Folding & Sculpture Workshops',
+            'יצירת ספרים מפוסלים בהתאמה אישית': 'Custom sculpted book creation',
+            '6-12 משתתפים': '6-12 participants',
+            '6-10 משתתפים': '6-10 participants',
+            'עד 30 משתתפים': 'Up to 30 participants',
+            '2-3 שעות': '2-3 hours',
+            'שעה וחצי - שעתיים': '1.5-2 hours'
+        };
+
+        Object.assign(translations, moreTranslations);
+
+        let currentLanguage = localStorage.getItem('language') || 'he';
+
+        function translateToEnglish() {
+            currentLanguage = 'en';
+            document.documentElement.setAttribute('lang', 'en');
+            document.documentElement.setAttribute('dir', 'ltr');
+            
+            // Translate text nodes and elements
+            const elementsToTranslate = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, button, label, option, span, li');
+            
+            elementsToTranslate.forEach(element => {
+                // Skip if element has children with their own text
+                if (element.children.length === 0 || element.tagName === 'BUTTON' || element.tagName === 'A' || element.tagName === 'OPTION') {
+                    const text = element.textContent.trim();
+                    if (translations[text]) {
+                        element.textContent = translations[text];
+                    }
+                } else {
+                    // Handle elements with HTML inside - translate only text nodes
+                    Array.from(element.childNodes).forEach(node => {
+                        if (node.nodeType === Node.TEXT_NODE) {
+                            const text = node.textContent.trim();
+                            if (text && translations[text]) {
+                                node.textContent = translations[text];
+                            }
+                        }
+                    });
+                }
+                
+                // Translate placeholders
+                if (element.placeholder && translations[element.placeholder]) {
+                    element.placeholder = translations[element.placeholder];
+                }
+            });
+
+            // Translate specific accessibility text
+            document.querySelector('.accessibility-bar span').textContent = 'Accessibility:';
+            document.querySelectorAll('.language-controls span')[0].textContent = 'Language:';
+            
+            // Translate copyright
+            const copyrightText = document.querySelector('.copyright p:first-child');
+            if (copyrightText) {
+                copyrightText.innerHTML = '&copy; 2025 Lilou Books - All Rights Reserved | <strong>Book Folding Workshop</strong> | <strong>Book Folding</strong> | <strong>Folded Book</strong>';
+            }
+            
+            const accessibilityText = document.querySelector('.copyright p:last-child');
+            if (accessibilityText) {
+                accessibilityText.textContent = '♿ Accessible website | Screen reader support | Keyboard navigation | High contrast | Text enlargement';
+            }
+
+            // Update language buttons
+            document.getElementById('heBtn').classList.remove('active');
+            document.getElementById('enBtn').classList.add('active');
+            
+            localStorage.setItem('language', 'en');
+            announceToScreenReader('Language changed to English');
+        }
+
+        function translateToHebrew() {
+            // Reload page to get back to Hebrew (original)
+            localStorage.setItem('language', 'he');
+            announceToScreenReader('השפה שונתה לעברית');
+            setTimeout(() => location.reload(), 500);
+        }
+
+        document.getElementById('enBtn').addEventListener('click', translateToEnglish);
+        document.getElementById('heBtn').addEventListener('click', translateToHebrew);
+
+        // ========================================
+        // EXISTING FUNCTIONALITY
+        // ========================================
+
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            const isExpanded = navLinks.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Keyboard navigation for menu toggle
+        menuToggle.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                menuToggle.click();
+            }
         });
 
         // Close mobile menu when clicking on a link
@@ -1346,19 +1831,39 @@
         });
 
         // FAQ Accordion
-        document.querySelectorAll('.faq-item').forEach(item => {
+        document.querySelectorAll('.faq-item').forEach((item, index) => {
             const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            // Add ARIA attributes
+            question.setAttribute('role', 'button');
+            question.setAttribute('aria-expanded', 'false');
+            question.setAttribute('aria-controls', `faq-answer-${index}`);
+            question.setAttribute('tabindex', '0');
+            answer.setAttribute('id', `faq-answer-${index}`);
+            answer.setAttribute('role', 'region');
+            
             question.addEventListener('click', () => {
                 const wasActive = item.classList.contains('active');
                 
                 // Close all items
                 document.querySelectorAll('.faq-item').forEach(otherItem => {
                     otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
                 });
                 
                 // Open clicked item if it wasn't active
                 if (!wasActive) {
                     item.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+            // Keyboard navigation for FAQ
+            question.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    question.click();
                 }
             });
         });
@@ -1379,7 +1884,12 @@
 
         // Service Card Click - Jump to Contact Form
         document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('click', function() {
+            // Make cards keyboard accessible
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', card.querySelector('h3').textContent + ' - לחץ להזמנה');
+            
+            const handleCardActivation = function() {
                 // Add clicked class for pink effect
                 this.classList.add('clicked');
                 
@@ -1388,26 +1898,39 @@
                     this.classList.remove('clicked');
                 }, 300);
                 
-                // Scroll to contact form (the actual form, not just contact section)
+                // Scroll to contact form
                 const contactForm = document.querySelector('#contact-form');
                 if (contactForm) {
                     contactForm.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    announceToScreenReader(currentLanguage === 'en' ? 
+                        'Navigating to contact form' : 
+                        'עובר לטופס יצירת קשר');
                 }
                 
                 // Pre-fill service type if available
                 const serviceTitle = this.querySelector('h3').textContent;
                 const serviceSelect = document.querySelector('#service');
                 if (serviceSelect && serviceTitle) {
-                    // Try to match the service
                     for (let option of serviceSelect.options) {
                         if (option.text.includes(serviceTitle.split('-')[0].trim())) {
                             serviceSelect.value = option.value;
                             break;
                         }
                     }
+                }
+            };
+            
+            card.addEventListener('click', handleCardActivation);
+            
+            // Keyboard support
+            card.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleCardActivation.call(this);
                 }
             });
         });
@@ -1416,12 +1939,15 @@
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
-                // If using Formspree, it will handle the submission
-                // Otherwise, prevent default and add your own handling
-                // e.preventDefault();
+                // Create accessible success message
+                const button = this.querySelector('button[type="submit"]');
+                button.setAttribute('aria-live', 'polite');
+                button.textContent = currentLanguage === 'en' ? 'Sending...' : 'שולח...';
                 
-                // Show success message (if not using Formspree)
-                // alert('תודה על פנייתך! ניצור איתך קשר בהקדם.');
+                // Formspree will handle the actual submission
+                setTimeout(() => {
+                    button.textContent = currentLanguage === 'en' ? 'Message Sent!' : 'ההודעה נשלחה!';
+                }, 1000);
             });
         }
 
