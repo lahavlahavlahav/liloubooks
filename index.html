@@ -269,10 +269,9 @@
         }
 
         /* ========================================
-           ACCESSIBILITY BUTTON - NEW DESIGN
+           ACCESSIBILITY BUTTON
            ======================================== */
         
-        /* Floating Accessibility Button */
         .accessibility-widget {
             position: fixed;
             bottom: 20px;
@@ -305,14 +304,12 @@
             outline-offset: 2px;
         }
 
-        /* Accessibility Icon (person with arms spread) */
         .accessibility-icon {
             width: 32px;
             height: 32px;
             color: white;
         }
 
-        /* Accessibility Panel */
         .accessibility-panel {
             position: absolute;
             bottom: 70px;
@@ -383,7 +380,6 @@
             border-color: #0066cc;
         }
 
-        /* Language Section in Panel */
         .language-section {
             margin-top: 1rem;
             padding-top: 1rem;
@@ -430,7 +426,6 @@
             border-color: #0066cc;
         }
 
-        /* Responsive Accessibility Widget */
         @media (max-width: 768px) {
             .accessibility-widget {
                 bottom: 15px;
@@ -951,14 +946,12 @@
                 grid-template-columns: 1fr;
             }
 
-            /* About section responsive */
             #about > div > div:first-child {
                 grid-template-columns: 1fr !important;
                 gap: 2rem !important;
             }
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -974,7 +967,6 @@
             animation: fadeIn 0.6s ease-out;
         }
 
-        /* Skip to main content link for screen readers */
         .skip-link {
             position: absolute;
             top: -40px;
@@ -990,7 +982,6 @@
             top: 0;
         }
 
-        /* Focus visible for keyboard navigation */
         a:focus-visible,
         button:focus-visible,
         input:focus-visible,
@@ -1000,7 +991,6 @@
             outline-offset: 2px;
         }
 
-        /* Ensure all interactive elements are keyboard accessible */
         .service-card:focus,
         .gallery-item:focus,
         .faq-question:focus {
@@ -1010,7 +1000,6 @@
     </style>
 </head>
 <body>
-    <!-- Skip to main content for screen readers -->
     <a href="#main-content" class="skip-link" aria-label="דלג לתוכן הראשי">דלג לתוכן הראשי</a>
 
     <!-- Floating Accessibility Widget -->
@@ -1087,7 +1076,6 @@
             <h1>אמנות פיסול וקיפול ספרים</h1>
             <p>אמנות ייחודית בעבודת יד, סדנאות ודקורציה. גלו את העולם הקסום של פיסול ספרים - סדנאות קיפול ספרים חווייתיות, יצירת ספר מקופל בהתאמה אישית ומתנות ייחודיות שמשאירות חותם.</p>
             
-            <!-- Hero Image -->
             <div style="max-width: 95%; margin: 1.5rem auto 1rem;">
                 <img src="front%20page.png" alt="אמנות פיסול וקיפול ספרים - Lilou Books" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
             </div>
@@ -1152,7 +1140,6 @@
         <h2 id="gallery-heading">גלריית יצירות - ספרים מקופלים ומפוסלים</h2>
         <p style="text-align: center; margin-bottom: 2rem;">דוגמאות ל<strong>פיסול ספרים</strong> ו<strong>קיפול ספרים</strong> שיצרנו</p>
         <div class="gallery-grid">
-            <!-- תמונה 1: HEART לב -->
             <div class="gallery-item">
                 <img src="heart.jpg" alt="פסל ספר בצורת לב - ספר מקופל מתנה לאהבה">
                 <div class="gallery-item-content">
@@ -1161,7 +1148,6 @@
                 </div>
             </div>
 
-            <!-- תמונה: אהבה -->
             <div class="gallery-item">
                 <img src="אהבה.jpg" alt="ספר מקופל עם המילה LOVE - קיפול ספרים">
                 <div class="gallery-item-content">
@@ -1170,7 +1156,6 @@
                 </div>
             </div>
 
-            <!-- תמונה: הקדשה אישית -->
             <div class="gallery-item">
                 <img src="הקדשה אישית.jpg" alt="ספר מקופל עם הקדשה אישית - פיסול ספרים">
                 <div class="gallery-item-content">
@@ -1179,7 +1164,6 @@
                 </div>
             </div>
 
-            <!-- תמונה: סמל או לוגו -->
             <div class="gallery-item">
                 <img src="סמל או לוגו.jpg" alt="פיסול ספר עם סמל מיוחד - Book Sculpture">
                 <div class="gallery-item-content">
@@ -1188,7 +1172,6 @@
                 </div>
             </div>
 
-            <!-- תמונה: שמות -->
             <div class="gallery-item">
                 <img src="שמות.jpg" alt="ספר מקופל עם שמות - מתנה לחתונה קיפול ספרים">
                 <div class="gallery-item-content">
@@ -1197,7 +1180,6 @@
                 </div>
             </div>
 
-            <!-- תמונה: סדנה פרטית -->
             <div class="gallery-item">
                 <img src="סדנה פרטית.jpg" alt="סדנת פיסול ספרים פרטית - Book Folding Workshop">
                 <div class="gallery-item-content">
@@ -1206,7 +1188,6 @@
                 </div>
             </div>
 
-            <!-- תמונה: סדנה פתוחה לקהל -->
             <div class="gallery-item">
                 <img src="סדנה פתוחה לקהל.jpg" alt="סדנה פתוחה לקהל - סדנת קיפול ספרים">
                 <div class="gallery-item-content">
@@ -1229,7 +1210,6 @@
     <section class="container" id="blog" role="region" aria-labelledby="blog-heading">
         <h2 id="blog-heading">בלוג - מהעולם של פיסול ספרים</h2>
         <div style="max-width: 800px; margin: 0 auto;">
-            <!-- Blog Post -->
             <article style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
                 <h3 style="color: var(--accent-brown); margin-bottom: 0.5rem; font-size: 1.8rem;">הספר הראשון - או איך השיעמום בצרפת הפך לעסק</h3>
                 <p style="color: #999; font-size: 0.9rem; margin-bottom: 1.5rem;">6 באוקטובר, 2025 • מאת להב</p>
@@ -1297,7 +1277,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- Workshops Section -->
     <section class="container" id="workshops" role="region" aria-labelledby="workshops-heading">
         <h2 id="workshops-heading">סדנאות פיסול וקיפול ספרים - למדו אמנות Book Folding</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">
@@ -1585,4 +1565,287 @@
                             <option value="סדנה פרטית">💕 סדנת פיסול ספרים פרטית</option>
                             <option value="סדנה קבוצתית">🎨 סדנה קבוצתית פתוחה לקהל</option>
                             <option value="סדנת גיבוש">👥 סדנת קיפול ספרים לארגונים</option>
-                            <option value="אחר">💬 שאלה כללית
+                            <option value="אחר">💬 שאלה כללית</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">הודעה *</label>
+                        <textarea id="message" name="message" required placeholder="ספרו לנו מה אתם רוצים - סדנה מתי? ספר עם איזה עיצוב? שמות? תאריך? או כל פרט אחר שחשוב לכם..." aria-required="true"></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button" style="width: 100%;">שלחו הודעה ואני אחזור אליכם במהירות! 💌</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Lilou Books</h3>
+                <p>סדנאות פיסול וקיפול ספרים</p>
+                <p>יצירת ספרים מפוסלים בהתאמה אישית</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>קישורים מהירים</h3>
+                <a href="#home">בית</a>
+                <a href="#workshops">סדנאות קיפול ספרים</a>
+                <a href="#custom-orders">הזמנת ספר מקופל</a>
+                <a href="#gallery">גלריית פיסול ספרים</a>
+                <a href="#faq">שאלות נפוצות</a>
+                <a href="#contact">צור קשר</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>עקבו אחרינו</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/liloubooks" target="_blank" rel="noopener" aria-label="Facebook">F</a>
+                    <a href="https://www.instagram.com/liloubooks____/" target="_blank" rel="noopener" aria-label="Instagram">I</a>
+                    <a href="https://wa.me/972502534643" target="_blank" rel="noopener" aria-label="WhatsApp">W</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 Lilou Books - כל הזכויות שמורות | <strong>סדנת פיסול ספרים</strong> | <strong>קיפול ספרים</strong> | <strong>ספר מקופל</strong></p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">♿ אתר נגיש לאנשים עם מוגבלויות | תמיכה בקוראי מסך | ניווט מקלדת | ניגודיות גבוהה | הגדלת טקסט</p>
+        </div>
+    </footer>
+
+    <!-- ARIA Live Region for Screen Reader Announcements -->
+    <div aria-live="polite" aria-atomic="true" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;" id="aria-announcer"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // ========================================
+            // ACCESSIBILITY WIDGET
+            // ========================================
+            
+            const accessibilityToggle = document.getElementById('accessibilityToggle');
+            const accessibilityPanel = document.getElementById('accessibilityPanel');
+            
+            if (accessibilityToggle && accessibilityPanel) {
+                // Toggle accessibility panel
+                accessibilityToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = accessibilityPanel.classList.contains('active');
+                    accessibilityPanel.classList.toggle('active');
+                    accessibilityToggle.setAttribute('aria-expanded', !isOpen);
+                });
+
+                // Close panel when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.accessibility-widget')) {
+                        accessibilityPanel.classList.remove('active');
+                        accessibilityToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                // Prevent panel from closing when clicking inside it
+                accessibilityPanel.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+
+            // ========================================
+            // ACCESSIBILITY FEATURES
+            // ========================================
+            
+            let currentFontSize = 'normal';
+            let highContrast = false;
+
+            function announceToScreenReader(message) {
+                const announcer = document.getElementById('aria-announcer');
+                if (announcer) {
+                    announcer.textContent = '';
+                    setTimeout(() => {
+                        announcer.textContent = message;
+                    }, 100);
+                }
+            }
+
+            // Load saved preferences
+            const savedFontSize = localStorage.getItem('fontSize');
+            const savedContrast = localStorage.getItem('highContrast');
+            
+            if (savedFontSize && savedFontSize !== 'normal') {
+                document.body.classList.add(`font-${savedFontSize}`);
+                currentFontSize = savedFontSize;
+            }
+            
+            if (savedContrast === 'true') {
+                document.body.classList.add('high-contrast');
+                const contrastBtn = document.getElementById('contrastBtn');
+                if (contrastBtn) contrastBtn.classList.add('active');
+                highContrast = true;
+            }
+
+            // Increase font size
+            const increaseFontBtn = document.getElementById('increaseFontBtn');
+            if (increaseFontBtn) {
+                increaseFontBtn.addEventListener('click', () => {
+                    document.body.classList.remove('font-large', 'font-xlarge');
+                    
+                    if (currentFontSize === 'normal') {
+                        document.body.classList.add('font-large');
+                        currentFontSize = 'large';
+                        announceToScreenReader('גודל הטקסט הוגדל');
+                    } else if (currentFontSize === 'large') {
+                        document.body.classList.add('font-xlarge');
+                        currentFontSize = 'xlarge';
+                        announceToScreenReader('גודל הטקסט הוגדל מאוד');
+                    }
+                    
+                    localStorage.setItem('fontSize', currentFontSize);
+                });
+            }
+
+            // Decrease font size
+            const decreaseFontBtn = document.getElementById('decreaseFontBtn');
+            if (decreaseFontBtn) {
+                decreaseFontBtn.addEventListener('click', () => {
+                    document.body.classList.remove('font-large', 'font-xlarge');
+                    
+                    if (currentFontSize === 'xlarge') {
+                        document.body.classList.add('font-large');
+                        currentFontSize = 'large';
+                        announceToScreenReader('גודל הטקסט הוקטן');
+                    } else if (currentFontSize === 'large') {
+                        currentFontSize = 'normal';
+                        announceToScreenReader('גודל הטקסט חזר לרגיל');
+                    }
+                    
+                    localStorage.setItem('fontSize', currentFontSize);
+                });
+            }
+
+            // Toggle high contrast
+            const contrastBtn = document.getElementById('contrastBtn');
+            if (contrastBtn) {
+                contrastBtn.addEventListener('click', function() {
+                    highContrast = !highContrast;
+                    document.body.classList.toggle('high-contrast');
+                    this.classList.toggle('active');
+                    localStorage.setItem('highContrast', highContrast);
+                    announceToScreenReader(highContrast ? 'ניגודיות גבוהה הופעלה' : 'ניגודיות גבוהה כובתה');
+                });
+            }
+
+            // Reset accessibility settings
+            const resetBtn = document.getElementById('resetBtn');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    document.body.classList.remove('font-large', 'font-xlarge', 'high-contrast');
+                    const contrastBtn = document.getElementById('contrastBtn');
+                    if (contrastBtn) contrastBtn.classList.remove('active');
+                    currentFontSize = 'normal';
+                    highContrast = false;
+                    localStorage.removeItem('fontSize');
+                    localStorage.removeItem('highContrast');
+                    announceToScreenReader('הגדרות נגישות אופסו');
+                });
+            }
+
+            // Language buttons
+            const enBtn = document.getElementById('enBtn');
+            const heBtn = document.getElementById('heBtn');
+            
+            if (enBtn) {
+                enBtn.addEventListener('click', () => {
+                    if (heBtn) heBtn.classList.remove('active');
+                    enBtn.classList.add('active');
+                    announceToScreenReader('Language changed to English');
+                });
+            }
+
+            if (heBtn) {
+                heBtn.addEventListener('click', () => {
+                    if (enBtn) enBtn.classList.remove('active');
+                    heBtn.classList.add('active');
+                    announceToScreenReader('השפה שונתה לעברית');
+                });
+            }
+
+            // ========================================
+            // EXISTING FUNCTIONALITY
+            // ========================================
+
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // FAQ Accordion
+            document.querySelectorAll('.faq-item').forEach((item) => {
+                const question = item.querySelector('.faq-question');
+                
+                if (question) {
+                    question.addEventListener('click', () => {
+                        const wasActive = item.classList.contains('active');
+                        
+                        document.querySelectorAll('.faq-item').forEach(otherItem => {
+                            otherItem.classList.remove('active');
+                        });
+                        
+                        if (!wasActive) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+
+            // Smooth Scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Service Card Click
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.add('clicked');
+                    setTimeout(() => this.classList.remove('clicked'), 300);
+                    
+                    const contactForm = document.querySelector('#contact-form');
+                    if (contactForm) {
+                        contactForm.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Blog Read More Button
+            const readMoreBtn = document.getElementById('readMoreBtn');
+            const blogFullContent = document.getElementById('blogFullContent');
+            
+            if (readMoreBtn && blogFullContent) {
+                readMoreBtn.addEventListener('click', function() {
+                    blogFullContent.style.display = 'block';
+                    readMoreBtn.style.display = 'none';
+                    
+                    // Smooth scroll to continue reading
+                    blogFullContent.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
