@@ -796,3 +796,450 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--secondary-color);
+            border-radius: 10px;
+        }
+
+        .contact-item-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: var(--accent-brown);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            margin-top: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-brown);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--accent-brown);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: var(--accent-brown);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            #about > div > div:first-child {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-brown);
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .service-card:focus,
+        .gallery-item:focus,
+        .faq-question:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link" aria-label="דלג לתוכן הראשי">דלג לתוכן הראשי</a>
+
+    <!-- Floating Accessibility Widget -->
+    <div class="accessibility-widget">
+        <button class="accessibility-toggle-btn" id="accessibilityToggle" aria-label="פתח תפריט נגישות" aria-expanded="false">
+            <svg class="accessibility-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="5" r="2"/>
+                <path d="M12 7v10"/>
+                <path d="M7 11l5-2 5 2"/>
+                <path d="M7 17l5-3 5 3"/>
+            </svg>
+        </button>
+        
+        <div class="accessibility-panel" id="accessibilityPanel">
+            <h3>נגישות</h3>
+            <div class="accessibility-controls">
+                <button class="accessibility-btn" id="increaseFontBtn" aria-label="הגדל טקסט">
+                    🔍+ הגדל טקסט
+                </button>
+                <button class="accessibility-btn" id="decreaseFontBtn" aria-label="הקטן טקסט">
+                    🔍- הקטן טקסט
+                </button>
+                <button class="accessibility-btn" id="contrastBtn" aria-label="ניגודיות גבוהה">
+                    ⚫⚪ ניגודיות גבוהה
+                </button>
+                <button class="accessibility-btn" id="resetBtn" aria-label="איפוס נגישות">
+                    🔄 איפוס
+                </button>
+            </div>
+            
+            <div class="language-section">
+                <h4>שפה</h4>
+                <div class="language-controls">
+                    <button class="language-btn active" id="heBtn" aria-label="עברית">
+                        🇮🇱 עברית
+                    </button>
+                    <button class="language-btn" id="enBtn" aria-label="English">
+                        🇬🇧 English
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header role="banner">
+        <nav>
+            <a href="#home" style="text-decoration: none;">
+                <div class="logo">
+                    <img src="Screenshot%202025-10-06%20at%209.01.46.png" alt="Lilou Books" style="height: 50px; width: auto;">
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="#home" role="menuitem">בית</a></li>
+                <li role="none"><a href="#about" role="menuitem">אודות</a></li>
+                <li role="none"><a href="#home-kit" role="menuitem">ערכה ביתית 🔥</a></li>
+                <li role="none"><a href="#workshops" role="menuitem">סדנאות</a></li>
+                <li role="none"><a href="#custom-orders" role="menuitem">הזמנות אישיות</a></li>
+                <li role="none"><a href="#gallery" role="menuitem">גלריה</a></li>
+                <li role="none"><a href="#faq" role="menuitem">שאלות נפוצות</a></li>
+                <li role="none"><a href="#blog" role="menuitem">בלוג</a></li>
+                <li role="none"><a href="#contact" role="menuitem">צור קשר</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle" role="button" aria-label="תפריט ניווט" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" role="main">
+        <div class="container" id="main-content">
+            <h1>אמנות פיסול וקיפול ספרים</h1>
+            <p>אמנות ייחודית בעבודת יד, סדנאות ודקורציה. גלו את העולם הקסום של פיסול ספרים - סדנאות קיפול ספרים חווייתיות, יצירת ספר מקופל בהתאמה אישית ומתנות ייחודיות שמשאירות חותם.</p>
+            
+            <div style="max-width: 95%; margin: 1.5rem auto 1rem;">
+                <img src="front%20page.png" alt="אמנות פיסול וקיפול ספרים - Lilou Books" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            </div>
+            
+            <a href="https://pay.grow.link/13bbd7323e5292e005e4668434f5498b-MjcyNjk5Mg" target="_blank" class="cta-button pulse" style="font-size: 1.3rem; padding: 1.2rem 3rem;">
+                🎁 הזמינו ערכה ביתית עכשיו - ₪189 בלבד!
+            </a>
+            <p style="margin-top: 1rem; color: #666; font-size: 1rem;">
+                כל מה שצריך כדי ליצור ספר מקופל מדהים בבית 💝
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="container" id="about" role="region" aria-labelledby="about-heading">
+        <h2 id="about-heading">אודות - הסיפור מאחורי Lilou Books</h2>
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 2rem;">
+                <div>
+                    <img src="IMG_4265.jpg" alt="להב ברק - Lilou Books" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                </div>
+                <div>
+                    <h3 style="color: var(--accent-brown); margin-bottom: 1rem;">להב ברק</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 1rem;">
+                        אומנית ומנחת סדנאות פיסול וקיפול ספרים. בעלת תואר שני במנהל עסקים וטכנולוגיה, שבחרה לשלב את האהבה ליצירה עם הידע העסקי שרכשה.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
+                        הכל התחיל כתחביב - מהנאה לעבודת ידיים ומהרצון ליצור משהו מיוחד ואישי כמחווה לחבר. קיפול אחר קיפול, עמוד אחר עמוד, הספרים הישנים הפכו ליצירות אמנות ייחודיות.
+                    </p>
+                </div>
+            </div>
+            <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                    מה שהתחיל כיצירה אחת לחבר, הפך במהרה לעשרות בקשות ממשפחה, חברים ומכרים. אנשים התאהבו ברעיון שספר ישן יכול להפוך למתנה כל כך מרגשת ומשמעותית - לא רק חפץ דקורטיבי, אלא סיפור שלם שמספר על אהבה, זיכרון או רגע מיוחד בחיים.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 1.5rem;">
+                    כשהבנתי שיש ביקוש אמיתי לאמנות הזו, החלטתי להפוך את התשוקה שלי למקצוע. ליוויתי את הידע שצברתי בתואר השני במנהל עסקים וטכנולוגיה עם האהבה שלי ליצירה בידיים, והקמתי את Lilou Books.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
+                    היום אני לא רק יוצרת ספרים מפוסלים בהזמנה אישית, אלא גם מעבירה סדנאות שבהן אני משתפת את הטכניקות שלמדתי ואת האהבה לאומנות הזו. כל סדנה היא הזדמנות לראות איך אנשים מגלים את היכולת שלהם ליצור משהו יפה, משמעותי ומיוחד בידיים שלהם.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Book Folding Section -->
+    <section class="container">
+        <h2 id="what-is-heading">מה זה פיסול ספרים?</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;">
+                <strong>פיסול ספרים (Book Folding/Book Sculpture)</strong> הוא אמנות ייחודית של יצירת תבליטים תלת-מימדיים מדפי הספר. 
+                <strong>קיפול ספרים</strong> הוא טכניקה שבה אנחנו מקפלים כל דף במדויק כדי ליצור צורות, שמות, תאריכים ועיצובים מרהיבים.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                בסדנת פיסול הספרים שלנו תלמדו איך להפוך ספר רגיל ליצירת אמנות מרהיבה. 
+                כל <strong>ספר מקופל</strong> הוא יצירה ייחודית בעבודת יד - מתנה מושלמת לחתונות, ימי הולדת, 
+                יום נישואין, בר/בת מצווה, או פשוט כדי להפתיע מישהו אהוב עם <strong>ספר מפוסל</strong> מיוחד.
+            </p>
+        </div>
+    </section>
+
+    <!-- Home Kit Section - HIGHLIGHTED -->
+    <section class="container" id="home-kit" role="region" aria-labelledby="home-kit-heading" style="background: linear-gradient(135deg, #FFF5F7, #FFE8EC); padding: 4rem 2rem; border-radius: 30px; margin: 2rem auto; box-shadow: 0 10px 40px rgba(255, 182, 193, 0.3);">
+        <h2 id="home-kit-heading" style="font-size: 2.5rem;">🎁 ערכה ביתית - צרו ספר מקופל בעצמכם!</h2>
+        
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); margin-bottom: 3rem;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <div style="font-size: 5rem; margin-bottom: 1rem;">📦✨</div>
+                    <h3 style="color: var(--accent-brown); font-size: 2rem; margin-bottom: 1rem;">ערכת פיסול ספרים לבית</h3>
+                    <p style="font-size: 1.4rem; color: var(--primary-color); font-weight: 700; margin-bottom: 0.5rem;">
+                        כל מה שצריך כדי ליצור ספר מקופל מדהים!
+                    </p>
+                    <p style="font-size: 1.1rem; color: #666;">
+                        המוצר הכי פופולרי שלנו - מושלם למתנה או ליצירה אישית
+                    </p>
+                </div>
+
+                <div style="background: var(--secondary-color); padding: 2.5rem; border-radius: 15px; margin-bottom: 2rem;">
+                    <h4 style="color: var(--accent-brown); font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center;">
+                        🎁 מה כולל בערכה?
+                    </h4>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                        <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 12px;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">📖</div>
+                            <h5 style="color: var(--accent-brown); margin-bottom: 0.5rem; font-size: 1.1rem;">ספר איכותי</h5>
+                            <p style="color: #666; font-size: 0.95rem;">ספר בכריכה קשה מוכן לקיפול</p>
+                        </div>
+                        
+                        <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 12px;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">📐</div>
+                            <h5 style="color: var(--accent-brown); margin-bottom: 0.5rem; font-size: 1.1rem;">תבנית מודפסת</h5>
+                            <p style="color: #666; font-size: 0.95rem;">תבנית מותאמת אישית לעיצוב שתבחרו</p>
+                        </div>
+                        
+                        <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 12px;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🛠️</div>
+                            <h5 style="color: var(--accent-brown); margin-bottom: 0.5rem; font-size: 1.1rem;">כלי עבודה</h5>
+                            <p style="color: #666; font-size: 0.95rem;">סרגל מקצועי וקליפס</p>
+                        </div>
+                        
+                        <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 12px;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">📋</div>
+                            <h5 style="color: var(--accent-brown); margin-bottom: 0.5rem; font-size: 1.1rem;">הוראות מפורטות</h5>
+                            <p style="color: #666; font-size: 0.95rem;">מדריך צעד אחר צעד + טיפים</p>
+                        </div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #E8F5E9, #C8E6C9); padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem; border: 2px dashed #4CAF50;">
+                        <h5 style="color: #2E7D32; margin-bottom: 1rem; font-size: 1.3rem; text-align: center;">✨ למי זה מתאים?</h5>
+                        <ul style="list-style: none; padding: 0; color: #666; line-height: 2; font-size: 1.05rem;">
+                            <li>✓ למי שרוצה ליצור ספר מקופל בקצב שלו</li>
+                            <li>✓ למי שלא יכול להגיע לסדנה פיזית</li>
+                            <li>✓ למתנה מקורית למי שאוהב יצירה</li>
+                            <li>✓ לכל מי שרוצה לנסות את אמנות פיסול הספרים</li>
+                        </ul>
+                    </div>
+
+                    <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, var(--primary-color), #FFD4D9); border-radius: 12px; color: white; box-shadow: 0 6px 20px rgba(255, 182, 193, 0.4);">
+                        <div style="font-size: 3rem; font-weight: bold; margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">₪189</div>
+                        <p style="font-size: 1.2rem; margin-bottom: 0.3rem; font-weight: 600;">מחיר בסיסי (איסוף עצמי)</p>
+                        <p style="font-size: 1rem; opacity: 0.95;">+ ₪40 משלוח לכל המרכז</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="https://pay.grow.link/13bbd7323e5292e005e4668434f5498b-MjcyNjk5Mg" target="_blank" class="cta-button pulse" style="font-size: 1.4rem; padding: 1.5rem 4rem; display: inline-block; margin-bottom: 1.5rem; background: linear-gradient(135deg, #FF69B4, #FFB6C1); box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);">
+                        🛒 קנו עכשיו ותתחילו ליצור!
+                    </a>
+                    <p style="color: #666; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                        <strong>תשלום מאובטח</strong> • משלוח תוך 3-5 ימי עסקים
+                    </p>
+                    <p style="color: var(--accent-brown); font-size: 0.95rem; font-style: italic;">
+                        💝 מאות לקוחות מרוצים כבר יצרו את הספר המקופל שלהם!
+                    </p>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-right: 5px solid var(--primary-color);">
+                <h4 style="color: var(--accent-brown); text-align: center; margin-bottom: 1.5rem; font-size: 1.4rem;">
+                    💭 שאלות על הערכה הביתית?
+                </h4>
+                <p style="text-align: center; color: #666; margin-bottom: 1.5rem; font-size: 1.05rem;">
+                    אשמח לענות על כל שאלה! צרו קשר בוואטסאפ או מלאו טופס יצירת הקשר
+                </p>
+                <div style="text-align: center;">
+                    <a href="https://wa.me/972502534643" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: transform 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                
