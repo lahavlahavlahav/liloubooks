@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מחולל תבניות קיפול ספרים | Lilou Books</title>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23D4A574' rx='15'/%3E%3Ctext x='50' y='72' font-family='Georgia, serif' font-size='70' font-weight='bold' fill='%23FAF7F2' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+:root {
+--primary-color: #FFB6C1;
+--secondary-color: #F5EFE7;
+--text-color: #333;
+--cream-bg: #F8F4EE;
+--accent-brown: #8B6F47;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: var(--text-color);
+background-color: var(--cream-bg);
+}
+
+/* Accessibility Widget */
+.accessibility-widget {
+position: fixed;
+bottom: 20px;
+left: 20px;
+z-index: 9999;
+}
+
+.accessibility-toggle-btn {
+width: 60px;
+height: 60px;
+border-radius: 50%;
+background: linear-gradient(135deg, #0066cc, #004999);
+border: none;
+cursor: pointer;
+box-shadow: 0 4px 12px rgba(0, 102, 204, 0.4);
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+}
+
+.accessibility-toggle-btn:hover {
+transform: scale(1.1);
+}
+
+.accessibility-icon {
+width: 32px;
+height: 32px;
+color: white;
+}
+
+.accessibility-panel {
+position: absolute;
+bottom: 70px;
+left: 0;
+background: white;
+border-radius: 15px;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+padding: 1.5rem;
+min-width: 280px;
+opacity: 0;
+visibility: hidden;
+transform: translateY(10px);
+transition: all 0.3s ease;
+}
+
+.accessibility-panel.active {
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
+}
+
+.accessibility-panel h3 {
+color: #0066cc;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+text-align: center;
+border-bottom: 2px solid #0066cc;
+padding-bottom: 0.5rem;
+}
+
+.accessibility-controls {
+display: flex;
+flex-direction: column;
+gap: 0.8rem;
+}
+
+.accessibility-btn {
+background: #f0f0f0;
+border: 2px solid #ddd;
+padding: 0.8rem 1rem;
+border-radius: 8px;
+cursor: pointer;
+font-size: 0.95rem;
+font-weight: 600;
+transition: all 0.3s;
+}
+
+.accessibility-btn:hover {
+background: #0066cc;
+color: white;
+border-color: #0066cc;
+}
+
+.accessibility-btn.active {
+background: #0066cc;
+color: white;
+border-color: #0066cc;
+}
+
+/* Header & Navigation */
+header {
+background: white;
+box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+
+nav {
+max-width: 1200px;
+margin: 0 auto;
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo img {
+height: 50px;
+width: auto;
+}
+
+.nav-links {
+display: flex;
+gap: 2rem;
+list-style: none;
+align-items: center;
+}
+
+.nav-links a {
+text-decoration: none;
+color: var(--text-color);
+font-weight: 500;
+transition: color 0.3s;
+}
+
+.nav-links a:hover {
+color: var(--primary-color);
+}
+
+.user-menu {
+position: relative;
+}
+
+.user-avatar {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background: var(--primary-color);
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+font-weight: bold;
+font-size: 1.2rem;
+}
+
+.user-dropdown {
+position: absolute;
+top: 50px;
+left: 0;
+background: white;
+border-radius: 10px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+padding: 1rem;
+min-width: 220px;
+display: none;
+}
+
+.user-dropdown.active {
+display: block;
+}
+
+.cta-button {
+display: inline-block;
+background: var(--primary-color);
+color: white;
+padding: 1rem 2.5rem;
+border-radius: 50px;
+text-decoration: none;
+font-weight: bold;
+border: none;
+cursor: pointer;
+font-size: 1rem;
+transition: all 0.3s;
+}
+
+.cta-button:hover {
+transform: translateY(-2px);
+box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 3rem 2rem;
+}
+
+.auth-modal {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0,0,0,0.8);
+display: none;
+align-items: center;
+justify-content: center;
+z-index: 10000;
+padding: 2rem;
+}
+
+.auth-modal.active {
+display: flex;
+}
+
+.auth-container {
+background: white;
+border-radius: 20px;
+padding: 3rem;
+max-width: 450px;
+width: 90%;
+position: relative;
+animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+from {
+transform: translateY(50px);
+opacity: 0;
+}
+to {
+transform: translateY(0);
+opacity: 1;
+}
+}
+
+.close-modal {
+position: absolute;
+top: 1rem;
+left: 1rem;
+background: none;
+border: none;
+font-size: 2rem;
+cursor: pointer;
+color: #999;
+}
+
+.form-group {
+margin-bottom: 1.5rem;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 0.5rem;
+color: var(--accent-brown);
+font-weight: 500;
+}
+
+.form-group input {
+width: 100%;
+padding: 0.8rem;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-size: 1rem;
+}
+
+.form-group input:focus {
+outline: none;
+border-color: var(--primary-color);
+}
+
+.error-message, .success-message {
+padding: 0.8rem;
+border-radius: 8px;
+margin-bottom: 1rem;
+display: none;
+}
+
+.error-message {
+background: #fee;
+border: 1px solid #fcc;
+color: #c33;
+}
+
+.success-message {
+background: #efe;
+border: 1px solid #cfc;
+color: #3c3;
+}
+
+/* Pattern Generator */
+.pattern-generator-section {
+background: white;
+border-radius: 20px;
+padding: 3rem;
+box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.pattern-grid {
+display: grid;
+grid-template-columns: 350px 1fr;
+gap: 2rem;
+margin-top: 2rem;
+}
+
+.upload-panel {
+background: var(--cream-bg);
+border-radius: 15px;
+padding: 2rem;
+}
+
+.upload-area {
+border: 3px dashed var(--primary-color);
+border-radius: 15px;
+padding: 2rem;
+text-align: center;
+cursor: pointer;
+transition: all 0.3s;
+margin-bottom: 1.5rem;
+}
+
+.upload-area:hover {
+background: var(--secondary-color);
+}
+
+.settings-group {
+margin-bottom: 1.5rem;
+}
+
+.settings-group label {
+display: block;
+font-weight: 600;
+color: var(--accent-brown);
+margin-bottom: 0.5rem;
+font-size: 0.9rem;
+}
+
+.settings-group input,
+.settings-group select {
+width: 100%;
+padding: 0.7rem;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-size: 0.95rem;
+}
+
+.pattern-display {
+background: var(--secondary-color);
+border-radius: 15px;
+padding: 2rem;
+min-height: 400px;
+display: flex;
+flex-direction: column;
+position: relative;
+}
+
+.pattern-canvas {
+border: 2px solid #ddd;
+border-radius: 10px;
+max-width: 100%;
+background: white;
+}
+
+.empty-state {
+text-align: center;
+color: #999;
+padding: 3rem;
+}
+
+.subscription-notice {
+background: linear-gradient(135deg, var(--primary-color), #FFD4D9);
+color: white;
+padding: 1.5rem;
+border-radius: 10px;
+text-align: center;
+margin-bottom: 2rem;
+display: none;
+}
+
+.locked-overlay {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0,0,0,0.7);
+display: none;
+align-items: center;
+justify-content: center;
+border-radius: 15px;
+z-index: 100;
+}
+
+.locked-content {
+background: white;
+padding: 2rem;
+border-radius: 15px;
+text-align: center;
+max-width: 400px;
+}
+
+@media (max-width: 968px) {
+.pattern-grid {
+grid-template-columns: 1fr;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- Accessibility Widget -->
+<div class="accessibility-widget">
+<button class="accessibility-toggle-btn" id="accessibilityToggle">
+<svg class="accessibility-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<circle cx="12" cy="5" r="2"/>
+<path d="M12 7v10"/>
+<path d="M7 11l5-2 5 2"/>
+<path d="M7 17l5-3 5 3"/>
+</svg>
+</button>
+
+<div class="accessibility-panel" id="accessibilityPanel">
+<h3>נגישות</h3>
+<div class="accessibility-controls">
+<button class="accessibility-btn" id="increaseFontBtn">🔍+ הגדל טקסט</button>
+<button class="accessibility-btn" id="decreaseFontBtn">🔍- הקטן טקסט</button>
+</div>
+</div>
+</div>
+
+<!-- Header -->
+<header>
+<nav>
+<a href="index.html" style="text-decoration: none;">
+<div class="logo">
+<img src="Screenshot%202025-10-06%20at%209.01.46.png" alt="Lilou Books">
+</div>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">בית</a></li>
+<li><a href="index.html#workshops">סדנאות</a></li>
+<li><a href="pattern-generator.html">מחולל תבניות</a></li>
+<li id="authButton">
+<button class="cta-button" onclick="showAuthModal()">התחברות / הרשמה</button>
+</li>
+<li id="userMenu" class="user-menu" style="display: none;">
+<div class="user-avatar" onclick="toggleUserMenu()">
+<span id="userInitial">U</span>
+</div>
+<div class="user-dropdown" id="userDropdown">
+<p id="userEmail" style="margin-bottom: 1rem; color: #666; font-size: 0.9rem; word-break: break-all;"></p>
+<p id="subscriptionStatus" style="margin-bottom: 1rem; padding: 0.5rem; background: var(--cream-bg); border-radius: 5px; font-size: 0.9rem;"></p>
+<button onclick="signOut()" style="width: 100%; padding: 0.8rem; background: #f44336; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">התנתק</button>
+</div>
+</li>
+</ul>
+</nav>
+</header>
+
+<!-- Auth Modal -->
+<div class="auth-modal" id="authModal">
+<div class="auth-container">
+<button class="close-modal" onclick="closeAuthModal()">×</button>
+<h2 style="color: var(--accent-brown); text-align: center; margin-bottom: 1.5rem;" id="authTitle">התחברות למחולל תבניות</h2>
+<div class="error-message" id="errorMessage"></div>
+<div class="success-message" id="successMessage"></div>
+
+<form id="authForm" onsubmit="handleAuth(event)">
+<div class="form-group">
+<label>אימייל</label>
+<input type="email" id="email" required>
+</div>
+
+<div class="form-group">
+<label>סיסמה</label>
+<input type="password" id="password" required minlength="6">
+</div>
+
+<button type="submit" class="cta-button" style="width: 100%; margin-bottom: 1rem;">המשך</button>
+</form>
+
+<p style="text-align: center; color: #666; font-size: 0.9rem;">
+<span id="toggleAuthText">אין לך חשבון?</span>
+<a href="#" onclick="toggleAuthMode(); return false;" style="color: var(--primary-color); font-weight: 600;" id="toggleAuthLink">הירשם כאן</a>
+</p>
+
+<div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #ddd;">
+<p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 0.5rem;">עדיין לא רכשת מנוי?</p>
+<button onclick="window.open('https://pay.grow.link/754dc8226e8d3c2379738c73eac9aeb9-Mjc1NDQ4Mw', '_blank')" class="cta-button" style="width: 100%; background: var(--accent-brown);">
+🎁 רכוש מנוי עכשיו
+</button>
+<p style="text-align: center; color: #999; font-size: 0.8rem; margin-top: 0.5rem;">
+חודשי: €12 | שנתי: €89 (חיסכון של €55!)
+</p>
+</div>
+</div>
+</div>
+
+<!-- Pattern Generator Section -->
+<section class="container">
+<div class="pattern-generator-section">
+<h2 style="font-size: 2rem; color: var(--accent-brown); margin-bottom: 1rem; text-align: center;">🎨 מחולל תבניות קיפול ספרים</h2>
+<p style="text-align: center; color: #666; margin-bottom: 2rem;">
+העלו תמונה והפכו אותה לתבנית קיפול ספרים מקצועית! קבלו קובץ CSV מדויק עם מדידות לכל עמוד.
+</p>
+
+<div class="subscription-notice" id="subscriptionNotice">
+<h3 style="color: white; margin-bottom: 0.5rem;">💎 מנוי פעיל!</h3>
+<p>יש לך גישה מלאה לתבניות ללא הגבלה 🎉</p>
+</div>
+
+<div class="pattern-grid">
+<!-- Upload Panel -->
+<div class="upload-panel">
+<h3 style="font-size: 1.2rem; margin-bottom: 1.5rem;">העלאת תמונה והגדרות</h3>
+<div class="upload-area" id="uploadArea">
+<div style="font-size: 3rem; margin-bottom: 0.5rem;">📸</div>
+<p><strong>לחצו להעלאה</strong></p>
+<p style="font-size: 0.85rem; color: #666; margin-top: 0.3rem;">PNG, JPG, SVG</p>
+<input type="file" id="imageInput" accept="image/*" style="display: none;">
+</div>
+
+<div class="settings-group">
+<label>מספר עמודים בספר</label>
+<input type="number" id="pages" value="300" min="50" max="1000">
+<div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem;">מומלץ: 200-400</div>
+</div>
+
+<div class="settings-group">
+<label>גובה הספר (ס"מ)</label>
+<input type="number" id="bookHeight" value="21.0" step="0.1" min="10" max="40">
+<div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem;">סטנדרטי: 21 ס"מ</div>
+</div>
+
+<div class="settings-group">
+<label>סוג קיפול</label>
+<select id="foldType">
+<option value="mmf">MMF (Measure Mark Fold)</option>
+<option value="cut-fold">Cut & Fold</option>
+</select>
+</div>
+
+<div class="settings-group">
+<label>רגישות: <span id="thresholdValue">128</span></label>
+<input type="range" id="threshold" min="0" max="255" value="128" style="width: 100%;">
+<div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem;">התאימו לשליטה בקיפולים</div>
+</div>
+</div>
+
+<!-- Pattern Display -->
+<div class="pattern-display">
+<div id="emptyState" class="empty-state">
+<div style="font-size: 4rem; margin-bottom: 1rem;">📖</div>
+<p>העלו תמונה כדי ליצור תבנית</p>
+<p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;">תמונות עם ניגודיות ברורה עובדות הכי טוב</p>
+</div>
+
+<div id="canvasContainer" style="display: none; flex: 1;">
+<canvas id="patternCanvas" class="pattern-canvas"></canvas>
+<div style="margin-top: 1.5rem; text-align: center;">
+<button class="cta-button" id="downloadBtn">⬇️ הורידו תבנית מלאה</button>
+<p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
+CSV + תמונה של התבנית
+</p>
+</div>
+</div>
+
+<div id="lockedOverlay" class="locked-overlay">
+<div class="locked-content">
+<div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+<h3 style="color: var(--accent-brown); margin-bottom: 1rem;">נדרש מנוי פעיל</h3>
+<p style="color: #666; margin-bottom: 1.5rem;">כדי להוריד תבניות, יש צורך במנוי חודשי או שנתי</p>
+<button onclick="window.open('https://pay.grow.link/754dc8226e8d3c2379738c73eac9aeb9-Mjc1NDQ4Mw', '_blank')" class="cta-button" style="margin-bottom: 0.5rem;">
+🎁 רכוש מנוי
+</button>
+<p style="font-size: 0.85rem; color: #666;">חודשי: €12 | שנתי: €89</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<canvas id="hiddenCanvas" style="display: none;"></canvas>
