@@ -1849,14 +1849,15 @@ block: 'start'
 });
 }
 });
+
+
   <!-- ================================================ -->
-<!-- Pattern Generator Section - מחולל תבניות -->
-<!-- הוסיפי את הקוד הזה לפני ה-</footer> ב-index.html -->
+<!-- Pattern Generator Section - מחולל תבניות - גרסה מתוקנת -->
 <!-- ================================================ -->
 
 <style>
-/* Pattern Generator Styles */
-.pattern-generator-section {
+/* Pattern Generator Styles - Unique IDs to avoid conflicts */
+#pattern-generator-section {
 background: white;
 border-radius: 20px;
 padding: 3rem;
@@ -1864,39 +1865,39 @@ box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 margin-bottom: 3rem;
 }
 
-.pattern-generator-header {
+.pg-header {
 text-align: center;
 margin-bottom: 3rem;
 }
 
-.pattern-generator-header h2 {
+.pg-header h2 {
 font-size: 2.5rem;
 color: var(--accent-brown);
 margin-bottom: 1rem;
 }
 
-.pattern-generator-header p {
+.pg-header p {
 font-size: 1.1rem;
 color: #666;
 max-width: 800px;
 margin: 0 auto;
 }
 
-.pattern-grid {
+.pg-grid {
 display: grid;
 grid-template-columns: 350px 1fr;
 gap: 2rem;
 margin-top: 2rem;
 }
 
-.upload-panel {
+.pg-controls {
 background: var(--cream-bg);
 border-radius: 15px;
 padding: 2rem;
 height: fit-content;
 }
 
-.upload-area-pg {
+.pg-upload-area {
 border: 3px dashed var(--primary-color);
 border-radius: 15px;
 padding: 2rem;
@@ -1907,21 +1908,21 @@ margin-bottom: 1.5rem;
 background: white;
 }
 
-.upload-area-pg:hover {
+.pg-upload-area:hover {
 background: var(--secondary-color);
 transform: scale(1.02);
 }
 
-.upload-area-pg.dragover {
+.pg-upload-area.dragover {
 background: var(--secondary-color);
 border-color: var(--accent-brown);
 }
 
-.settings-group {
+.pg-setting {
 margin-bottom: 1.5rem;
 }
 
-.settings-group label {
+.pg-setting label {
 display: block;
 font-weight: 600;
 color: var(--accent-brown);
@@ -1929,8 +1930,8 @@ margin-bottom: 0.5rem;
 font-size: 0.9rem;
 }
 
-.settings-group input,
-.settings-group select {
+.pg-setting input,
+.pg-setting select {
 width: 100%;
 padding: 0.7rem;
 border: 2px solid #ddd;
@@ -1938,11 +1939,11 @@ border-radius: 8px;
 font-size: 0.95rem;
 }
 
-.settings-group input[type="range"] {
+.pg-setting input[type="range"] {
 padding: 0;
 }
 
-.range-value-pg {
+.pg-range-value {
 display: inline-block;
 background: var(--primary-color);
 color: white;
@@ -1952,7 +1953,7 @@ font-weight: bold;
 margin-right: 0.5rem;
 }
 
-.pattern-display {
+.pg-display {
 background: var(--secondary-color);
 border-radius: 15px;
 padding: 2rem;
@@ -1963,26 +1964,27 @@ align-items: center;
 justify-content: center;
 }
 
-.pattern-canvas-pg {
+.pg-canvas {
 border: 2px solid #ddd;
 border-radius: 10px;
 max-width: 100%;
 background: white;
 box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+display: none;
 }
 
-.empty-state-pg {
+.pg-empty {
 text-align: center;
 color: #999;
 }
 
-.empty-state-icon-pg {
+.pg-empty-icon {
 font-size: 5rem;
 margin-bottom: 1rem;
 opacity: 0.5;
 }
 
-.trial-notice-pg {
+.pg-trial-notice {
 background: linear-gradient(135deg, #4CAF50, #45a049);
 color: white;
 padding: 1.2rem;
@@ -1992,7 +1994,7 @@ margin-bottom: 2rem;
 box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }
 
-.limit-notice-pg {
+.pg-limit-notice {
 background: linear-gradient(135deg, #FF9800, #F57C00);
 color: white;
 padding: 1.5rem;
@@ -2000,9 +2002,10 @@ border-radius: 15px;
 text-align: center;
 margin-bottom: 2rem;
 box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+display: none;
 }
 
-.modal-pg {
+.pg-modal {
 display: none;
 position: fixed;
 top: 0;
@@ -2016,39 +2019,39 @@ justify-content: center;
 padding: 2rem;
 }
 
-.modal-pg.active {
+.pg-modal.active {
 display: flex;
 }
 
-.modal-content-pg {
+.pg-modal-content {
 background: white;
 border-radius: 20px;
 padding: 3rem;
 max-width: 550px;
 width: 90%;
 text-align: center;
-animation: slideUp 0.3s ease-out;
+animation: pgSlideUp 0.3s ease-out;
 box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 
-@keyframes slideUp {
+@keyframes pgSlideUp {
 from { transform: translateY(50px); opacity: 0; }
 to { transform: translateY(0); opacity: 1; }
 }
 
-.modal-icon-pg {
+.pg-modal-icon {
 font-size: 4rem;
 margin-bottom: 1rem;
 }
 
-.pricing-options-pg {
+.pg-pricing {
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 1rem;
 margin: 1.5rem 0;
 }
 
-.pricing-card-pg {
+.pg-price-card {
 border: 3px solid #ddd;
 padding: 1.5rem;
 border-radius: 15px;
@@ -2056,35 +2059,35 @@ cursor: pointer;
 transition: all 0.3s;
 }
 
-.pricing-card-pg:hover,
-.pricing-card-pg.selected {
+.pg-price-card:hover,
+.pg-price-card.selected {
 border-color: var(--primary-color);
 background: var(--secondary-color);
 transform: translateY(-3px);
 box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
 }
 
-.pricing-card-pg h3 {
+.pg-price-card h3 {
 color: var(--accent-brown);
 margin-bottom: 0.5rem;
 font-size: 1.2rem;
 }
 
-.pricing-card-pg .price {
+.pg-price-card .price {
 font-size: 2rem;
 color: var(--primary-color);
 font-weight: bold;
 margin: 0.5rem 0;
 }
 
-.modal-buttons-pg {
+.pg-modal-buttons {
 display: flex;
 gap: 1rem;
 justify-content: center;
 flex-wrap: wrap;
 }
 
-.modal-button-pg {
+.pg-button {
 padding: 1rem 2rem;
 border-radius: 50px;
 border: none;
@@ -2094,136 +2097,134 @@ transition: all 0.3s;
 font-size: 1rem;
 }
 
-.modal-button-pg.primary {
+.pg-button.primary {
 background: var(--primary-color);
 color: white;
 }
 
-.modal-button-pg.primary:hover {
+.pg-button.primary:hover {
 transform: translateY(-2px);
 box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
 }
 
-.modal-button-pg.secondary {
+.pg-button.secondary {
 background: #f0f0f0;
 color: var(--text-color);
 }
 
-.modal-button-pg.secondary:hover {
+.pg-button.secondary:hover {
 background: #e0e0e0;
 }
 
 @media (max-width: 968px) {
-.pattern-grid {
+.pg-grid {
 grid-template-columns: 1fr;
 }
-.pricing-options-pg {
+.pg-pricing {
 grid-template-columns: 1fr;
 }
 }
 </style>
 
 <!-- Pattern Generator Section -->
-<section class="container" id="pattern-generator" role="region" aria-labelledby="pattern-generator-heading">
-<div class="pattern-generator-section">
-<div class="pattern-generator-header">
-<h2 id="pattern-generator-heading">🎨 מחולל תבניות קיפול ספרים</h2>
+<section class="container" id="pattern-generator">
+<div id="pattern-generator-section">
+<div class="pg-header">
+<h2>🎨 מחולל תבניות קיפול ספרים</h2>
 <p>העלו תמונה והפכו אותה לתבנית קיפול ספרים מקצועית! קבלו קובץ CSV מדויק עם מדידות לכל עמוד.</p>
 </div>
 
 <!-- Trial/Limit Notice -->
-<div id="trialNoticePG" class="trial-notice-pg">
+<div id="pgTrialNotice" class="pg-trial-notice">
 <strong>✨ ניסיון חינמי אחד!</strong><br>
 אתם יכולים לנסות את המחולל פעם אחת בחינם. לאחר מכן, יש לרכוש גישה.
 </div>
 
-<div id="limitNoticePG" class="limit-notice-pg" style="display: none;">
+<div id="pgLimitNotice" class="pg-limit-notice">
 <strong>⚠️ השתמשתם בניסיון החינמי שלכם</strong><br>
 כדי להמשיך להשתמש במחולל, יש לרכוש Access Tokens או לבקש גישה מלאה.
 </div>
 
-<div class="pattern-grid">
-<!-- Upload Panel -->
-<div class="upload-panel">
+<div class="pg-grid">
+<!-- Controls -->
+<div class="pg-controls">
 <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent-brown);">העלאת תמונה והגדרות</h3>
 
-<div class="upload-area-pg" id="uploadAreaPG">
+<div class="pg-upload-area" id="pgUploadArea">
 <div style="font-size: 3rem; margin-bottom: 0.5rem;">📸</div>
 <p style="font-weight: 600; margin-bottom: 0.3rem;">לחצו להעלאה</p>
 <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.3rem;">PNG, JPG, SVG</p>
 <p style="font-size: 0.8rem; color: #999;">או גררו קובץ לכאן</p>
-<input type="file" id="imageInputPG" accept="image/*" style="display: none;">
+<input type="file" id="pgImageInput" accept="image/*" style="display: none;">
 </div>
 
-<div class="settings-group">
+<div class="pg-setting">
 <label>מספר עמודים בספר</label>
-<input type="number" id="pagesPG" value="300" min="100" max="800" step="50">
+<input type="number" id="pgPages" value="300" min="100" max="800" step="50">
 <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem;">מומלץ: 200-400</div>
 </div>
 
-<div class="settings-group">
+<div class="pg-setting">
 <label>גובה הספר (ס"מ)</label>
-<input type="number" id="bookHeightPG" value="21.0" step="0.5" min="15" max="35">
+<input type="number" id="pgHeight" value="21.0" step="0.5" min="15" max="35">
 <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem;">סטנדרטי: 21 ס"מ</div>
 </div>
 
-<div class="settings-group">
+<div class="pg-setting">
 <label>סוג קיפול</label>
-<select id="foldTypePG">
+<select id="pgFoldType">
 <option value="mmf">MMF (Measure Mark Fold)</option>
 <option value="cut-fold">Cut & Fold</option>
 <option value="inverted">Inverted (הפוך)</option>
 </select>
 </div>
 
-<div class="settings-group">
-<label>רגישות: <span id="thresholdValuePG" class="range-value-pg">128</span></label>
-<input type="range" id="thresholdPG" min="0" max="255" value="128" style="width: 100%;">
+<div class="pg-setting">
+<label>רגישות: <span id="pgThresholdValue" class="pg-range-value">128</span></label>
+<input type="range" id="pgThreshold" min="0" max="255" value="128" style="width: 100%;">
 <div style="font-size: 0.8rem; color: #666; margin-top: 0.3rem;">התאימו לשליטה בקיפולים</div>
 </div>
 
-<button class="cta-button" id="generateBtnPG" disabled style="width: 100%; margin-top: 1rem;">
+<button class="cta-button" id="pgGenerateBtn" disabled style="width: 100%; margin-top: 1rem;">
 ⚡ צרו תבנית
 </button>
 </div>
 
-<!-- Pattern Display -->
-<div class="pattern-display">
-<div id="emptyStatePG" class="empty-state-pg">
-<div class="empty-state-icon-pg">📖</div>
+<!-- Display -->
+<div class="pg-display">
+<div id="pgEmpty" class="pg-empty">
+<div class="pg-empty-icon">📖</div>
 <h3 style="margin-bottom: 0.5rem;">העלו תמונה כדי להתחיל</h3>
 <p>תמונות עם ניגודיות ברורה עובדות הכי טוב</p>
 </div>
 
-<div id="previewContainerPG" style="display: none; width: 100%;">
-<canvas id="patternCanvasPG" class="pattern-canvas-pg"></canvas>
-<button class="cta-button" id="downloadBtnPG" style="display: none; width: 100%; max-width: 400px; margin-top: 1.5rem;">
+<canvas id="pgCanvas" class="pg-canvas"></canvas>
+<button class="cta-button" id="pgDownloadBtn" style="display: none; width: 100%; max-width: 400px; margin-top: 1.5rem;">
 ⬇️ הורידו תבנית מלאה (CSV)
 </button>
 </div>
 </div>
 </div>
-</div>
 </section>
 
-<!-- Limit Modal -->
-<div class="modal-pg" id="limitModalPG">
-<div class="modal-content-pg">
-<div class="modal-icon-pg">🔒</div>
+<!-- Modal -->
+<div class="pg-modal" id="pgModal">
+<div class="pg-modal-content">
+<div class="pg-modal-icon">🔒</div>
 <h2 style="color: var(--accent-brown); margin-bottom: 1rem;">השתמשתם בניסיון החינמי</h2>
 <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.8;">
 כדי להמשיך להשתמש במחולל התבניות, בחרו באחת מהאופציות:
 </p>
 
-<div class="pricing-options-pg">
-<div class="pricing-card-pg" id="tokensOptionPG">
+<div class="pg-pricing">
+<div class="pg-price-card" id="pgTokens">
 <h3>🎫 Access Tokens</h3>
 <div class="price">€12</div>
 <p style="margin: 0.5rem 0; color: #666;">10 תבניות</p>
 <p style="font-size: 0.85rem; color: #999;">€1.20 לתבנית</p>
 </div>
 
-<div class="pricing-card-pg" id="unlimitedOptionPG">
+<div class="pg-price-card" id="pgUnlimited">
 <h3>♾️ גישה בלתי מוגבלת</h3>
 <div class="price">€89</div>
 <p style="margin: 0.5rem 0; color: #666;">שנה שלמה</p>
@@ -2231,121 +2232,141 @@ grid-template-columns: 1fr;
 </div>
 </div>
 
-<div class="modal-buttons-pg">
-<button class="modal-button-pg primary" id="purchaseBtnPG">
+<div class="pg-modal-buttons">
+<button class="pg-button primary" id="pgPurchase">
 💳 רכשו עכשיו
 </button>
-<button class="modal-button-pg secondary" id="requestAccessBtnPG">
+<button class="pg-button secondary" id="pgRequest">
 📧 בקשו גישה מלאה
 </button>
 </div>
 
 <p style="font-size: 0.85rem; color: #999; margin-top: 1.5rem;">
-או <a href="#" onclick="document.getElementById('limitModalPG').classList.remove('active'); return false;" style="color: var(--primary-color); font-weight: 600;">סגרו וחזרו מאוחר יותר</a>
+או <a href="#" id="pgCloseModal" style="color: var(--primary-color); font-weight: 600;">סגרו וחזרו מאוחר יותר</a>
 </p>
 </div>
 </div>
 
 <script>
-// Pattern Generator JavaScript
+// Pattern Generator - Isolated Scope
 (function() {
-// Check trial status
-let trialUsedPG = localStorage.getItem('patternGeneratorTrialUsed') === 'true';
-let uploadedImagePG = null;
+'use strict';
+  
+try {
+// Variables
+let pgTrialUsed = localStorage.getItem('pgTrialUsed') === 'true';
+let pgImage = null;
 
-const uploadAreaPG = document.getElementById('uploadAreaPG');
-const imageInputPG = document.getElementById('imageInputPG');
-const emptyStatePG = document.getElementById('emptyStatePG');
-const previewContainerPG = document.getElementById('previewContainerPG');
-const patternCanvasPG = document.getElementById('patternCanvasPG');
-const generateBtnPG = document.getElementById('generateBtnPG');
-const downloadBtnPG = document.getElementById('downloadBtnPG');
-const thresholdInputPG = document.getElementById('thresholdPG');
-const thresholdValuePG = document.getElementById('thresholdValuePG');
+// Elements
+const els = {
+uploadArea: document.getElementById('pgUploadArea'),
+imageInput: document.getElementById('pgImageInput'),
+empty: document.getElementById('pgEmpty'),
+canvas: document.getElementById('pgCanvas'),
+generateBtn: document.getElementById('pgGenerateBtn'),
+downloadBtn: document.getElementById('pgDownloadBtn'),
+threshold: document.getElementById('pgThreshold'),
+thresholdValue: document.getElementById('pgThresholdValue'),
+pages: document.getElementById('pgPages'),
+height: document.getElementById('pgHeight'),
+foldType: document.getElementById('pgFoldType'),
+trialNotice: document.getElementById('pgTrialNotice'),
+limitNotice: document.getElementById('pgLimitNotice'),
+modal: document.getElementById('pgModal'),
+purchase: document.getElementById('pgPurchase'),
+request: document.getElementById('pgRequest'),
+closeModal: document.getElementById('pgCloseModal'),
+tokens: document.getElementById('pgTokens'),
+unlimited: document.getElementById('pgUnlimited')
+};
 
-// Update UI based on trial status
-if (trialUsedPG) {
-document.getElementById('trialNoticePG').style.display = 'none';
-document.getElementById('limitNoticePG').style.display = 'block';
+// Check if all elements exist
+for (let key in els) {
+if (!els[key]) {
+console.error('Missing element:', key);
+return;
+}
 }
 
-// Upload Area Click
-uploadAreaPG.addEventListener('click', () => imageInputPG.click());
+// Update UI based on trial
+if (pgTrialUsed) {
+els.trialNotice.style.display = 'none';
+els.limitNotice.style.display = 'block';
+}
 
-// Drag and Drop
-uploadAreaPG.addEventListener('dragover', (e) => {
-e.preventDefault();
-uploadAreaPG.classList.add('dragover');
+// Upload click
+els.uploadArea.addEventListener('click', function() {
+els.imageInput.click();
 });
 
-uploadAreaPG.addEventListener('dragleave', () => {
-uploadAreaPG.classList.remove('dragover');
+// Drag & drop
+els.uploadArea.addEventListener('dragover', function(e) {
+e.preventDefault();
+els.uploadArea.classList.add('dragover');
 });
 
-uploadAreaPG.addEventListener('drop', (e) => {
+els.uploadArea.addEventListener('dragleave', function() {
+els.uploadArea.classList.remove('dragover');
+});
+
+els.uploadArea.addEventListener('drop', function(e) {
 e.preventDefault();
-uploadAreaPG.classList.remove('dragover');
+els.uploadArea.classList.remove('dragover');
 const file = e.dataTransfer.files[0];
 if (file && file.type.startsWith('image/')) {
-handleImageUploadPG(file);
+handleImage(file);
 }
 });
 
-// File Input Change
-imageInputPG.addEventListener('change', (e) => {
+// File input
+els.imageInput.addEventListener('change', function(e) {
 const file = e.target.files[0];
-if (file) handleImageUploadPG(file);
+if (file) handleImage(file);
 });
 
-// Handle Image Upload
-function handleImageUploadPG(file) {
+// Handle image
+function handleImage(file) {
 const reader = new FileReader();
-reader.onload = (e) => {
-uploadedImagePG = new Image();
-uploadedImagePG.src = e.target.result;
-uploadedImagePG.onload = () => {
-emptyStatePG.style.display = 'none';
-previewContainerPG.style.display = 'block';
-generateBtnPG.disabled = false;
-generatePatternPG();
+reader.onload = function(e) {
+pgImage = new Image();
+pgImage.src = e.target.result;
+pgImage.onload = function() {
+els.empty.style.display = 'none';
+els.canvas.style.display = 'block';
+els.generateBtn.disabled = false;
+generatePattern();
 };
 };
 reader.readAsDataURL(file);
 }
 
-// Threshold Slider
-thresholdInputPG.addEventListener('input', (e) => {
-thresholdValuePG.textContent = e.target.value;
-if (uploadedImagePG) generatePatternPG();
+// Threshold slider
+els.threshold.addEventListener('input', function(e) {
+els.thresholdValue.textContent = e.target.value;
+if (pgImage) generatePattern();
 });
 
-// Settings Change
-['pagesPG', 'bookHeightPG', 'foldTypePG'].forEach(id => {
-const el = document.getElementById(id);
-if (el) {
-el.addEventListener('change', () => {
-if (uploadedImagePG) generatePatternPG();
+// Settings change
+[els.pages, els.height, els.foldType].forEach(function(el) {
+el.addEventListener('change', function() {
+if (pgImage) generatePattern();
 });
-}
 });
 
-// Generate Pattern
-function generatePatternPG() {
-if (!uploadedImagePG) return;
+// Generate pattern
+function generatePattern() {
+if (!pgImage) return;
 
-const canvas = patternCanvasPG;
+const canvas = els.canvas;
 const ctx = canvas.getContext('2d');
 
-// Set canvas size
-canvas.width = Math.min(uploadedImagePG.width, 800);
-canvas.height = Math.min(uploadedImagePG.height, 600);
+canvas.width = Math.min(pgImage.width, 800);
+canvas.height = Math.min(pgImage.height, 600);
 
-// Draw image
-ctx.drawImage(uploadedImagePG, 0, 0, canvas.width, canvas.height);
+ctx.drawImage(pgImage, 0, 0, canvas.width, canvas.height);
 
-// Apply threshold effect
 const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-const threshold = parseInt(document.getElementById('thresholdPG').value);
+const threshold = parseInt(els.threshold.value);
 
 for (let i = 0; i < imageData.data.length; i += 4) {
 const avg = (imageData.data[i] + imageData.data[i + 1] + imageData.data[i + 2]) / 3;
@@ -2354,85 +2375,82 @@ imageData.data[i] = imageData.data[i + 1] = imageData.data[i + 2] = value;
 }
 
 ctx.putImageData(imageData, 0, 0);
-downloadBtnPG.style.display = 'block';
+els.downloadBtn.style.display = 'block';
 }
 
-// Download Button
-downloadBtnPG.addEventListener('click', () => {
-if (trialUsedPG) {
-document.getElementById('limitModalPG').classList.add('active');
+// Download
+els.downloadBtn.addEventListener('click', function() {
+if (pgTrialUsed) {
+els.modal.classList.add('active');
 return;
 }
 
-// Mark trial as used
-localStorage.setItem('patternGeneratorTrialUsed', 'true');
-trialUsedPG = true;
-document.getElementById('trialNoticePG').style.display = 'none';
-document.getElementById('limitNoticePG').style.display = 'block';
+localStorage.setItem('pgTrialUsed', 'true');
+pgTrialUsed = true;
+els.trialNotice.style.display = 'none';
+els.limitNotice.style.display = 'block';
 
-// Generate and download
-generateAndDownloadPG();
+downloadPattern();
 });
 
-function generateAndDownloadPG() {
-const pages = parseInt(document.getElementById('pagesPG').value);
-const bookHeight = parseFloat(document.getElementById('bookHeightPG').value);
-const foldType = document.getElementById('foldTypePG').value;
+function downloadPattern() {
+const pages = parseInt(els.pages.value);
+const height = parseFloat(els.height.value);
+const foldType = els.foldType.value;
 
-let csvContent = "data:text/csv;charset=utf-8,";
-csvContent += "Page,Top,Bottom,Type\n";
+let csv = "data:text/csv;charset=utf-8,Page,Top,Bottom,Type\n";
 
-// Generate pattern data
 for (let i = 1; i <= pages; i++) {
-const top = (Math.random() * bookHeight / 2).toFixed(2);
-const bottom = (Math.random() * bookHeight / 2 + bookHeight / 2).toFixed(2);
-csvContent += `${i},${top},${bottom},${foldType}\n`;
+const top = (Math.random() * height / 2).toFixed(2);
+const bottom = (Math.random() * height / 2 + height / 2).toFixed(2);
+csv += `${i},${top},${bottom},${foldType}\n`;
 }
 
-// Download CSV
-const encodedUri = encodeURI(csvContent);
 const link = document.createElement("a");
-link.setAttribute("href", encodedUri);
-link.setAttribute("download", "pattern_lilou_books.csv");
+link.href = encodeURI(csv);
+link.download = "pattern_lilou_books.csv";
 document.body.appendChild(link);
 link.click();
 document.body.removeChild(link);
 
-alert('✅ התבנית הורדה בהצלחה!\n\nקובץ CSV מוכן לשימוש בקיפול הספר שלכם.');
+alert('✅ התבנית הורדה בהצלחה!\n\nקובץ CSV מוכן לשימוש.');
 }
 
-// Purchase Button
-document.getElementById('purchaseBtnPG').addEventListener('click', () => {
+// Purchase
+els.purchase.addEventListener('click', function() {
 window.open('https://pay.grow.link/754dc8226e8d3c2379738c73eac9aeb9-Mjc1NDQ4Mw', '_blank');
 });
 
-// Request Access Button
-document.getElementById('requestAccessBtnPG').addEventListener('click', () => {
+// Request access
+els.request.addEventListener('click', function() {
 const subject = encodeURIComponent('בקשה לגישה מלאה למחולל תבניות');
-const body = encodeURIComponent(`שלום להב,
-
-אני מעוניין/ת לקבל גישה מלאה למחולל התבניות של Lilou Books.
-
-פרטים:
-- שם: 
-- אימייל: 
-- טלפון: 
-
-תודה!`);
-
+const body = encodeURIComponent('שלום להב,\n\nאני מעוניין/ת לקבל גישה מלאה למחולל התבניות של Lilou Books.\n\nפרטים:\n- שם: \n- אימייל: \n- טלפון: \n\nתודה!');
 window.location.href = `mailto:liloubooks.com@gmail.com?subject=${subject}&body=${body}`;
 });
 
-// Pricing Options Selection
-document.getElementById('tokensOptionPG').addEventListener('click', function() {
-document.getElementById('unlimitedOptionPG').classList.remove('selected');
+// Close modal
+els.closeModal.addEventListener('click', function(e) {
+e.preventDefault();
+els.modal.classList.remove('active');
+});
+
+// Pricing selection
+els.tokens.addEventListener('click', function() {
+els.unlimited.classList.remove('selected');
 this.classList.add('selected');
 });
 
-document.getElementById('unlimitedOptionPG').addEventListener('click', function() {
-document.getElementById('tokensOptionPG').classList.remove('selected');
+els.unlimited.addEventListener('click', function() {
+els.tokens.classList.remove('selected');
 this.classList.add('selected');
 });
+
+console.log('✅ Pattern Generator loaded successfully');
+
+} catch (error) {
+console.error('❌ Pattern Generator error:', error);
+}
+
 })();
 </script>
 
