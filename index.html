@@ -204,48 +204,44 @@ name: "Lilou Books"
 offers: {
 @type: "Offer",
 priceCurrency: "ILS",
-availability: "https://schema.org/InStock",
-url: "https://liloubooks.com"
-}
-}
-</script>
 
-<style>
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  .accessibility-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
 }
 
-:root {
---primary-color: #FFB6C1;
---secondary-color: #F5EFE7;
---text-color: #333;
---cream-bg: #F8F4EE;
---accent-brown: #8B6F47;
---font-size-multiplier: 1;
+.accessibility-toggle-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0066cc, #004999);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-/* High Contrast Mode */
-body.high-contrast {
---primary-color: #FF1493;
---secondary-color: #000000;
---text-color: #000000;
---cream-bg: #FFFFFF;
---accent-brown: #000000;
+.accessibility-toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.6);
 }
 
-body.high-contrast .hero,
-body.high-contrast section {
-background: #FFFFFF !important;
-color: #000000 !important;
+.accessibility-toggle-btn:focus {
+    outline: 3px solid #FFD700;
+    outline-offset: 2px;
 }
 
-body.high-contrast a,
-body.high-contrast h1,
-body.high-contrast h2,
-body.high-contrast h3 {
-color: #000000 !important;
+.accessibility-icon {
+    width: 32px;
+    height: 32px;
+    color: white;
+}
 }
 
 /* Font Size Adjustments */
