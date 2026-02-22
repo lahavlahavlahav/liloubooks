@@ -1545,9 +1545,11 @@ outline-offset: 2px;
 </div>																									
 </div>																									
 																									
-<div class="contact-form" id="contact-form">																									
-<h3 style="text-align: center; margin-bottom: 0.5rem; color: var(--accent-brown);">מלאו את הטופס ואני חוזרת אליכם מהר!</h3>																									
-<p style="text-align: center; margin-bottom: 2rem; color: #666;">זה לוקח רק דקה 😊</p>																									
+<!-- TIMER -->
+<div id="form-timer" style="text-align: center; margin-bottom: 1.5rem; padding: 0.8rem 1.5rem; background: #fff3f3; border: 2px solid #FFB6C1; border-radius: 50px; display: inline-block; width: auto; position: relative; left: 50%; transform: translateX(-50%);">
+  <span style="color: #8B6F47; font-weight: 700; font-size: 1rem;">⏳ ההצעה שמורה עוד: </span>
+  <span id="timer-display" style="color: #e05c7b; font-weight: 900; font-size: 1.2rem; font-variant-numeric: tabular-nums;">10:00</span>
+</div>																								
 <form id="contactForm" action="https://formspree.io/f/mzzjvvqv" method="POST" aria-label="טופס יצירת קשר">																									
 <div class="form-group">																									
 <label for="name">שם מלא *</label>																									
