@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>תודה! | Lilou Books</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #fdf8f2;
+      --warm-brown: #5c3d2e;
+      --gold: #c9a96e;
+      --soft-rose: #e8d5c4;
+      --text: #3a2a1e;
+      --light-text: #7a6458;
+    }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow-x: hidden;
+    }
+
+    /* Background decoration */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(232,213,196,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 3.5rem 3rem;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 60px rgba(92,61,46,0.1);
+      position: relative;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .icon-wrap {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, var(--soft-rose), var(--gold));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      animation: pop 0.6s 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--warm-brown);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--soft-rose));
+      margin: 1rem auto 1.5rem;
+      border-radius: 2px;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--light-text);
+      margin-bottom: 1rem;
+      animation: fadeUp 0.8s 0.35s ease both;
+    }
+
+    p strong {
+      color: var(--warm-brown);
+    }
+
+    .highlight-box {
+      background: var(--cream);
+      border-right: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+      color: var(--light-text);
+      text-align: right;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+
+    .highlight-box strong {
+      color: var(--warm-brown);
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      animation: fadeUp 0.8s 0.55s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 50px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--warm-brown), #7a4f3a);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(92,61,46,0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(92,61,46,0.35);
+    }
+
+    .btn-secondary {
+      background: var(--cream);
+      color: var(--warm-brown);
+      border: 1.5px solid var(--soft-rose);
+    }
+    .btn-secondary:hover {
+      background: var(--soft-rose);
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      font-size: 0.82rem;
+      color: #bbb;
+      animation: fadeUp 0.8s 0.65s ease both;
+    }
+
+    /* Floating book pages decoration */
+    .deco {
+      position: fixed;
+      font-size: 2rem;
+      opacity: 0.06;
+      pointer-events: none;
+      animation: float 8s ease-in-out infinite;
+    }
+    .deco:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .deco:nth-child(2) { top: 70%; left: 8%; animation-delay: 2s; font-size: 1.5rem; }
+    .deco:nth-child(3) { top: 20%; right: 6%; animation-delay: 4s; }
+    .deco:nth-child(4) { top: 80%; right: 4%; animation-delay: 1s; font-size: 1.5rem; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%       { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 2.5rem 1.5rem; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="deco">📖</span>
+  <span class="deco">✨</span>
+  <span class="deco">📚</span>
+  <span class="deco">🎨</span>
+
+  <div class="card">
+    <div class="icon-wrap">🎉</div>
+    <div class="brand">Lilou Books</div>
+    <h1>תודה רבה!<br>ההרשמה התקבלה ✨</h1>
+    <div class="divider"></div>
+
+    <p>
+      כל הכבוד! <strong>מקומך בסדנה הקבוצתית שמור.</strong><br>
+      אני כבר מתרגשת לראות מה תיצרי! 🤍
+    </p>
+
+    <div class="highlight-box">
+      <strong>מה קורה עכשיו?</strong><br>
+      תקבלי הודעת וואטסאפ עם כל הפרטים תוך זמן קצר.<br><br>
+      לכל שאלה אני כאן! 💌
+    </div>
+
+    <p>
+      בואי נתחבר ברשתות החברתיות עד הסדנה —<br>
+      ושתפי עם חברה שתרצה להצטרף גם היא 🎨
+    </p>
+
+    <div class="social-link" style="margin-top: 0.5rem; animation: fadeUp 0.8s 0.5s ease both;">
+      <a href="https://www.instagram.com/liloubooks____/" target="_blank" rel="noopener noreferrer"
+         style="display: inline-flex; align-items: center; gap: 0.4rem; color: var(--gold); font-weight: 700; font-size: 0.95rem; text-decoration: none;">
+        📸 @liloubooks____
+      </a>
+    </div>
+
+    <div class="contact-links">
+      <a href="https://wa.me/9720502534643" class="btn btn-primary" target="_blank">
+        💬 שלחי הודעה בוואטסאפ
+      </a>
+      <a href="https://liloubooks.com" class="btn btn-secondary">
+        🏠 חזרה לאתר
+      </a>
+    </div>
+
+    <div class="footer-note">
+      Lilou Books &nbsp;•&nbsp; להב ברק &nbsp;•&nbsp; תל אביב
+    </div>
+  </div>
+
+</body>
+</html>
