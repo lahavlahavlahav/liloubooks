@@ -272,6 +272,19 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 line-height: 1.6;
 color: var(--text-color);
 background-color: var(--cream-bg);
+
+    @media (max-width: 768px) {
+  #about > div > div:first-child {
+    display: block !important;
+    grid-template-columns: none !important;
+    gap: 0 !important;
+  }
+  #about > div > div {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+}
 }
 
 /* ========================================
