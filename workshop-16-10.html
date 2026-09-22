@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>סדנת פיסול ספרים | 16.10 | Lilou Books</title>
+  <meta name="description" content="הרשמה לסדנת פיסול ספרים חווייתית ב-16.10 ברמת החייל. שלוש שעות של יצירה, קפה וחברה — ותצאו עם ספר מפוסל שיצרתם בעצמכם.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #fdf8f2;
+      --warm-brown: #5c3d2e;
+      --gold: #c9a96e;
+      --soft-rose: #e8d5c4;
+      --text: #3a2a1e;
+      --light-text: #7a6458;
+    }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.5rem;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(232,213,196,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 3rem 2.75rem;
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 60px rgba(92,61,46,0.1);
+      position: relative;
+      animation: fadeUp 0.8s ease both;
+      z-index: 1;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .icon-wrap {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, var(--soft-rose), var(--gold));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      animation: pop 0.6s 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--warm-brown);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--soft-rose));
+      margin: 1rem auto 1.5rem;
+      border-radius: 2px;
+    }
+
+    p {
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--light-text);
+      margin-bottom: 1rem;
+      text-align: right;
+    }
+
+    p strong, li strong { color: var(--warm-brown); }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+      margin: 1.75rem 0;
+    }
+
+    .detail-item {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 1rem 0.75rem;
+      text-align: center;
+    }
+
+    .detail-item .emoji { font-size: 1.4rem; display: block; margin-bottom: 0.35rem; }
+    .detail-item .label { font-size: 0.78rem; color: var(--light-text); margin-bottom: 0.15rem; }
+    .detail-item .value { font-size: 1rem; font-weight: 700; color: var(--warm-brown); }
+
+    .highlight-box {
+      background: var(--cream);
+      border-right: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: 1.1rem 1.3rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+      color: var(--light-text);
+      text-align: right;
+    }
+
+    .program-list {
+      list-style: none;
+      text-align: right;
+      margin: 1rem 0 1.75rem;
+    }
+
+    .program-list li {
+      position: relative;
+      padding-right: 1.6rem;
+      margin-bottom: 0.75rem;
+      color: var(--light-text);
+      line-height: 1.6;
+    }
+
+    .program-list li::before {
+      content: '✦';
+      position: absolute;
+      right: 0;
+      color: var(--gold);
+    }
+
+    .price-box {
+      background: linear-gradient(135deg, var(--warm-brown), #7a4f3a);
+      color: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    .price-box .amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+    }
+
+    .price-box .amount span { font-size: 1.1rem; font-weight: 400; }
+
+    .price-box .sub { font-size: 0.85rem; opacity: 0.85; margin-top: 0.25rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.95rem 2rem;
+      border-radius: 50px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #b8935a);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(201,169,110,0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(201,169,110,0.5);
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .btn-secondary {
+      background: var(--cream);
+      color: var(--warm-brown);
+      border: 1.5px solid var(--soft-rose);
+      font-size: 0.9rem;
+      padding: 0.7rem 1.4rem;
+    }
+    .btn-secondary:hover {
+      background: var(--soft-rose);
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      font-size: 0.82rem;
+      color: #bbb;
+    }
+
+    .deco {
+      position: fixed;
+      font-size: 2rem;
+      opacity: 0.06;
+      pointer-events: none;
+      animation: float 8s ease-in-out infinite;
+    }
+    .deco:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .deco:nth-child(2) { top: 70%; left: 8%; animation-delay: 2s; font-size: 1.5rem; }
+    .deco:nth-child(3) { top: 20%; right: 6%; animation-delay: 4s; }
+    .deco:nth-child(4) { top: 80%; right: 4%; animation-delay: 1s; font-size: 1.5rem; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%       { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 2.25rem 1.5rem; }
+      h1 { font-size: 1.65rem; }
+      .details-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="deco">📖</span>
+  <span class="deco">✨</span>
+  <span class="deco">📚</span>
+  <span class="deco">🎨</span>
+
+  <div class="card">
+    <div class="icon-wrap">📖</div>
+    <div class="brand">Lilou Books</div>
+    <h1>סדנת פיסול ספרים<br>יום שישי, 16.10</h1>
+    <div class="divider"></div>
+
+    <p>
+      אשמח להזמינך לסדנת פיסול ספרים! אמנות פיסול ספרים היא אומנות שבה לוקחים
+      <strong>ספר ישן ושמור</strong> והופכים אותו לפיס מיוחד, דקורטיבי ועם משמעות
+      סנטימנטלית שנשארת לאורך שנים ❤️
+    </p>
+
+    <div class="details-grid">
+      <div class="detail-item">
+        <span class="emoji">📅</span>
+        <div class="label">תאריך</div>
+        <div class="value">16.10, שישי</div>
+      </div>
+      <div class="detail-item">
+        <span class="emoji">🕚</span>
+        <div class="label">שעה</div>
+        <div class="value">11:00</div>
+      </div>
+      <div class="detail-item">
+        <span class="emoji">⏱️</span>
+        <div class="label">משך</div>
+        <div class="value">כ-3 שעות</div>
+      </div>
+      <div class="detail-item">
+        <span class="emoji">📍</span>
+        <div class="label">מיקום</div>
+        <div class="value">רמת החייל</div>
+      </div>
+    </div>
+
+    <p style="font-weight:700; color:var(--warm-brown); text-align:center;">מה מצפה לנו?</p>
+    <ul class="program-list">
+      <li>רקע עליי ועל עולם פיסול הספרים — השיפט שלי מההיי טק לאומנות</li>
+      <li>למידת טכניקות הקיפול ותחילת יצירה</li>
+      <li>הפסקת קפה</li>
+      <li>המשך יצירה</li>
+      <li>דברי סיום, צילום תוצרים ושיתוף חוויה</li>
+      <li>אריזת הספר כמתנה הביתה 🎁</li>
+    </ul>
+
+    <p style="text-align:center;">✨ <strong>לא נדרש ניסיון קודם</strong> — מצפה לנו סדנה חווייתית, מחברת ויצירתית, ואני מחכה ממש להכיר אותך וליצור יחד!</p>
+
+    <div class="highlight-box">
+      <strong>מיקום החניה</strong><br>
+      הסדנה מועברת ברמת החייל — יש באזור המון חניה ✨. כתובת מדויקת תימסר לאחר שריון מקום.
+    </div>
+
+    <p style="text-align:center; font-style:italic;">נ.ב- אני דואגת להכל! רק תביאי את עצמך ומצב רוח טוב ❤️</p>
+
+    <div class="price-box">
+      <div class="amount">320<span> ₪ למשתתפת</span></div>
+      <div class="sub">כל החומרים כלולים — משריינים מקום בתשלום מראש</div>
+    </div>
+
+    <a href="https://pay.grow.link/82c259dab99d2157be35462ff4b81091-Mjc4NjA5MQ" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+      💳 שריינו מקום ושלמו עכשיו
+    </a>
+
+    <div class="contact-links">
+      <a href="https://wa.me/972502534643" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+        💬 שאלות? כתבו לי בוואטסאפ
+      </a>
+      <a href="https://liloubooks.com" class="btn btn-secondary">
+        🏠 חזרה לאתר
+      </a>
+    </div>
+
+    <div class="footer-note">
+      Lilou Books &nbsp;•&nbsp; להב ברק &nbsp;•&nbsp; תל אביב
+    </div>
+  </div>
+
+</body>
+</html>
