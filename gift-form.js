@@ -25,8 +25,8 @@
 
   var html = '' +
     '<div class="gift-form">' +
-      '<h3>🎁 תבנית קיפול ספרים במתנה</h3>' +
-      '<p class="lead">השאירו שם ומייל, והתבנית תגיע אליכם למייל תוך כמה דקות. בחינם!</p>' +
+      '<h3>🎁 תבנית "לב בתוך לב" במתנה</h3>' +
+      '<p class="lead">תבנית קיפול ספרים מקורית שלי, בשיטת סימון וקיפול (MMF). השאירו שם ומייל והיא תגיע אליכם למייל תוך כמה דקות, בחינם!</p>' +
       '<form novalidate>' +
         '<input type="text" name="name" placeholder="השם שלך" autocomplete="name" required aria-label="שם">' +
         '<input type="email" name="email" placeholder="המייל שלך" autocomplete="email" required aria-label="מייל" dir="ltr">' +

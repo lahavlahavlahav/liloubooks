@@ -20,7 +20,7 @@ const CONFIG = {
   PATTERN_FILE_ID: 'PASTE_DRIVE_FILE_ID_HERE',
   SHEET_NAME: 'נרשמים',
   SENDER_NAME: 'Lilou Books – להב ברק',
-  SUBJECT: '🎁 התבנית שלך מלילו בוקס',
+  SUBJECT: '🎁 תבנית "לב בתוך לב" במתנה מלילו בוקס',
   // Don't resend to the same address more than once in this many hours
   // (protects your Gmail daily sending quota from repeated or abusive submissions).
   RESEND_COOLDOWN_HOURS: 24,
@@ -69,10 +69,11 @@ function sendPattern_(name, email) {
 <div dir="rtl" style="font-family: Arial, sans-serif; background:#F8F4EE; padding:24px;">
   <div style="max-width:560px; margin:0 auto; background:#ffffff; border-radius:14px; padding:32px; color:#333; line-height:1.7;">
     <h1 style="color:#8B6F47; font-family: Georgia, serif; font-size:26px; margin:0 0 16px;">היי ${safeName} 💛</h1>
-    <p>תודה שנרשמת! מצורפת למייל הזה <strong>תבנית קיפול ספרים במתנה</strong> ממני.</p>
+    <p>תודה שנרשמת! מצורפת למייל הזה <strong>תבנית "לב בתוך לב"</strong>, תבנית קיפול ספרים מקורית שלי, במתנה.</p>
     <p><strong>כמה טיפים לפני שמתחילים:</strong></p>
     <ul style="padding-right:20px;">
-      <li>בחרו ספר בכריכה קשה עם מספיק עמודים (בדקו בתבנית כמה צריך).</li>
+      <li>התבנית מתאימה לספר בגובה 20 ס"מ עם 250 עמודים. ספר בכריכה קשה יעמוד הכי יפה.</li>
+      <li>שיטת הקיפול: סימון וקיפול (MMF). מודדים לפי התבנית, מסמנים בעיפרון ומקפלים.</li>
       <li>סרגל, עיפרון ומעט סבלנות. זה כל מה שצריך.</li>
       <li>טעיתם בקיפול? זה בסדר גמור. ככה כולנו למדנו.</li>
     </ul>
@@ -88,7 +89,7 @@ function sendPattern_(name, email) {
 </div>`;
 
   const text =
-    `היי ${name},\n\nתודה שנרשמת! מצורפת למייל הזה תבנית קיפול ספרים במתנה.\n\n` +
+    `היי ${name},\n\nתודה שנרשמת! מצורפת למייל הזה תבנית "לב בתוך לב" במתנה (ספר בגובה 20 ס"מ, 250 עמודים, שיטת סימון וקיפול).\n\n` +
     `אשמח לראות את התוצאה. תייגו אותי באינסטגרם @liloubooks____\n\n` +
     `באהבה,\nלהב – Lilou Books\nhttps://liloubooks.com`;
 
