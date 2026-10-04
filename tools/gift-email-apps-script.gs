@@ -2,22 +2,21 @@
  * Lilou Books – free pattern by email.
  *
  * Receives the signup form from liloubooks.com (gift-form.js), saves the
- * name + email to this Google Sheet, and emails the pattern PDF from Drive.
+ * name + email to this Google Sheet, and emails the pattern PDF
+ * (hosted on the site under /gift/) as an attachment.
  *
  * Setup (once):
- * 1. Upload the pattern PDF to Google Drive. Open it and copy the file ID from
- *    the URL: drive.google.com/file/d/<FILE_ID>/view
- * 2. Create a new Google Sheet (e.g. "Lilou – נרשמים לתבנית").
- * 3. In the sheet: Extensions → Apps Script. Delete the sample code and paste this file.
- * 4. Paste the file ID into PATTERN_FILE_ID below and save.
- * 5. Select the function `testSend` and click Run. Approve the permissions
+ * 1. Open the Google Sheet "לילו – נרשמים לתבנית".
+ * 2. Extensions → Apps Script. Delete the sample code, paste this file, and save.
+ * 3. Select the function `testSend` and click Run. Approve the permissions
  *    and check that the email arrives in your inbox.
- * 6. Deploy → New deployment → type "Web app".
+ * 4. Deploy → New deployment → type "Web app".
  *    Execute as: Me. Who has access: Anyone. Click Deploy and copy the Web app URL.
  */
 
 const CONFIG = {
-  PATTERN_FILE_ID: 'PASTE_DRIVE_FILE_ID_HERE',
+  PATTERN_URL: 'https://liloubooks.com/gift/lilou-heart-in-heart-x7q2.pdf',
+  PATTERN_FILENAME: 'לב בתוך לב - Lilou Books.pdf',
   SHEET_NAME: 'נרשמים',
   SENDER_NAME: 'Lilou Books – להב ברק',
   SUBJECT: '🎁 תבנית "לב בתוך לב" במתנה מלילו בוקס',
@@ -62,7 +61,9 @@ function doPost(e) {
 }
 
 function sendPattern_(name, email) {
-  const pdf = DriveApp.getFileById(CONFIG.PATTERN_FILE_ID).getBlob();
+  const pdf = UrlFetchApp.fetch(CONFIG.PATTERN_URL).getBlob()
+    .setContentType('application/pdf')
+    .setName(CONFIG.PATTERN_FILENAME);
   const safeName = escapeHtml_(name);
 
   const html = `
