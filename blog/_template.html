@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}} | הבלוג של לילו בוקס</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<link rel="canonical" href="https://liloubooks.com/blog/{{SLUG}}.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:url" content="https://liloubooks.com/blog/{{SLUG}}.html">
+<meta property="og:locale" content="he_IL">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{TITLE}}",
+  "description": "{{DESCRIPTION}}",
+  "datePublished": "{{ISO_DATE}}",
+  "inLanguage": "he",
+  "author": { "@type": "Person", "name": "להב ברק" },
+  "publisher": { "@type": "Organization", "name": "Lilou Books", "url": "https://liloubooks.com" },
+  "mainEntityOfPage": "https://liloubooks.com/blog/{{SLUG}}.html"
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="logo" href="/">Lilou Books</a>
+    <nav><a href="/">ראשי</a><a href="/blog/">בלוג</a><a href="/#contact">צור קשר</a></nav>
+  </div>
+</header>
+
+<main>
+  <article class="post">
+    <h1>{{TITLE}}</h1>
+    <div class="meta">{{HEBREW_DATE}} • מאת להב</div>
+
+    {{BODY}}
+
+    <div class="cta">
+      רוצים ללמוד לקפל ספרים בעצמכם? <a href="/#workshops">לסדנאות של לילו בוקס ←</a>
+    </div>
+  </article>
+
+  <div class="gift-box" data-gift-form hidden></div>
+
+  <a class="back" href="/blog/">→ לכל הפוסטים בבלוג</a>
+</main>
+
+<footer>✨ Lilou Books · להב ברק ✨</footer>
+<script src="/gift-form.js" defer></script>
+</body>
+</html>
