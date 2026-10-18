@@ -14,7 +14,6 @@
     .gate label { display: block; font-weight: 700; color: var(--warm-brown); margin: 14px 0 6px; font-size: .95rem; }
     .gate input { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; font: inherit; background: var(--paper); color: var(--text); }
     .gate input:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
-    .gate input.code { text-align: center; font-size: 1.6rem; letter-spacing: 8px; }
     .gate .btn { width: 100%; margin-top: 20px; border: 0; cursor: pointer; }
     .gate .btn[disabled] { opacity: .6; cursor: wait; }
     .gate .msg { margin-top: 12px; font-size: .95rem; color: #a3412f; min-height: 1.4em; }
@@ -40,40 +39,17 @@
   </div>
 </header>
 
-<section class="hero" id="gateSection" hidden>
+<section class="hero" id="gateSection">
   <div class="wrap">
     <span class="eyebrow">לבוגרות הסדנאות בלבד</span>
     <h1>תיקיית התבניות שלך</h1>
-    <p class="lead">כל התבניות שאני שולחת בקבוצת הוואטסאפ, שמורות כאן במקום אחד. עברת אצלי סדנה? הירשמי פעם אחת, ותקבלי למייל קוד כניסה.</p>
+    <p class="lead">כל התבניות שאני שולחת בקבוצת הוואטסאפ, שמורות כאן במקום אחד. הקלידי את הסיסמה שקיבלת בקבוצה.</p>
 
-    <form class="gate" id="signup" novalidate>
-      <label for="name">שם מלא</label>
-      <input id="name" name="name" autocomplete="name" required>
-      <label for="phone">טלפון</label>
-      <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required>
-      <label for="email">מייל</label>
-      <input id="email" name="email" type="email" autocomplete="email" dir="ltr" required>
-      <button class="btn" type="submit">שלחי לי קוד כניסה</button>
-      <div class="msg" role="alert"></div>
-      <button class="switch" type="button" data-show="login">כבר נרשמתי, כניסה עם מייל</button>
-    </form>
-
-    <form class="gate" id="login" hidden novalidate>
-      <label for="loginEmail">המייל שאיתו נרשמת</label>
-      <input id="loginEmail" name="email" type="email" autocomplete="email" dir="ltr" required>
-      <button class="btn" type="submit">שלחי לי קוד כניסה</button>
-      <div class="msg" role="alert"></div>
-      <button class="switch" type="button" data-show="signup">עוד לא נרשמתי</button>
-    </form>
-
-    <form class="gate" id="verify" hidden novalidate>
-      <label for="code">קוד הכניסה</label>
-      <p class="info">שלחתי קוד בן 6 ספרות אל <strong dir="ltr" id="sentTo"></strong>. לא הגיע? בדקי גם בתיקיית הספאם או קידומי מכירות.</p>
-      <input id="code" name="code" class="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" dir="ltr" required>
+    <form class="gate" id="unlock" novalidate>
+      <label for="pw">סיסמה</label>
+      <input id="pw" name="pw" type="password" autocomplete="current-password" dir="ltr" required>
       <button class="btn" type="submit">כניסה לתבניות</button>
       <div class="msg" role="alert"></div>
-      <button class="switch" type="button" id="resend">שלחי לי קוד חדש</button>
-      <button class="switch" type="button" data-show="login">החלפת מייל</button>
     </form>
   </div>
 </section>
@@ -81,17 +57,10 @@
 <section id="library" hidden>
   <div class="wrap-wide">
     <div class="hello">
-      <h2 style="margin:0">היי <span id="helloName"></span>, אלה התבניות שלך</h2>
+      <h2 style="margin:0">התבניות שלך</h2>
       <button type="button" id="logout">יציאה</button>
     </div>
     <div class="plist" id="plist"></div>
-    <p class="status" id="libStatus"></p>
-  </div>
-</section>
-
-<section id="soon" hidden>
-  <div class="wrap center">
-    <h2>תיקיית התבניות נפתחת ממש בקרוב 🤍</h2>
   </div>
 </section>
 
@@ -101,135 +70,59 @@
 
 <script>
 (function () {
-  // כתובת ה-Apps Script של הגיליון "לקוחות סדנאות" (tools/patterns-signup.gs)
-  var API = '';
-  var KEY = 'lilouPatternsAccess';
+  // רשימת התבניות מוצפנת בסיסמה (AES-GCM, מפתח מ-PBKDF2). להוספת תבנית מצפינים את הרשימה מחדש.
+  var VAULT = {"s":"VS75cRo8jcom1/u5yoFjtw==","i":"b2/Dq2vG4QyeqaVH","d":"xGky57dRQDB3FP9V/nrffEqPTlMIwkXWJuSNk3GoxYAL9Wbksmg7fG1LC/GlDU9fwEnKqfoCg6eFbBkwoAnwWCJSR4N89wJ9rg+WiE9eTynmy7cwS2DMPxrbk4pazNkj7sNL3sQOmL4gQMemfDocYmQ5HVTWlyqskjL6nfLkj6Ss4HiWSK/pcmux+zxWveCGZ+LII3DOHchI9WMaNB7oKAa6iTl3CYVUnHDS7DBSuMSBxv4WHDLKavazZ8yYrlZgLUJmwlenrTN74Qb72LtudFPpL+0M5F3ZX7BKsNr8BJAwRiWlG8FZrsmfi19cUpDbyAwhRoNlR0KDDmbbfG+4YjGbBY/0ls2a9o8Zw85f7UfgfcoVk/+/duKUn3N/WiBE1S6SDmedouAyr3/eiy0Pp4TRiXlUENcKmFsVf/6tSEBG7T4qbUumySGsCRHafE/ERgAXeCfvZTSNJsViIYNP5GIpfSmmTjmUN4eqAqLqcYUN0MBOrBkhvkDEJM126hfD/xuHZ00jGJcETIJ2trk9dM+fnpPSEbK1aDoqOXp4kLWDWHFVsrrfgf+vS0CZ+aRVMhu0GdOpxPoss7iN6kfUOXcqr2+iqJpRr/2HV5mOu/4bUTTVfCOnqt8GxJlIgsCWd0vn6/PDxjrZJ0qyyk77nkQb90nz0lJ+5Hgm/awkGTwSBauZFJrmuO/0LzhUhMWPXELnSIDcRZh1Nc0IcuANwa951C2nBVxHsRQ12YfY3ZpxCOF9JBlS2I+xnIsE4sg7hqrz1iOFHN3zLSf9WrIp1t3g1ONECec0hH4QRli6D4CQnBUwvWPV0OIVcdSGzltWQTRmrrPmYjvOeMgCozXDQjqmjAXrgRdd9bQTMv5akL8l1azztHchh50uFzChZg5d/gnvrbnF7ZnltxEVWUQqsx2iRViBUeZlZuCzuZlZ2i5cBMKL9qkbawis8ZI3ZR7O5dLA4BkkmFyGH7LNi8seb89pSPEzayBw1oBqy4W6GAG+s9aac5aXOVro0QvoqBni9ZjVPEMZgG4fqDtNeJTWcC3cqD2FHiDHDVev5Hb5dfwV2O2SibCX31vf7RQ7qQ6LeNxr5CtCYbK+VQV7ik1AuIe54rNS8K0DZFKsvJVR/PXF5NpXX75pw8Nil4sS1XF8YZFNd6saFJvANkogGUoOgj9LuIPJyRnx0OSdMzjKKpKTyVtHWhZVi19LZ82imugyIBpTq0rTqp4CA8D3ngdPisyccS8ddt8Dysr/lUt+yS+Kfj1HR1cZpxbwvTSI6S3w/Vp33SRjZyfy++54qIf2NZ9dg3zIeNOwGi6IwNPgPuI5cH13y9i5DtoESfsowvyA1cGvVUmDPshoJmkNwD7VKnEbMIaBA3nh8YkL1tY7nKS7yHE="};
+  var KEY = 'lilouPatternsPw';
   var $ = function (s) { return document.querySelector(s); };
-  var pendingEmail = '';
 
-  function getAccess() { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } }
-  function setAccess(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} }
-  function clearAccess() { try { localStorage.removeItem(KEY); } catch (e) {} }
-  function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function b64(s) { return Uint8Array.from(atob(s), function (c) { return c.charCodeAt(0); }); }
   function esc(s) { return String(s || '').replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 
-  function api(data) {
-    return fetch(API, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(data)
-    }).then(function (r) { return r.json(); });
+  function open(pw) {
+    var c = window.crypto.subtle;
+    return c.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']).then(function (base) {
+      return c.deriveKey({ name: 'PBKDF2', salt: b64(VAULT.s), iterations: 150000, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    }).then(function (key) {
+      return c.decrypt({ name: 'AES-GCM', iv: b64(VAULT.i) }, key, b64(VAULT.d));
+    }).then(function (buf) { return JSON.parse(new TextDecoder().decode(buf)); });
   }
 
-  var ERRORS = {
-    email: 'נא להזין מייל תקין',
-    fields: 'נא למלא שם, טלפון ומייל',
-    unknown: 'המייל הזה עוד לא רשום. הירשמי עם שם וטלפון, זה לוקח רגע.',
-    code: 'הקוד לא נכון, נסי שוב',
-    expired: 'הקוד פג תוקף. לחצי על "שלחי לי קוד חדש".',
-    tries: 'יותר מדי ניסיונות. לחצי על "שלחי לי קוד חדש".',
-    network: 'משהו השתבש בחיבור. נסי שוב בעוד רגע.'
-  };
-
-  function show(id) {
-    ['signup', 'login', 'verify'].forEach(function (f) { $('#' + f).hidden = f !== id; });
-    $('#gateSection').hidden = false;
-    $('#library').hidden = true;
-  }
-
-  function busy(form, on) {
-    form.querySelectorAll('button').forEach(function (b) { b.disabled = on; });
-    if (on) form.querySelector('.msg').textContent = '';
-  }
-
-  function request(form, data, onOk) {
-    busy(form, true);
-    api(data).then(function (res) {
-      busy(form, false);
-      if (res && res.ok) onOk(res);
-      else form.querySelector('.msg').textContent = ERRORS[res && res.reason] || ERRORS.network;
-    }).catch(function () {
-      busy(form, false);
-      form.querySelector('.msg').textContent = ERRORS.network;
-    });
-  }
-
-  function goVerify(email) {
-    pendingEmail = email;
-    $('#sentTo').textContent = email;
-    $('#code').value = '';
-    show('verify');
-    $('#code').focus();
-  }
-
-  function render(patterns) {
-    $('#plist').innerHTML = (patterns || []).map(function (p) {
-      var id = encodeURIComponent(p.id);
+  function render(list) {
+    $('#plist').innerHTML = list.map(function (p) {
       return '<div class="pcard">' +
-        '<img class="thumb" src="https://drive.google.com/thumbnail?id=' + id + '&sz=w600" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">' +
+        '<img class="thumb" src="' + esc(p.thumb) + '" alt="" loading="lazy">' +
         '<div class="body"><h3>' + esc(p.title) + '</h3>' +
-        '<a class="btn" href="https://drive.google.com/uc?export=download&id=' + id + '">להורדת התבנית</a>' +
-        '<a class="view" href="https://drive.google.com/file/d/' + id + '/view" target="_blank" rel="noopener">צפייה לפני הורדה</a>' +
+        '<a class="btn" href="' + esc(p.file) + '" download="' + esc(p.title) + '.pdf">להורדת התבנית</a>' +
+        '<a class="view" href="' + esc(p.file) + '" target="_blank" rel="noopener">צפייה לפני הורדה</a>' +
         '</div></div>';
     }).join('');
-    $('#libStatus').textContent = patterns && patterns.length ? '' : 'התבניות הראשונות יעלו לכאן ממש בקרוב 🤍';
-  }
-
-  function showLibrary(acc, patterns) {
     $('#gateSection').hidden = true;
     $('#library').hidden = false;
-    $('#helloName').textContent = (acc.name || '').split(' ')[0];
-    if (patterns) { render(patterns); return; }
-    $('#plist').innerHTML = '';
-    $('#libStatus').textContent = 'טוענת את התבניות...';
-    api({ action: 'list', email: acc.email, token: acc.token }).then(function (res) {
-      if (res && res.ok) render(res.patterns);
-      else { clearAccess(); show('login'); $('#loginEmail').value = acc.email; }
-    }).catch(function () { $('#libStatus').textContent = ERRORS.network; });
   }
 
-  document.querySelectorAll('[data-show]').forEach(function (b) {
-    b.addEventListener('click', function () { show(b.getAttribute('data-show')); });
-  });
-
-  $('#signup').addEventListener('submit', function (e) {
+  $('#unlock').addEventListener('submit', function (e) {
     e.preventDefault();
-    var f = e.target;
-    var name = f.name.value.trim(), phone = f.phone.value.trim(), email = f.email.value.trim().toLowerCase();
-    if (!name || !phone || !isEmail(email)) { f.querySelector('.msg').textContent = ERRORS.fields; return; }
-    request(f, { action: 'signup', name: name, phone: phone, email: email }, function () { goVerify(email); });
+    var f = e.target, pw = f.pw.value.trim(), btn = f.querySelector('.btn'), msg = f.querySelector('.msg');
+    if (!pw) { msg.textContent = 'נא להקליד סיסמה'; return; }
+    btn.disabled = true; msg.textContent = '';
+    open(pw).then(function (list) {
+      try { localStorage.setItem(KEY, pw); } catch (err) {}
+      render(list);
+    }).catch(function () {
+      msg.textContent = 'הסיסמה לא נכונה. הסיסמה נמצאת בקבוצת הוואטסאפ של הבוגרות.';
+    }).then(function () { btn.disabled = false; });
   });
 
-  $('#login').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var f = e.target, email = f.email.value.trim().toLowerCase();
-    if (!isEmail(email)) { f.querySelector('.msg').textContent = ERRORS.email; return; }
-    request(f, { action: 'sendcode', email: email }, function () { goVerify(email); });
+  $('#logout').addEventListener('click', function () {
+    try { localStorage.removeItem(KEY); } catch (err) {}
+    $('#pw').value = '';
+    $('#library').hidden = true;
+    $('#gateSection').hidden = false;
   });
 
-  $('#verify').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var f = e.target, code = f.code.value.replace(/\D/g, '');
-    if (code.length !== 6) { f.querySelector('.msg').textContent = ERRORS.code; return; }
-    request(f, { action: 'verify', email: pendingEmail, code: code }, function (res) {
-      var acc = { email: pendingEmail, token: res.token, name: res.name };
-      setAccess(acc);
-      showLibrary(acc, res.patterns);
-    });
-  });
-
-  $('#resend').addEventListener('click', function () {
-    var f = $('#verify');
-    request(f, { action: 'sendcode', email: pendingEmail }, function () {
-      f.querySelector('.msg').textContent = 'שלחתי קוד חדש למייל ✓';
-    });
-  });
-
-  $('#logout').addEventListener('click', function () { clearAccess(); show('login'); });
-
-  if (!API) { $('#soon').hidden = false; return; }
-  var acc = getAccess();
-  if (acc && acc.email && acc.token) showLibrary(acc); else show('signup');
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (err) {}
+  if (saved) open(saved).then(render).catch(function () { try { localStorage.removeItem(KEY); } catch (err) {} });
 })();
 </script>
 </body>
