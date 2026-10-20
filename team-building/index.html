@@ -11,6 +11,7 @@
 <meta property="og:description" content="פעילות גיבוש יצירתית ושקטה לצוות: כל משתתף יוצא עם ספר מקופל שעשה בעצמו. עד 30 משתתפים, אצלכם במשרד או בסטודיו.">
 <meta property="og:url" content="https://liloubooks.com/team-building/">
 <meta property="og:locale" content="he_IL">
+<meta property="og:image" content="https://liloubooks.com/team-building/img/team.jpg">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -52,41 +53,136 @@
 }
 </script>
 <style>
-.tb-hero { text-align: center; margin-bottom: 2rem; }
-.tb-hero .eyebrow { color: var(--accent-brown); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; }
-.tb-hero h1 { color: var(--accent-brown); font-size: 2.1rem; line-height: 1.3; margin-bottom: 1rem; }
-.tb-hero p { color: #555; font-size: 1.1rem; line-height: 1.8; max-width: 640px; margin: 0 auto 1.5rem; }
-.btn { display: inline-block; padding: 0.75rem 1.6rem; border-radius: 999px; font-weight: 700; text-decoration: none; margin: 0.3rem; }
-.btn-main { background: var(--accent-brown); color: #fff; }
-.btn-main:hover { background: #6E5636; }
-.btn-ghost { background: #fff; color: var(--accent-brown); border: 2px solid var(--accent-brown); }
-.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem; margin: 2rem 0; }
-.fact { background: #fff; border-radius: 14px; padding: 1.1rem 0.8rem; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
-.fact .n { display: block; font-size: 1.35rem; font-weight: 800; color: var(--accent-brown); }
-.fact .l { font-size: 0.9rem; color: #666; }
-.season { background: linear-gradient(135deg, #fff 0%, #fdeef1 100%); border: 2px solid var(--primary-color); border-radius: 18px; padding: 2rem; margin: 2rem 0; }
-.season .badge { display: inline-block; background: var(--primary-color); color: #3a2a1a; font-weight: 700; font-size: 0.85rem; padding: 0.2rem 0.8rem; border-radius: 999px; margin-bottom: 0.6rem; }
-.season h2 { color: var(--accent-brown); font-size: 1.6rem; margin-bottom: 0.6rem; }
-.season p, .season li { color: #555; line-height: 1.8; }
-.season ul { padding-inline-start: 1.4rem; margin: 0.6rem 0 1rem; }
-.steps { counter-reset: s; list-style: none; padding: 0 !important; }
-.steps li { counter-increment: s; position: relative; padding-inline-start: 2.6rem; }
-.steps li::before { content: counter(s); position: absolute; right: 0; top: 0.1rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--primary-color); color: #3a2a1a; font-weight: 800; display: flex; align-items: center; justify-content: center; }
-.faq details { border-bottom: 1px solid #eee; padding: 0.9rem 0; }
-.faq summary { cursor: pointer; font-weight: 700; color: var(--text-color); }
-.faq details p { margin: 0.6rem 0 0; }
-.lead-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-top: 1rem; }
-.lead-form .full { grid-column: 1 / -1; }
-.lead-form label { display: block; font-weight: 600; font-size: 0.92rem; margin-bottom: 0.25rem; color: #444; }
-.lead-form input, .lead-form select, .lead-form textarea { width: 100%; padding: 0.7rem; border: 2px solid #e6dccf; border-radius: 10px; font: inherit; background: #fff; }
-.lead-form input:focus, .lead-form select:focus, .lead-form textarea:focus { outline: none; border-color: var(--accent-brown); }
-.lead-form button { border: 0; cursor: pointer; font: inherit; font-size: 1.05rem; }
-.form-msg { margin-top: 1rem; font-weight: 700; }
+:root {
+  --pink: #FF6F91; --pink-soft: #FFE3EA; --peach: #FFD6B8; --brown: #8B6F47;
+  --navy: #1E2A5A; --green: #1F6B4F; --gold: #F5C451; --mint: #DFF5EC; --sky: #E3EEFF; --sun: #FFF3CF;
+}
+body { background: #FFFAF6; }
+.site-header { position: sticky; top: 0; z-index: 50; }
+.site-header nav a.nav-cta { background: var(--pink); color: #fff; padding: 0.35rem 0.9rem; border-radius: 999px; }
+main.tb { max-width: none; padding: 0; }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+.btn { display: inline-block; padding: 0.85rem 1.7rem; border-radius: 999px; font-weight: 800; text-decoration: none; margin: 0.3rem; transition: transform 0.15s, box-shadow 0.15s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-main { background: linear-gradient(135deg, #FF6F91 0%, #FF9671 100%); color: #fff; box-shadow: 0 8px 20px rgba(255,111,145,0.35); }
+.btn-wa { background: #25D366; color: #fff; box-shadow: 0 8px 20px rgba(37,211,102,0.3); }
+.btn-gold { background: var(--gold); color: var(--navy); box-shadow: 0 8px 20px rgba(245,196,81,0.35); }
+
+/* Hero */
+.tb-hero { background: linear-gradient(135deg, #FFE3EA 0%, #FFD6B8 55%, #FFF3CF 100%); padding: 3rem 0 3.5rem; }
+.tb-hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 2.5rem; align-items: center; }
+.eyebrow { display: inline-block; background: #fff; color: var(--pink); font-weight: 800; font-size: 0.9rem; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1rem; }
+.tb-hero h1 { color: #4A2C17; font-size: 2.4rem; line-height: 1.25; margin-bottom: 1rem; }
+.tb-hero h1 span { color: var(--pink); }
+.tb-hero p { color: #5a4636; font-size: 1.12rem; line-height: 1.8; margin-bottom: 1.4rem; }
+.hero-photo { position: relative; }
+.hero-photo img { width: 100%; height: auto; border-radius: 22px; box-shadow: 0 18px 40px rgba(74,44,23,0.25); display: block; transform: rotate(-1.5deg); border: 6px solid #fff; }
+.hero-photo .sticker { position: absolute; bottom: -18px; left: -12px; background: var(--navy); color: var(--gold); font-weight: 800; padding: 0.6rem 1rem; border-radius: 14px; box-shadow: 0 8px 18px rgba(0,0,0,0.2); transform: rotate(3deg); }
+
+/* Facts */
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: -1.8rem auto 0; position: relative; }
+.fact { border-radius: 18px; padding: 1.2rem 0.8rem; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+.fact:nth-child(1) { background: var(--pink-soft); } .fact:nth-child(2) { background: var(--mint); }
+.fact:nth-child(3) { background: var(--sky); } .fact:nth-child(4) { background: var(--sun); }
+.fact .ico { font-size: 1.6rem; display: block; }
+.fact .n { display: block; font-size: 1.45rem; font-weight: 900; color: #4A2C17; }
+.fact .l { font-size: 0.9rem; color: #5a4636; }
+
+/* Sections */
+.sec { padding: 3.5rem 0; }
+.sec h2 { color: #4A2C17; font-size: 1.9rem; text-align: center; margin-bottom: 0.6rem; }
+.sec .lead { text-align: center; color: #5a4636; max-width: 680px; margin: 0 auto 2rem; font-size: 1.08rem; line-height: 1.8; }
+
+/* Chrismukkah */
+.season { background: linear-gradient(135deg, #1E2A5A 0%, #1F3F5A 45%, #1F6B4F 100%); color: #fff; position: relative; overflow: hidden; }
+.season::before { content: "✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧"; position: absolute; top: 12px; left: 0; right: 0; text-align: center; color: rgba(245,196,81,0.45); letter-spacing: 0.6rem; font-size: 0.9rem; white-space: nowrap; overflow: hidden; }
+.season .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+.season .badge { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 900; font-size: 0.9rem; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 0.8rem; }
+.season h2 { color: #fff; font-size: 2rem; line-height: 1.3; margin-bottom: 0.8rem; }
+.season h2 span { color: var(--gold); }
+.season p, .season li { color: #E9EEF7; line-height: 1.8; }
+.season ul { list-style: none; padding: 0; margin: 1rem 0 1.4rem; }
+.season li { margin-bottom: 0.6rem; padding-inline-start: 1.8rem; position: relative; }
+.season li::before { content: "★"; color: var(--gold); position: absolute; right: 0; }
+.season strong { color: #fff; }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.duo figure { margin: 0; background: #fff; padding: 8px 8px 0; border-radius: 14px; box-shadow: 0 12px 28px rgba(0,0,0,0.3); }
+.duo figure:first-child { transform: rotate(-3deg); } .duo figure:last-child { transform: rotate(3deg) translateY(1.5rem); }
+.duo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 9px; display: block; }
+.duo figcaption { color: var(--navy); font-weight: 800; text-align: center; padding: 0.45rem 0; font-size: 0.95rem; }
+
+/* Why */
+.why { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.why .card { background: #fff; border-radius: 18px; padding: 1.5rem 1.2rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06); border-top: 6px solid var(--pink); }
+.why .card:nth-child(2) { border-color: #3BB39A; } .why .card:nth-child(3) { border-color: #5B8DEF; } .why .card:nth-child(4) { border-color: var(--gold); }
+.why .ico { font-size: 2rem; }
+.why h3 { color: #4A2C17; font-size: 1.12rem; margin: 0.4rem 0; }
+.why p { color: #5a4636; line-height: 1.7; font-size: 0.97rem; }
+
+/* Gallery */
+.gallery-sec { background: linear-gradient(180deg, #FFFAF6 0%, #FFE3EA 100%); }
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 190px; gap: 0.8rem; }
+.gallery figure { margin: 0; position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+.gallery img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.gallery figure:hover img { transform: scale(1.05); }
+.gallery figcaption { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.2rem 0.8rem 0.6rem; background: linear-gradient(transparent, rgba(0,0,0,0.6)); color: #fff; font-weight: 700; font-size: 0.92rem; }
+.g-tall { grid-row: span 2; } .g-wide { grid-column: span 2; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; counter-reset: s; }
+.step { background: #fff; border-radius: 18px; padding: 1.4rem 1.1rem; text-align: center; box-shadow: 0 6px 18px rgba(0,0,0,0.06); counter-increment: s; }
+.step::before { content: counter(s); display: flex; width: 2.6rem; height: 2.6rem; margin: 0 auto 0.7rem; border-radius: 50%; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem; color: #fff; background: linear-gradient(135deg, #FF6F91, #FF9671); }
+.step p { color: #5a4636; line-height: 1.6; }
+
+/* Who + about */
+.who { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; max-width: 760px; margin: 0 auto; }
+.who span { padding: 0.5rem 1rem; border-radius: 999px; font-weight: 700; color: #4A2C17; }
+.who span:nth-child(4n+1) { background: var(--pink-soft); } .who span:nth-child(4n+2) { background: var(--mint); }
+.who span:nth-child(4n+3) { background: var(--sky); } .who span:nth-child(4n+4) { background: var(--sun); }
+.about { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2rem; align-items: center; background: #fff; border-radius: 22px; padding: 1.6rem; box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
+.about img { width: 100%; border-radius: 16px; display: block; }
+.about h2 { text-align: right; }
+.about p { color: #5a4636; line-height: 1.8; }
+
+/* FAQ */
+.faq { max-width: 760px; margin: 0 auto; }
+.faq details { background: #fff; border-radius: 14px; padding: 1rem 1.2rem; margin-bottom: 0.7rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-inline-start: 5px solid var(--pink); }
+.faq details:nth-child(even) { border-color: #3BB39A; }
+.faq summary { cursor: pointer; font-weight: 800; color: #4A2C17; }
+.faq details p { margin: 0.6rem 0 0; color: #5a4636; line-height: 1.7; }
+
+/* Form */
+.quote-sec { background: linear-gradient(135deg, #FF6F91 0%, #FF9671 60%, #FFC26F 100%); }
+.quote-card { max-width: 760px; margin: 0 auto; background: #fff; border-radius: 24px; padding: 2rem; box-shadow: 0 20px 45px rgba(120,40,40,0.25); }
+.quote-card h2 { margin-bottom: 0.4rem; }
+.quote-card .lead { margin-bottom: 1.2rem; }
+.lead-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+.lead-form .full { grid-column: 1 / -1; text-align: center; }
+.lead-form label { display: block; font-weight: 700; font-size: 0.92rem; margin-bottom: 0.25rem; color: #4A2C17; text-align: right; }
+.lead-form input, .lead-form select, .lead-form textarea { width: 100%; padding: 0.75rem; border: 2px solid #F3D5DC; border-radius: 12px; font: inherit; background: #FFFAFB; }
+.lead-form input:focus, .lead-form select:focus, .lead-form textarea:focus { outline: none; border-color: var(--pink); background: #fff; }
+.lead-form button { border: 0; cursor: pointer; font: inherit; font-size: 1.1rem; }
+.form-msg { margin-top: 0.8rem; font-weight: 800; color: #4A2C17; }
+.back { display: block; text-align: center; padding: 2rem 0 0; }
+footer a { color: inherit; }
+
+@media (max-width: 860px) {
+  .tb-hero .wrap, .season .wrap, .about { grid-template-columns: 1fr; }
+  .hero-photo { order: -1; }
+  .tb-hero h1 { font-size: 1.8rem; }
+  .facts, .why, .steps { grid-template-columns: 1fr 1fr; }
+  .facts { margin-top: 1.5rem; }
+  .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+  .g-wide { grid-column: span 2; }
+  .duo figure:last-child { transform: rotate(3deg); }
+}
 @media (max-width: 600px) {
   .site-header .inner { flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
-  .tb-hero h1 { font-size: 1.65rem; }
   .lead-form { grid-template-columns: 1fr; }
-  .season { padding: 1.4rem; }
+  .quote-card { padding: 1.4rem; }
+  .sec { padding: 2.6rem 0; }
+  .sec h2, .season h2 { font-size: 1.55rem; }
+  .btn { display: block; text-align: center; }
 }
 </style>
 </head>
@@ -94,98 +190,163 @@
 <header class="site-header">
   <div class="inner">
     <a class="logo" href="/">Lilou Books</a>
-    <nav><a href="/">ראשי</a><a href="/#workshops">סדנאות</a><a href="/blog/">בלוג</a><a href="#quote">הצעת מחיר</a></nav>
+    <nav><a href="/">ראשי</a><a href="/#workshops">סדנאות</a><a href="/blog/">בלוג</a><a class="nav-cta" href="#quote">הצעת מחיר</a></nav>
   </div>
 </header>
 
-<main>
+<main class="tb">
   <section class="tb-hero">
-    <div class="eyebrow">סדנאות גיבוש לצוותים, משרדים וארגונים</div>
-    <h1>סדנת גיבוש יצירתית בקיפול ספרים, שכל הצוות יוצא ממנה עם יצירה ביד</h1>
-    <p>מחפשים פעילות גיבוש שהיא לא עוד חדר בריחה או ארוחה? בסדנה שלי כל משתתף הופך ספר ישן ליצירת אמנות מקופלת. היא רגועה, מצחיקה ומגבשת, ומתאימה גם למי שבטוח שאין לו "ידיים טובות".</p>
-    <a class="btn btn-main" href="#quote">לקבלת הצעת מחיר ←</a>
-    <a class="btn btn-ghost" href="https://wa.me/972502534643" target="_blank" rel="noopener noreferrer">לדבר איתי בוואטסאפ</a>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">🎉 סדנאות גיבוש לצוותים, משרדים וארגונים</span>
+        <h1>סדנת גיבוש בקיפול ספרים, <span>שכל הצוות יוצא ממנה עם יצירה ביד</span></h1>
+        <p>מחפשים פעילות גיבוש שהיא לא עוד חדר בריחה או ארוחה? בסדנה שלי כל משתתף הופך ספר ישן ליצירת אמנות מקופלת. היא רגועה, מצחיקה ומגבשת, ומתאימה גם למי שבטוח שאין לו "ידיים טובות".</p>
+        <a class="btn btn-main" href="#quote">לקבלת הצעת מחיר ←</a>
+        <a class="btn btn-wa" href="https://wa.me/972502534643" target="_blank" rel="noopener noreferrer">💬 לדבר איתי בוואטסאפ</a>
+      </div>
+      <div class="hero-photo">
+        <img src="/team-building/img/team.jpg" alt="צוות עובדים מחזיקים את הספרים המקופלים שיצרו בסדנת גיבוש של לילו בוקס" width="1400" height="843">
+        <span class="sticker">✨ כל אחד יוצא עם ספר משלו</span>
+      </div>
+    </div>
   </section>
 
-  <div class="facts">
-    <div class="fact"><span class="n">עד 30</span><span class="l">משתתפים</span></div>
-    <div class="fact"><span class="n">1.5-2</span><span class="l">שעות</span></div>
-    <div class="fact"><span class="n">אצלכם</span><span class="l">במשרד או בסטודיו</span></div>
-    <div class="fact"><span class="n">500+</span><span class="l">משתתפים כבר קיפלו איתי</span></div>
+  <div class="wrap">
+    <div class="facts">
+      <div class="fact"><span class="ico">👥</span><span class="n">עד 30</span><span class="l">משתתפים</span></div>
+      <div class="fact"><span class="ico">⏱️</span><span class="n">1.5-2</span><span class="l">שעות</span></div>
+      <div class="fact"><span class="ico">🏢</span><span class="n">אצלכם</span><span class="l">במשרד או בסטודיו</span></div>
+      <div class="fact"><span class="ico">💛</span><span class="n">500+</span><span class="l">משתתפים כבר קיפלו איתי</span></div>
+    </div>
   </div>
 
-  <section class="season" id="chrismukkah">
-    <span class="badge">🕎 חדש לעונת החגים 🎄</span>
-    <h2>סדנת חנוכריסמס: מסיבת סוף השנה שמשאירה משהו ביד</h2>
-    <p>דצמבר מגיע, ואיתו מסיבות החנוכה וסוף השנה. השנה יש לי הצעה חגיגית במיוחד: <strong>סדנת חנוכריסמס</strong>, סדנת קיפול ספרים בעיצובים בהשראת חנוכה וכריסמס, באווירה חמימה של חג.</p>
-    <ul>
-      <li><strong>לצוותים ולחברות:</strong> פעילות למסיבת החנוכה או לאירוע סוף השנה. מתאימה במיוחד לצוותים מגוונים ולחברות בינלאומיות שחוגגות את שני החגים.</li>
-      <li><strong>מתנת חג שהעובדים מכינים בעצמם:</strong> כל משתתף לוקח הביתה ספר מקופל חגיגי, אז הסדנה היא גם הפעילות וגם המתנה.</li>
-      <li><strong>לחברים ולמשפחה:</strong> אפשר להזמין את הסדנה גם כסדנה פרטית לערב חג עם החברים.</li>
-    </ul>
-    <p>כדאי לשריין תאריך לדצמבר מוקדם.</p>
-    <a class="btn btn-main" href="#quote" data-pick="סדנת חנוכריסמס">לשריון סדנת חנוכריסמס ←</a>
+  <section class="sec season" id="chrismukkah">
+    <div class="wrap">
+      <div>
+        <span class="badge">🕎 חדש לעונת החגים 🎄</span>
+        <h2>סדנת <span>חנוכריסמס</span>: מסיבת סוף השנה שמשאירה משהו ביד</h2>
+        <p>דצמבר מגיע, ואיתו מסיבות החנוכה וסוף השנה. השנה יש לי הצעה חגיגית במיוחד: <strong>סדנת חנוכריסמס</strong>, סדנת קיפול ספרים בעיצובים חגיגיים בהשראת חנוכה וכריסמס, כמו עץ אשוח עם כוכב או מגן דוד, באווירה חמימה של חג.</p>
+        <ul>
+          <li><strong>לצוותים ולחברות:</strong> פעילות למסיבת החנוכה או לאירוע סוף השנה. מתאימה במיוחד לצוותים מגוונים ולחברות בינלאומיות שחוגגות את שני החגים.</li>
+          <li><strong>מתנת חג שהעובדים מכינים בעצמם:</strong> כל משתתף לוקח הביתה ספר מקופל חגיגי, אז הסדנה היא גם הפעילות וגם המתנה.</li>
+          <li><strong>לחברים ולמשפחה:</strong> אפשר להזמין את הסדנה גם כסדנה פרטית לערב חג עם החברים.</li>
+        </ul>
+        <p>כדאי לשריין תאריך לדצמבר מוקדם.</p>
+        <a class="btn btn-gold" href="#quote" data-pick="סדנת חנוכריסמס">לשריון סדנת חנוכריסמס ←</a>
+      </div>
+      <div class="duo">
+        <figure><img src="/team-building/img/tree.jpg" alt="עץ אשוח עם כוכב מקופל מתוך ספר" loading="lazy"><figcaption>🎄 עץ אשוח</figcaption></figure>
+        <figure><img src="/team-building/img/star-of-david.jpg" alt="מגן דוד מקופל מתוך ספר" loading="lazy"><figcaption>✡️ מגן דוד</figcaption></figure>
+      </div>
+    </div>
   </section>
 
-  <article class="post">
-    <h2 style="margin-top:0">למה דווקא קיפול ספרים לגיבוש צוות?</h2>
-    <p>בגיבוש טוב כולם משתתפים, ולא רק מי שהכי תחרותי או הכי קולני. בקיפול ספרים כל אחד עובד על היצירה שלו, ובכל זאת כולם עושים את זה יחד: מסתכלים אחד על השני, עוזרים, צוחקים מהקפל שיצא עקום, ומתלהבים ביחד כשהצורה מתחילה להופיע מתוך הדפים.</p>
-    <ul>
-      <li><strong>כולם מצליחים.</strong> לא צריך כישרון או ניסיון. אני מנחה צעד אחר צעד, וכל משתתף מסיים עם יצירה שלמה.</li>
-      <li><strong>רגע של שקט מהמסכים.</strong> שעה וחצי בלי מיילים ובלי טלפון, עם הידיים ועם הראש במקום אחר.</li>
-      <li><strong>יוצאים עם משהו ביד.</strong> הספר המקופל נשאר על השולחן במשרד או בבית, ומזכיר את היום הזה עוד הרבה זמן.</li>
-      <li><strong>אפס התעסקות בשבילכם.</strong> אני מגיעה עם כל החומרים. אתם צריכים רק שולחנות, כיסאות וצוות.</li>
-    </ul>
-
-    <h2>איך זה עובד?</h2>
-    <ol class="steps">
-      <li>משאירים פרטים בטופס או כותבים לי בוואטסאפ: כמה משתתפים, איפה ומתי.</li>
-      <li>אני חוזרת אליכם עם הצעת מחיר ונתאים יחד את הסדנה לצוות ולאירוע.</li>
-      <li>ביום הסדנה אני מגיעה עם כל החומרים, או שאתם מגיעים לסטודיו.</li>
-      <li>כל משתתף יוצא עם ספר מקופל שיצר בעצמו.</li>
-    </ol>
-
-    <h2>למי זה מתאים?</h2>
-    <p>ימי גיבוש וכיף לצוות, קליטת עובדים חדשים, מסיבות חג וסוף שנה, יום האישה, אירועי רווחה לעובדים, ארגונים וקהילות. ואם אתם בכלל קבוצת חברים, יש לי גם <a href="/#workshops">סדנה פרטית</a> לימי הולדת וחגיגות.</p>
-
-    <h2>קצת עליי</h2>
-    <p>אני להב ברק, אמנית קיפול ופיסול ספרים ומנחת סדנאות, הבעלים של לילו בוקס. התחלתי לקפל ספרים כתחביב כשגרתי בצרפת, ומאז זה חלק ממני. כבר מעל 500 משתתפים עברו איתי את הרגע שבו ספר ישן הופך ליצירה. <a href="/blog/">בבלוג</a> אני מספרת קצת יותר.</p>
-
-    <h2>שאלות נפוצות</h2>
-    <div class="faq">
-      <details><summary>כמה משתתפים יכולים להשתתף?</summary><p>עד 30 משתתפים. לקבוצה גדולה יותר כתבו לי ונבדוק יחד מה אפשר.</p></details>
-      <details><summary>כמה זמן נמשכת הסדנה?</summary><p>בין שעה וחצי לשעתיים.</p></details>
-      <details><summary>איפה מתקיימת הסדנה?</summary><p>אני מגיעה אליכם למשרד, או שאתם מגיעים לסטודיו.</p></details>
-      <details><summary>צריך ניסיון קודם או ציוד?</summary><p>לא. הסדנה מתאימה למתחילים לגמרי, וכל החומרים כלולים. צריך רק שולחנות וכיסאות.</p></details>
-      <details><summary>מה כל משתתף לוקח הביתה?</summary><p>ספר מקופל שהוא יצר בעצמו בסדנה.</p></details>
-      <details><summary>כמה זה עולה?</summary><p>יש מחיר מיוחד לקבוצות, והוא תלוי בעיקר במספר המשתתפים ובמיקום. השאירו פרטים ותקבלו הצעת מחיר.</p></details>
-      <details><summary>יש סדנה מיוחדת לחנוכה ולכריסמס?</summary><p>כן. <a href="#chrismukkah">סדנת חנוכריסמס</a> היא סדנת קיפול ספרים חגיגית למסיבות סוף השנה, בעיצובים בהשראת החגים.</p></details>
-    </div>
-
-    <h2 id="quote">לקבלת הצעת מחיר</h2>
-    <p>השאירו פרטים ואחזור אליכם בהקדם. אפשר גם לכתוב ל-<a href="mailto:hi@liloubooks.com">hi@liloubooks.com</a> או <a href="https://wa.me/972502534643" target="_blank" rel="noopener noreferrer">בוואטסאפ</a>.</p>
-    <form class="lead-form" id="leadForm" action="https://formspree.io/f/mzzjvvqv" method="POST">
-      <input type="hidden" name="_subject" value="פנייה חדשה: סדנת גיבוש לארגון (עמוד team-building)">
-      <input type="hidden" name="source" value="liloubooks.com/team-building">
-      <div><label for="f-name">שם מלא *</label><input id="f-name" name="name" required></div>
-      <div><label for="f-company">חברה / ארגון</label><input id="f-company" name="company"></div>
-      <div><label for="f-email">אימייל *</label><input id="f-email" type="email" name="email" required></div>
-      <div><label for="f-phone">טלפון *</label><input id="f-phone" type="tel" name="phone" required></div>
-      <div><label for="f-type">סוג הסדנה</label>
-        <select id="f-type" name="service">
-          <option value="סדנת גיבוש לארגון">סדנת גיבוש לצוות / ארגון</option>
-          <option value="סדנת חנוכריסמס">🕎🎄 סדנת חנוכריסמס</option>
-          <option value="סדנה פרטית">סדנה פרטית לחברים / חגיגה</option>
-        </select>
+  <section class="sec">
+    <div class="wrap">
+      <h2>למה דווקא קיפול ספרים לגיבוש צוות?</h2>
+      <p class="lead">בגיבוש טוב כולם משתתפים, לא רק מי שהכי תחרותי או הכי קולני. כל אחד עובד על היצירה שלו, ובכל זאת כולם עושים את זה יחד: עוזרים, צוחקים מהקפל שיצא עקום, ומתלהבים ביחד כשהצורה מתחילה להופיע מתוך הדפים.</p>
+      <div class="why">
+        <div class="card"><div class="ico">🌟</div><h3>כולם מצליחים</h3><p>לא צריך כישרון או ניסיון. אני מנחה צעד אחר צעד, וכל משתתף מסיים עם יצירה שלמה.</p></div>
+        <div class="card"><div class="ico">📵</div><h3>הפסקה מהמסכים</h3><p>שעה וחצי בלי מיילים ובלי טלפון, עם הידיים והראש במקום אחר.</p></div>
+        <div class="card"><div class="ico">🎁</div><h3>יוצאים עם משהו ביד</h3><p>הספר המקופל נשאר על השולחן במשרד או בבית, ומזכיר את היום הזה עוד הרבה זמן.</p></div>
+        <div class="card"><div class="ico">🧰</div><h3>אפס התעסקות</h3><p>אני מגיעה עם כל החומרים. אתם צריכים רק שולחנות, כיסאות וצוות.</p></div>
       </div>
-      <div><label for="f-count">מספר משתתפים משוער</label><input id="f-count" name="participants" inputmode="numeric"></div>
-      <div class="full"><label for="f-date">תאריך מועדף ומיקום</label><input id="f-date" name="date_location" placeholder="למשל: אמצע דצמבר, במשרד שלנו בתל אביב"></div>
-      <div class="full"><label for="f-msg">עוד משהו שכדאי שאדע?</label><textarea id="f-msg" name="message" rows="3"></textarea></div>
-      <div class="full"><button class="btn btn-main" type="submit">שליחה ←</button><div class="form-msg" id="formMsg" role="status" aria-live="polite"></div></div>
-    </form>
-  </article>
+    </div>
+  </section>
 
-  <a class="back" href="/">→ לעמוד הראשי של לילו בוקס</a>
+  <section class="sec gallery-sec">
+    <div class="wrap">
+      <h2>ככה זה נראה</h2>
+      <p class="lead">רגעים מסדנאות, מההכנות ועד היצירות המוכנות.</p>
+      <div class="gallery">
+        <figure class="g-tall"><img src="/team-building/img/office-setup.jpg" alt="חדר ישיבות מוכן לסדנת קיפול ספרים לחברה" loading="lazy"><figcaption>סדנה במשרד של חברה</figcaption></figure>
+        <figure class="g-wide"><img src="/team-building/img/eat-play-love.jpg" alt="המילים Eat Play Love מקופלות בשלושה ספרים" loading="lazy"><figcaption>מילים ושמות בספרים</figcaption></figure>
+        <figure class="g-tall"><img src="/team-building/img/studio.jpg" alt="הסטודיו של לילו בוקס מוכן לסדנה" loading="lazy"><figcaption>הסטודיו</figcaption></figure>
+        <figure class="g-wide"><img src="/team-building/img/books-display.jpg" alt="ספרים מקופלים בצורות שונות על ערימת ספרים" loading="lazy"><figcaption>יצירות מוכנות</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>איך זה עובד?</h2>
+      <p class="lead">ארבעה צעדים פשוטים, ואת כל השאר אני לוקחת עליי.</p>
+      <div class="steps">
+        <div class="step"><p>משאירים פרטים בטופס או כותבים לי בוואטסאפ: כמה משתתפים, איפה ומתי.</p></div>
+        <div class="step"><p>אני חוזרת אליכם עם הצעת מחיר ונתאים יחד את הסדנה לצוות ולאירוע.</p></div>
+        <div class="step"><p>ביום הסדנה אני מגיעה עם כל החומרים, או שאתם מגיעים לסטודיו.</p></div>
+        <div class="step"><p>כל משתתף יוצא עם ספר מקופל שיצר בעצמו.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <h2>למי זה מתאים?</h2>
+      <p class="lead">ואם אתם בכלל קבוצת חברים, יש לי גם <a href="/#workshops">סדנה פרטית</a> לימי הולדת וחגיגות.</p>
+      <div class="who">
+        <span>ימי גיבוש לצוות</span><span>קליטת עובדים חדשים</span><span>מסיבות חנוכה וסוף שנה</span><span>יום האישה</span>
+        <span>אירועי רווחה לעובדים</span><span>ארגונים וקהילות</span><span>ימי כיף במשרד</span><span>קבוצות חברים</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="about">
+        <img src="/team-building/img/lahav-prep.jpg" alt="להב ברק, אמנית קיפול ספרים ומנחת סדנאות" loading="lazy">
+        <div>
+          <h2>נעים להכיר, אני להב 👋</h2>
+          <p>אמנית קיפול ופיסול ספרים ומנחת סדנאות, הבעלים של לילו בוקס. התחלתי לקפל ספרים כתחביב כשגרתי בצרפת, ומאז זה חלק ממני. כבר מעל 500 משתתפים עברו איתי את הרגע שבו ספר ישן הופך ליצירה, ואני עדיין מתרגשת כל פעם מחדש. <a href="/blog/">בבלוג</a> אני מספרת קצת יותר.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <h2>שאלות נפוצות</h2>
+      <p class="lead">כל מה שמנהלי צוותים ו-HR שואלים אותי.</p>
+      <div class="faq">
+        <details><summary>כמה משתתפים יכולים להשתתף?</summary><p>עד 30 משתתפים. לקבוצה גדולה יותר כתבו לי ונבדוק יחד מה אפשר.</p></details>
+        <details><summary>כמה זמן נמשכת הסדנה?</summary><p>בין שעה וחצי לשעתיים.</p></details>
+        <details><summary>איפה מתקיימת הסדנה?</summary><p>אני מגיעה אליכם למשרד, או שאתם מגיעים לסטודיו.</p></details>
+        <details><summary>צריך ניסיון קודם או ציוד?</summary><p>לא. הסדנה מתאימה למתחילים לגמרי, וכל החומרים כלולים. צריך רק שולחנות וכיסאות.</p></details>
+        <details><summary>מה כל משתתף לוקח הביתה?</summary><p>ספר מקופל שהוא יצר בעצמו בסדנה.</p></details>
+        <details><summary>כמה זה עולה?</summary><p>יש מחיר מיוחד לקבוצות, והוא תלוי בעיקר במספר המשתתפים ובמיקום. השאירו פרטים ותקבלו הצעת מחיר.</p></details>
+        <details><summary>יש סדנה מיוחדת לחנוכה ולכריסמס?</summary><p>כן. <a href="#chrismukkah">סדנת חנוכריסמס</a> היא סדנת קיפול ספרים חגיגית למסיבות סוף השנה, בעיצובים בהשראת החגים.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec quote-sec" id="quote">
+    <div class="wrap">
+      <div class="quote-card">
+        <h2>לקבלת הצעת מחיר 💌</h2>
+        <p class="lead">השאירו פרטים ואחזור אליכם בהקדם. אפשר גם לכתוב ל-<a href="mailto:hi@liloubooks.com">hi@liloubooks.com</a> או <a href="https://wa.me/972502534643" target="_blank" rel="noopener noreferrer">בוואטסאפ</a>.</p>
+        <form class="lead-form" id="leadForm" action="https://formspree.io/f/mzzjvvqv" method="POST">
+          <input type="hidden" name="_subject" value="פנייה חדשה: סדנת גיבוש לארגון (עמוד team-building)">
+          <input type="hidden" name="source" value="liloubooks.com/team-building">
+          <div><label for="f-name">שם מלא *</label><input id="f-name" name="name" required></div>
+          <div><label for="f-company">חברה / ארגון</label><input id="f-company" name="company"></div>
+          <div><label for="f-email">אימייל *</label><input id="f-email" type="email" name="email" required></div>
+          <div><label for="f-phone">טלפון *</label><input id="f-phone" type="tel" name="phone" required></div>
+          <div><label for="f-type">סוג הסדנה</label>
+            <select id="f-type" name="service">
+              <option value="סדנת גיבוש לארגון">סדנת גיבוש לצוות / ארגון</option>
+              <option value="סדנת חנוכריסמס">🕎🎄 סדנת חנוכריסמס</option>
+              <option value="סדנה פרטית">סדנה פרטית לחברים / חגיגה</option>
+            </select>
+          </div>
+          <div><label for="f-count">מספר משתתפים משוער</label><input id="f-count" name="participants" inputmode="numeric"></div>
+          <div class="full"><label for="f-date">תאריך מועדף ומיקום</label><input id="f-date" name="date_location" placeholder="למשל: אמצע דצמבר, במשרד שלנו בתל אביב"></div>
+          <div class="full"><label for="f-msg">עוד משהו שכדאי שאדע?</label><textarea id="f-msg" name="message" rows="3"></textarea></div>
+          <div class="full"><button class="btn btn-main" type="submit">שליחה ←</button><div class="form-msg" id="formMsg" role="status" aria-live="polite"></div></div>
+        </form>
+      </div>
+      <a class="back" href="/" style="color:#fff">→ לעמוד הראשי של לילו בוקס</a>
+    </div>
+  </section>
 </main>
 
 <footer>✨ Lilou Books · להב ברק · <a href="mailto:hi@liloubooks.com">hi@liloubooks.com</a> · <a href="tel:+972502534643">050-2534643</a> ✨</footer>
