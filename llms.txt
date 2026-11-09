@@ -16,6 +16,11 @@ Details: https://liloubooks.com/#workshops
 - Custom folded books with names, initials, symbols or logos, as personal gifts: https://liloubooks.com/#custom-orders
 - Book-themed table design for weddings and events: https://events.liloubooks.com
 
+## Book folding pattern generator (מקפלא / Mekapele)
+
+- Mekapele (https://www.mekapele.com), built by Lahav Barak: a Hebrew book folding pattern generator (מחולל תבניות לפיסול ספרים). Upload any image, name or word, enter the book's page height and page range, and get an exact pattern in three techniques: MMF (סימון וקיפול), cut & fold (גזירה וקיפול) and painting (צביעה). Free 3D preview; unlimited patterns for ₪50/month.
+- Guides: https://www.mekapele.com/blog
+
 ## Contact
 
 - Email: hi@liloubooks.com
