@@ -986,6 +986,22 @@ outline-offset: 2px;
 outline: 3px solid var(--primary-color);
 outline-offset: 2px;
 }
+/* MEMORIAL BOOKS - clickable gallery card + dialog */
+.gallery-item-clickable { cursor: pointer; }
+.gallery-item-clickable .gi-more { display: inline-block; margin-top: 0.6rem; color: var(--accent-brown); font-weight: 700; }
+.memorial-dialog { margin: auto; border: none; border-radius: 15px; padding: 0; width: min(680px, calc(100vw - 32px)); max-height: calc(100vh - 32px); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+.memorial-dialog::backdrop { background: rgba(40,30,20,0.6); }
+.memorial-dialog img { display: block; width: 100%; height: auto; }
+.memorial-dialog .md-body { padding: 1.5rem 1.75rem 1.75rem; line-height: 1.75; color: #333; }
+.memorial-dialog h2 { color: var(--accent-brown); font-size: 1.6rem; margin-bottom: 1rem; line-height: 1.3; }
+.memorial-dialog h3 { color: var(--accent-brown); font-size: 1.2rem; margin: 1.4rem 0 0.5rem; }
+.memorial-dialog p { margin-bottom: 0.9rem; }
+.memorial-dialog ol { padding-right: 1.4rem; margin-bottom: 1rem; }
+.memorial-dialog li { margin-bottom: 0.4rem; }
+.memorial-dialog .md-glass { background: var(--secondary-color); border-radius: 12px; padding: 0.4rem 1.1rem 0.6rem; margin: 1.2rem 0; }
+.memorial-dialog .md-close { position: sticky; top: 0.6rem; display: block; margin: 0.6rem auto -3rem 0.6rem; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.92); font-size: 1.5rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 1; }
+.memorial-dialog .md-cta { text-align: center; margin-top: 1.4rem; }
+
 /* Upcoming workshop box (square, top-right of hero) - update date/link each time */
 .hero { position: relative; }
 .upcoming-box {
@@ -1191,6 +1207,16 @@ white-space: nowrap;
 <h2 id="gallery-heading">גלריית יצירות - ספרים מקופלים ומפוסלים</h2>
 <p style="text-align: center; margin-bottom: 2rem;">דוגמאות ל<strong>פיסול ספרים</strong> ו<strong>קיפול ספרים</strong> שיצרנו</p>
 <div class="gallery-grid">
+<!-- MEMORIAL BOOKS - opens #memorialDialog -->
+<div class="gallery-item gallery-item-clickable" role="button" tabindex="0" aria-haspopup="dialog" data-open-memorial>
+<img src="memorial-book.jpg" alt="ספר הנצחה - דיוקן של אדם אהוב מקופל בדפי ספר" loading="lazy">
+<div class="gallery-item-content">
+<h3>ספרי הנצחה 🕯️</h3>
+<p>הפנים של מי שאהבתם, מקופלות בדפי ספר - זיכרון שנשאר לכל החיים</p>
+<span class="gi-more">לחצו לקריאה ←</span>
+</div>
+</div>
+
 <div class="gallery-item">
 <img src="heart.jpg" alt="פסל ספר בצורת לב - ספר מקופל מתנה לאהבה">
 <div class="gallery-item-content">
@@ -1963,5 +1989,48 @@ block: 'start'
 });
 </script>
 <script src="/gift-form.js" defer></script>
+<!-- MEMORIAL BOOKS DIALOG -->
+<dialog class="memorial-dialog" id="memorialDialog" aria-labelledby="memorialTitle">
+<button type="button" class="md-close" aria-label="סגירה" data-close-memorial>×</button>
+<img src="memorial-book.jpg" alt="ספר הנצחה - דיוקן מקופל בדפי ספר">
+<div class="md-body">
+<h2 id="memorialTitle">ספר הנצחה - כדי שהפנים האהובות יישארו תמיד איתכם</h2>
+<p>יש אנשים שהחוסר שלהם לא נגמר. החיוך שמילא את הבית, המבט מעל המשקפיים, הדרך המיוחדת שבה הם הקשיבו. ספר הנצחה הוא דרך שקטה ומרגשת לשמור אותם קרובים: הפנים שלהם, מקופלות דף אחר דף, בתוך ספר שעומד בבית ונשאר לכל החיים.</p>
+<p>כל ספר הנצחה נוצר אצלי בעבודת יד, מתוך תמונה שאתם שולחים. מאות דפים מקופלים בדיוק של מילימטר, עד שהדיוקן עולה מתוך הדפים - כמו שאתם זוכרים אותם. זה לא עוד תמונה במסגרת. זו יצירה שאפשר לגעת בה, שמתגלה מחדש מכל זווית, ושכל מי שנכנס לבית עוצר מולה.</p>
+<p>ואם יש ספר שהיה שייך להם - ספר שאהבו, שקראו, שעמד על המדף שלהם - אפשר לבדוק יחד אם הוא מתאים לקיפול. ככה גם הספר עצמו הופך לחלק מהזיכרון.</p>
+<div class="md-glass">
+<h3>✨ קופסת זכוכית - לשמור לדורות</h3>
+<p>לספר ההנצחה אפשר להוסיף קופסת זכוכית שקופה, שמגינה עליו מאבק ומנגיעות ומאפשרת להציב אותו במקום של כבוד - בסלון, בפינת הזיכרון או על המדף שמול העיניים. בתוך הזכוכית הספר נשמר יפה גם בעוד שנים רבות, ואפשר להעביר אותו הלאה, לילדים ולנכדים.</p>
+</div>
+<h3>איך זה עובד?</h3>
+<ol>
+<li>שולחים לי תמונה של האדם שאתם רוצים להנציח - עדיף תמונה חדה שבה הפנים נראות בבירור - ומספרים לי קצת עליו.</li>
+<li>אני מתאימה את התמונה לקיפול ומעדכנת אתכם לפני שמתחילים.</li>
+<li>בוחרים ספר, ומחליטים אם להוסיף קופסת זכוכית.</li>
+<li>אני מקפלת את הספר בעבודת יד, דף אחר דף, באהבה ובכבוד.</li>
+</ol>
+<p>ספר הנצחה הוא גם מתנה מרגשת במיוחד לבני המשפחה - ליום השנה, לאזכרה, או פשוט כדי לומר: אנחנו זוכרים.</p>
+<div class="md-cta"><a href="#contact-form" class="cta-button" data-memorial-order>אני רוצה ספר הנצחה</a></div>
+</div>
+</dialog>
+<script>
+(function(){
+  var dlg=document.getElementById('memorialDialog');
+  if(!dlg||!dlg.showModal) return;
+  var open=function(){dlg.showModal();dlg.scrollTop=0;};
+  document.querySelectorAll('[data-open-memorial]').forEach(function(el){
+    el.addEventListener('click',open);
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+  });
+  dlg.querySelector('[data-close-memorial]').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg) dlg.close();});
+  dlg.querySelector('[data-memorial-order]').addEventListener('click',function(){
+    dlg.close();
+    var svc=document.getElementById('service'); if(svc) svc.value='הזמנת ספר מקופל';
+    var msg=document.getElementById('message');
+    if(msg&&!msg.value) msg.value='שלום להב, אני מעוניין/ת בספר הנצחה. אשמח לפרטים (וגם על קופסת זכוכית).';
+  });
+})();
+</script>
 </body>
 </html>
