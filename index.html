@@ -1002,6 +1002,23 @@ outline-offset: 2px;
 .memorial-dialog .md-close { position: sticky; top: 0.6rem; display: block; margin: 0.6rem auto -3rem 0.6rem; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.92); font-size: 1.5rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 1; }
 .memorial-dialog .md-cta { text-align: center; margin-top: 1.4rem; }
 
+/* NAV - logo + one-line menu (hamburger below 1080px) */
+nav { padding: 0.85rem clamp(1rem, 3vw, 2rem); gap: 1.5rem; }
+.logo { display: flex; align-items: center; flex-shrink: 0; }
+.logo-img { height: 34px; width: auto; display: block; }
+.nav-links { gap: clamp(0.9rem, 1.7vw, 1.9rem); align-items: center; flex-wrap: nowrap; }
+.nav-links a { white-space: nowrap; font-size: 1rem; position: relative; padding: 0.3rem 0; color: var(--text-color); }
+.nav-links a::after { content: ""; position: absolute; right: 0; left: 0; bottom: -2px; height: 2px; background: var(--accent-brown); transform: scaleX(0); transition: transform 0.25s; }
+.nav-links a:hover { color: var(--accent-brown); }
+.nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
+@media (max-width: 1080px) {
+  .menu-toggle { display: flex; }
+  .nav-links { position: absolute; top: 100%; right: 0; background: white; flex-direction: column; align-items: flex-start; width: 100%; padding: 1.5rem 2rem; gap: 1rem; box-shadow: 0 5px 10px rgba(0,0,0,0.1); display: none; }
+  .nav-links.active { display: flex; }
+  .nav-links a { font-size: 1.1rem; }
+}
+@media (max-width: 480px) { .logo-img { height: 28px; } }
+
 /* Upcoming workshop box (square, top-right of hero) - update date/link each time */
 .hero { position: relative; }
 .upcoming-box {
@@ -1089,7 +1106,7 @@ white-space: nowrap;
 <nav>
 <a href="#home" style="text-decoration: none;">
 <div class="logo">
-<img src="Screenshot%202025-10-06%20at%209.01.46.png" alt="Lilou Books" style="height: 50px; width: auto;">
+<img src="lilou-books-logo.png" alt="Lilou Books - לילו בוקס" class="logo-img" width="910" height="116">
 </div>
 </a>
 <ul class="nav-links" id="navLinks" role="menubar">
