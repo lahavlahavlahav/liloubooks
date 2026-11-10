@@ -3,7 +3,7 @@
   "currency": "ILS",
   "shipping": {
     "pickup": { "price": 0, "name": { "he": "איסוף עצמי מתל אביב", "en": "Pickup in Tel Aviv" } },
-    "delivery": { "price": 40, "name": { "he": "משלוח עד הבית", "en": "Home delivery" } }
+    "delivery": { "price": 50, "name": { "he": "משלוח עד הבית", "en": "Home delivery" } }
   },
   "addons": {
     "glass": {
