@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "currency": "ILS",
+  "shipping": {
+    "pickup": { "price": 0, "name": { "he": "איסוף עצמי מתל אביב", "en": "Pickup in Tel Aviv" } },
+    "delivery": { "price": 40, "name": { "he": "משלוח עד הבית", "en": "Home delivery" } }
+  },
+  "addons": {
+    "glass": {
+      "price": 450,
+      "name": { "he": "קופסת זכוכית", "en": "Glass display box" },
+      "desc": { "he": "מגינה על הספר מאבק ומנגיעות, ושומרת עליו לדורות", "en": "Protects the book from dust and touch, for generations" }
+    }
+  },
+  "categories": [
+    { "id": "3d", "name": { "he": "ספרי 3D - שמות ומילים", "en": "3D books - names & words" } },
+    { "id": "symbols", "name": { "he": "סמלים ולבבות", "en": "Symbols & hearts" } },
+    { "id": "memorial", "name": { "he": "דיוקנאות וספרי הנצחה", "en": "Portraits & memorial books" } }
+  ],
+  "products": [
+    {
+      "id": "name-word",
+      "cat": "3d",
+      "image": "/שמות.jpg",
+      "price": 380,
+      "name": { "he": "ספר מפוסל - שם או מילה בהתאמה אישית", "en": "Sculpted book - custom name or word" },
+      "desc": {
+        "he": "השם או המילה שבחרתם, מקופלים בעבודת יד בתוך דפי ספר. מתנה אישית לבן או בת זוג, ליום הולדת, ללידה או לבית חדש.",
+        "en": "The name or word of your choice, hand-folded into the pages of a book. A personal gift for a partner, a birthday, a new baby or a new home."
+      },
+      "options": [
+        { "id": "letters", "name": { "he": "מספר אותיות", "en": "Number of letters" }, "values": [
+          { "id": "1-3", "name": { "he": "1-3 אותיות", "en": "1-3 letters" }, "delta": 0 },
+          { "id": "4-5", "name": { "he": "4-5 אותיות", "en": "4-5 letters" }, "delta": 70 },
+          { "id": "6-7", "name": { "he": "6-7 אותיות", "en": "6-7 letters" }, "delta": 140 }
+        ] },
+        { "id": "lang", "name": { "he": "שפה", "en": "Language" }, "values": [
+          { "id": "he", "name": { "he": "עברית", "en": "Hebrew" }, "delta": 0 },
+          { "id": "en", "name": { "he": "אנגלית", "en": "English" }, "delta": 0 }
+        ] }
+      ],
+      "addons": ["glass"],
+      "fields": [
+        { "id": "text", "required": true, "max": 7, "name": { "he": "השם או המילה לקיפול", "en": "Name or word to fold" } }
+      ]
+    },
+    {
+      "id": "name-heart",
+      "cat": "3d",
+      "image": "/heart.jpg",
+      "price": 395,
+      "name": { "he": "ספר מפוסל - שם עם לב קטן", "en": "Sculpted book - name with a small heart" },
+      "desc": {
+        "he": "שם לבחירה ולצידו לב קטן, מקופלים יחד בתוך הספר. מתנה רומנטית ומרגשת.",
+        "en": "A name of your choice with a small heart beside it, folded together into the book. A romantic, heartfelt gift."
+      },
+      "options": [
+        { "id": "letters", "name": { "he": "מספר אותיות", "en": "Number of letters" }, "values": [
+          { "id": "1-3", "name": { "he": "1-3 אותיות", "en": "1-3 letters" }, "delta": 0 },
+          { "id": "4-5", "name": { "he": "4-5 אותיות", "en": "4-5 letters" }, "delta": 70 },
+          { "id": "6-7", "name": { "he": "6-7 אותיות", "en": "6-7 letters" }, "delta": 140 }
+        ] },
+        { "id": "lang", "name": { "he": "שפה", "en": "Language" }, "values": [
+          { "id": "he", "name": { "he": "עברית", "en": "Hebrew" }, "delta": 0 },
+          { "id": "en", "name": { "he": "אנגלית", "en": "English" }, "delta": 0 }
+        ] }
+      ],
+      "addons": ["glass"],
+      "fields": [
+        { "id": "text", "required": true, "max": 7, "name": { "he": "השם לקיפול", "en": "Name to fold" } }
+      ]
+    },
+    {
+      "id": "word-in-heart",
+      "cat": "symbols",
+      "image": "/אהבה.jpg",
+      "price": 480,
+      "name": { "he": "ספר מפוסל - מילה בתוך לב", "en": "Sculpted book - word inside a heart" },
+      "desc": {
+        "he": "לב גדול ובתוכו מילה או שם לבחירה. אחד העיצובים האהובים ביותר למתנת אהבה.",
+        "en": "A large heart with a word or name of your choice inside. One of the most loved designs for a love gift."
+      },
+      "options": [
+        { "id": "letters", "name": { "he": "מספר אותיות", "en": "Number of letters" }, "values": [
+          { "id": "1-3", "name": { "he": "1-3 אותיות", "en": "1-3 letters" }, "delta": 0 },
+          { "id": "4-5", "name": { "he": "4-5 אותיות", "en": "4-5 letters" }, "delta": 50 }
+        ] },
+        { "id": "lang", "name": { "he": "שפה", "en": "Language" }, "values": [
+          { "id": "he", "name": { "he": "עברית", "en": "Hebrew" }, "delta": 0 },
+          { "id": "en", "name": { "he": "אנגלית", "en": "English" }, "delta": 0 }
+        ] }
+      ],
+      "addons": ["glass"],
+      "fields": [
+        { "id": "text", "required": true, "max": 5, "name": { "he": "המילה או השם בתוך הלב", "en": "Word or name inside the heart" } }
+      ]
+    },
+    {
+      "id": "special-date",
+      "cat": "3d",
+      "image": "/הקדשה אישית.jpg",
+      "price": 500,
+      "name": { "he": "ספר מפוסל - תאריך מיוחד", "en": "Sculpted book - special date" },
+      "desc": {
+        "he": "תאריך החתונה, הלידה או הפגישה הראשונה - מקופל בתוך ספר שיזכיר אותו תמיד.",
+        "en": "A wedding date, a birth date or the day you met - folded into a book that keeps it forever."
+      },
+      "options": [
+        { "id": "separator", "name": { "he": "מפריד בין הספרות", "en": "Digit separator" }, "values": [
+          { "id": "heart", "name": { "he": "לב", "en": "Heart" }, "delta": 0 },
+          { "id": "dot", "name": { "he": "נקודה", "en": "Dot" }, "delta": 0 }
+        ] }
+      ],
+      "addons": ["glass"],
+      "fields": [
+        { "id": "date", "required": true, "max": 10, "name": { "he": "התאריך (לדוגמה 14.02.24)", "en": "The date (e.g. 14.02.24)" } }
+      ]
+    },
+    {
+      "id": "name-date",
+      "cat": "3d",
+      "image": "/שמות.jpg",
+      "price": 880,
+      "name": { "he": "ספר מפוסל - שם או מילה + תאריך", "en": "Sculpted book - name or word + date" },
+      "desc": {
+        "he": "שם או מילה לבחירה יחד עם תאריך משמעותי, באותו ספר. מתנה מושלמת לחתונה, ליום נישואין או ללידה.",
+        "en": "A name or word together with a meaningful date, in one book. A perfect gift for a wedding, an anniversary or a birth."
+      },
+      "options": [
+        { "id": "letters", "name": { "he": "מספר אותיות", "en": "Number of letters" }, "values": [
+          { "id": "1-3", "name": { "he": "1-3 אותיות", "en": "1-3 letters" }, "delta": 0 },
+          { "id": "4-5", "name": { "he": "4-5 אותיות", "en": "4-5 letters" }, "delta": 50 }
+        ] },
+        { "id": "lang", "name": { "he": "שפה", "en": "Language" }, "values": [
+          { "id": "he", "name": { "he": "עברית", "en": "Hebrew" }, "delta": 0 },
+          { "id": "en", "name": { "he": "אנגלית", "en": "English" }, "delta": 0 }
+        ] }
+      ],
+      "addons": ["glass"],
+      "fields": [
+        { "id": "text", "required": true, "max": 5, "name": { "he": "השם או המילה", "en": "Name or word" } },
+        { "id": "date", "required": true, "max": 10, "name": { "he": "התאריך", "en": "The date" } }
+      ]
+    },
+    {
+      "id": "custom-symbol",
+      "cat": "symbols",
+      "image": "/סמל או לוגו.jpg",
+      "price": 780,
+      "name": { "he": "ספר מפוסל - סמל או לוגו בהתאמה אישית", "en": "Sculpted book - custom symbol or logo" },
+      "desc": {
+        "he": "סמל, לוגו של עסק או צורה מיוחדת לבחירתכם. מתנה ייחודית לעובדים, ללקוחות או לאירוע. אחרי ההזמנה אצור איתכם קשר לקבלת הקובץ.",
+        "en": "A symbol, a business logo or a special shape of your choice. A unique gift for employees, clients or an event. After ordering I will contact you for the file."
+      },
+      "options": [
+        { "id": "size", "name": { "he": "גובה הספר", "en": "Book height" }, "values": [
+          { "id": "M", "name": { "he": "M - כ-24 ס\"מ", "en": "M - about 24 cm" }, "delta": 0 },
+          { "id": "L", "name": { "he": "L - כ-30 ס\"מ", "en": "L - about 30 cm" }, "delta": 200 }
+        ] }
+      ],
+      "addons": ["glass"],
+      "fields": [
+        { "id": "notes", "required": false, "max": 300, "name": { "he": "מה תרצו שיופיע בספר?", "en": "What would you like in the book?" } }
+      ]
+    },
+    {
+      "id": "memorial-portrait",
+      "cat": "memorial",
+      "image": "/memorial-book.jpg",
+      "price": 2500,
+      "name": { "he": "ספר הנצחה - דיוקן בהזמנה אישית", "en": "Memorial book - custom portrait" },
+      "desc": {
+        "he": "הפנים של מי שאהבתם, מקופלות דף אחר דף בתוך ספר שנשאר לכל החיים. אחרי ההזמנה תשלחו לי תמונה חדה, ואעדכן אתכם לאורך כל התהליך.",
+        "en": "The face of someone you love, folded page by page into a book that stays for a lifetime. After ordering you will send me a clear photo, and I will update you throughout the process."
+      },
+      "options": [
+        { "id": "people", "name": { "he": "מספר אנשים בדיוקן", "en": "People in the portrait" }, "values": [
+          { "id": "1", "name": { "he": "דיוקן יחיד", "en": "Single portrait" }, "delta": 0 },
+          { "id": "2", "name": { "he": "דיוקן זוגי", "en": "Couple portrait" }, "delta": 300 }
+        ] },
+        { "id": "size", "name": { "he": "גובה הספר", "en": "Book height" }, "values": [
+          { "id": "M", "name": { "he": "M - כ-24 ס\"מ", "en": "M - about 24 cm" }, "delta": 0 },
+          { "id": "L", "name": { "he": "L - כ-30 ס\"מ", "en": "L - about 30 cm" }, "delta": 400 }
+        ] }
+      ],
+      "addons": ["glass"],
+      "fields": [
+        { "id": "notes", "required": false, "max": 300, "name": { "he": "ספרו לי קצת על האדם (לא חובה)", "en": "Tell me a little about them (optional)" } }
+      ]
+    }
+  ]
+}
