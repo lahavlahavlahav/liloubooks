@@ -144,6 +144,17 @@ textarea { min-height: 90px; resize: vertical; }
 .co-pay p:not(.co-pay-head) { padding: 1rem 1.2rem; color: var(--ink-soft); font-size: .92rem; }
 .co-privacy { font-size: .92rem; color: var(--ink-soft); }
 
+/* order placed */
+.done { max-width: 680px; margin: 0 auto; }
+.steps { list-style: none; margin: 1.6rem 0; display: grid; gap: .9rem; }
+.steps li { display: flex; gap: .9rem; align-items: flex-start; background: var(--paper); border: 2px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; }
+.steps li > span { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; background: var(--sand); color: var(--brown-deep); }
+.steps li.ok > span { background: var(--ok); color: #fff; }
+.steps li.now { border-color: var(--brown); background: #FFFDF8; }
+.steps li.now > span { background: var(--brown); color: #fff; }
+.steps small { display: block; color: var(--ink-soft); margin-top: .3rem; }
+.done .co-box { position: static; }
+
 @media (max-width: 820px) {
   .co { grid-template-columns: 1fr; }
   .co-box { position: static; }

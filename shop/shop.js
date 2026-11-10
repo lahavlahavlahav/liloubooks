@@ -14,7 +14,11 @@
       billing: 'פרטי חיוב ומשלוח', moreInfo: 'מידע נוסף', orderDetails: 'פרטי ההזמנה', productCol: 'מוצר',
       streetPh: 'מספר בית ושם רחוב', aptPh: 'דירה, כניסה, קומה וכו׳ (אופציונלי)', zipPh: '7 ספרות', optional: 'לא חובה באיסוף עצמי',
       notesPh: 'הערות על ההזמנה, לדוגמה הערות מיוחדות למסירה.',
-      payMethod: 'כרטיס אשראי / Bit', payDesc: 'בלחיצה על "שליחת הזמנה" תועברו לדף תשלום מאובטח של Grow, לסכום המדויק של ההזמנה.',
+      payMethod: 'כרטיס אשראי / Bit - קישור מאובטח בוואטסאפ', payDesc: 'אחרי שליחת ההזמנה אשלח אליך בוואטסאפ קישור לתשלום מאובטח של Grow, לסכום המדויק של ההזמנה. התשלום לוקח פחות מדקה.',
+      doneTitle: 'ההזמנה התקבלה! 🎉', doneLead: 'כל הפרטים אצלי. נשאר רק שלב קטן אחד - התשלום.',
+      step1: 'ההזמנה נשמרה', step2: 'קישור לתשלום מאובטח יישלח אליך בוואטסאפ', step3: 'אחרי התשלום אתחיל לקפל את הספר שלך',
+      waTo: 'למספר', payAmount: 'לסכום', soon: 'בדרך כלל תוך זמן קצר בשעות הפעילות. לא קיבלת? כתבו לי ל-hi@liloubooks.com.',
+      yourOrder: 'ההזמנה שלך', shipTo: 'משלוח אל', pickupAt: 'איסוף עצמי מתל אביב',
       privacy: 'הנתונים האישיים שלך ישמשו לעיבוד ההזמנה, לתמיכה בחוויית השימוש שלך באתר, ולמטרות נוספות המתוארות ב', privacyLink: 'מדיניות הפרטיות',
       shop: 'החנות', cart: 'עגלה', home: 'לאתר הראשי', other: 'English', otherHref: '/en/shop/',
       title: 'החנות של Lilou Books', lead: 'ספרים מפוסלים בעבודת יד, בהתאמה אישית. בוחרים, מוסיפים לעגלה, ואני מקפלת עבורכם באהבה.',
@@ -26,7 +30,7 @@
       coTitle: 'פרטים להזמנה', you: 'פרטים אישיים', first: 'שם פרטי', last: 'שם משפחה', email: 'כתובת אימייל', phone: 'טלפון',
       delivery: 'קבלת ההזמנה', street: 'כתובת רחוב', city: 'עיר', zip: 'מיקוד', notes: 'הערות להזמנה (אופציונלי)',
       terms: 'קראתי ואני מאשר/ת את', termsLink: 'התקנון ומדיניות הביטולים', pay: 'שליחת הזמנה', summary: 'סיכום הזמנה',
-      secure: '🔒 התשלום מתבצע בדף סליקה מאובטח של Grow', moving: 'מעבירים אותך לתשלום מאובטח…',
+      secure: '🔒 התשלום מתבצע בקישור סליקה מאובטח של Grow', moving: 'שולחים את ההזמנה…',
       errPhone: 'נא להזין טלפון נייד ישראלי (05XXXXXXXX)', errEmail: 'נא להזין אימייל תקין', errTerms: 'יש לאשר את התקנון',
       errGeneric: 'משהו השתבש. נסו שוב בעוד רגע.',
       received: 'ההזמנה נשלחה!', receivedText: 'קיבלתי את פרטי ההזמנה. אחזור אליך בהקדם עם קישור לתשלום.',
@@ -38,7 +42,11 @@
       billing: 'Billing & shipping details', moreInfo: 'Additional information', orderDetails: 'Your order', productCol: 'Product',
       streetPh: 'House number and street name', aptPh: 'Apartment, entrance, floor etc. (optional)', zipPh: '7 digits', optional: 'optional for pickup',
       notesPh: 'Notes about your order, e.g. special delivery instructions.',
-      payMethod: 'Credit card / Bit', payDesc: 'Clicking "Place order" takes you to a secure Grow payment page for the exact order total.',
+      payMethod: 'Credit card / Bit - secure link on WhatsApp', payDesc: 'After you place the order I will send you a secure Grow payment link on WhatsApp, for the exact order total. Paying takes less than a minute.',
+      doneTitle: 'Your order is placed! 🎉', doneLead: 'I have all your details. Only one small step is left - payment.',
+      step1: 'Order saved', step2: 'A secure payment link will be sent to you on WhatsApp', step3: 'Once paid, I will start folding your book',
+      waTo: 'to', payAmount: 'for', soon: 'Usually shortly, during working hours. Did not get it? Write to hi@liloubooks.com.',
+      yourOrder: 'Your order', shipTo: 'Shipping to', pickupAt: 'Pickup in Tel Aviv',
       privacy: 'Your personal data will be used to process your order, support your experience on this website, and for other purposes described in our', privacyLink: 'privacy policy',
       shop: 'Shop', cart: 'Cart', home: 'Main site', other: 'עברית', otherHref: '/shop/',
       title: 'The Lilou Books Shop', lead: 'Hand-folded, personalised book sculptures. Choose, add to your cart, and I will fold it for you with love.',
@@ -50,7 +58,7 @@
       coTitle: 'Checkout', you: 'Your details', first: 'First name', last: 'Last name', email: 'Email', phone: 'Mobile phone',
       delivery: 'Delivery', street: 'Street address', city: 'Town / City', zip: 'Postcode', notes: 'Order notes (optional)',
       terms: 'I have read and accept the', termsLink: 'terms and cancellation policy', pay: 'Place order', summary: 'Order summary',
-      secure: '🔒 Payment is processed on a secure Grow payment page', moving: 'Taking you to secure payment…',
+      secure: '🔒 Payment is processed on a secure Grow payment link', moving: 'Placing your order…',
       errPhone: 'Please enter an Israeli mobile number (05XXXXXXXX)', errEmail: 'Please enter a valid email', errTerms: 'Please accept the terms',
       errGeneric: 'Something went wrong. Please try again in a moment.',
       received: 'Order sent!', receivedText: 'I received your order details and will get back to you shortly with a payment link.',
@@ -343,10 +351,26 @@
             try { sessionStorage.setItem('lb_pending_order', res.j.orderId || ''); } catch (e2) {}
             location.href = res.j.paymentUrl; return;
           }
-          if (res.ok && res.j && res.j.orderId) { // order saved, payment link unavailable right now
+          if (res.ok && res.j && res.j.orderId) { // order saved; the payment link is sent manually on WhatsApp
+            var m = method(), t = totals(cat, cart, m), total = res.j.total || t.total;
+            var linesHtml = cart.map(function (l) {
+              var p = product(cat, l.productId);
+              return '<tr><td>' + esc(tx(p.name)) + ' <strong>× ' + l.qty + '</strong><small>' + describe(cat, l).map(esc).join(' · ') + '</small></td><td>' + money(unitPrice(cat, l) * l.qty) + '</td></tr>';
+            }).join('');
             writeCart([]);
             overlay.remove();
-            main.innerHTML = '<div class="empty"><h1>' + T.received + '</h1><p>' + T.receivedText + '</p><p>' + T.order + ': <strong>' + esc(res.j.orderId) + '</strong></p></div>';
+            main.innerHTML = '<div class="done"><h1>' + T.doneTitle + '</h1><p class="lead">' + T.doneLead + '</p>' +
+              '<p>' + T.order + ': <strong>' + esc(res.j.orderId) + '</strong></p>' +
+              '<ol class="steps">' +
+              '<li class="ok"><span aria-hidden="true">✓</span><div><strong>' + T.step1 + '</strong></div></li>' +
+              '<li class="now"><span aria-hidden="true">2</span><div><strong>' + T.step2 + '</strong><br>' + T.waTo + ' <bdi dir="ltr">' + esc(body.customer.phone) + '</bdi> · ' + T.payAmount + ' <strong>' + money(total) + '</strong><small>' + T.soon + '</small></div></li>' +
+              '<li><span aria-hidden="true">3</span><div><strong>' + T.step3 + '</strong></div></li></ol>' +
+              '<div class="co-box"><h2 class="co-h">' + T.yourOrder + '</h2><table class="co-table"><tbody>' + linesHtml +
+              '<tr class="co-sub"><th scope="row">' + T.shipping + '</th><td>' + (t.ship ? money(t.ship) : T.free) + '</td></tr>' +
+              '<tr class="co-total"><th scope="row">' + T.total + '</th><td>' + money(total) + '</td></tr></tbody></table>' +
+              '<p class="hint">' + (m === 'delivery' ? T.shipTo + ': ' + esc(body.delivery.street + ', ' + body.delivery.city) : T.pickupAt) + '</p></div>' +
+              '<br><a class="btn ghost" href="' + BASE + '">' + T.keep + '</a></div>';
+            window.scrollTo(0, 0); var h = main.querySelector('h1'); if (h) { h.setAttribute('tabindex', '-1'); h.focus(); }
             return;
           }
           throw new Error((res.j && res.j.error) || 'error');
