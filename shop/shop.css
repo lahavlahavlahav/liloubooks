@@ -20,6 +20,7 @@ body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; background: var(--cre
 img { max-width: 100%; display: block; }
 a { color: var(--brown-deep); }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+[tabindex="-1"]:focus { outline: none; }
 .skip { position: absolute; inset-inline-start: -9999px; top: 0; background: var(--ink); color: #fff; padding: .6rem 1rem; z-index: 100; }
 .skip:focus { inset-inline-start: 1rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
