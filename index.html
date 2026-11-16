@@ -1074,6 +1074,12 @@ white-space: nowrap;
 @keyframes clients-scroll { from { transform: translateX(0); } to { transform: translateX(50%); } }
 @media (max-width: 768px) { .clients-track { gap: 2rem; } .clients-track img { height: 42px; } .clients-marquee { animation-duration: 30s; } }
 @media (prefers-reduced-motion: reduce) { .clients-marquee { animation: none; } .clients-strip { overflow-x: auto; } }
+/* tighter gap between the clients strip and the page title */
+.clients-strip { margin-bottom: 0; }
+.hero { padding-top: 1.5rem; }
+.hero > .container { padding-top: 0.5rem; }
+/* wider main image */
+.hero-main-img { --w: min(1500px, calc(100vw - 2rem)); width: var(--w); margin: 1.5rem calc((100% - var(--w)) / 2) 1rem; }
 .clients-track img.clients-wordmark { height: 30px; margin: 11px 0; }
 @media (max-width: 768px) { .clients-track img.clients-wordmark { height: 24px; margin: 9px 0; } }
 </style>
@@ -1181,7 +1187,7 @@ white-space: nowrap;
 <h1>אמנות פיסול ספרים</h1>
 <p>אמנות ייחודית בעבודת יד, סדנאות ודקורציה. גלו את העולם הקסום של פיסול ספרים - סדנאות פיסול ספרים חווייתיות, יצירת ספר מקופל בהתאמה אישית ומתנות ייחודיות שמשאירות חותם.</p>
 
-<div style="max-width: 95%; margin: 1.5rem auto 1rem;">
+<div class="hero-main-img">
 <img src="front%20page.png" alt="אמנות פיסול ספרים - Lilou Books" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
 </div>
 <p class="text-warm-brown font-bold text-center mb-2" style="font-size: 1.25rem;">
